@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 <span>A smarter way to ship enterprise AI</span>
               </div>
 
-              {/* Playful Sticker */}
+              {/* 14-Day Delivery Sticker */}
               <div
                 className="sticker-tag"
                 style={{
@@ -83,6 +83,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               >
                 <span>⚡</span>
                 <span>14-Day Delivery</span>
+              </div>
+
+              {/* Live in Production Sticker */}
+              <div
+                className="sticker-tag"
+                style={{
+                  background: '#FFFFFF'
+                }}
+              >
+                <span>⚡</span>
+                <span>Live in Production</span>
               </div>
             </div>
 
@@ -190,24 +201,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           </div>
 
           {/* Right Column: Live Interactive Agent Execution Canvas */}
-          <div style={{ position: 'relative' }}>
-            {/* Floating Badge on Card Header */}
-            <div
-              className="sticker-tag"
-              style={{
-                position: 'absolute',
-                top: '-14px',
-                right: '24px',
-                zIndex: 10,
-                background: '#FFFFFF',
-                padding: '5px 12px',
-                fontSize: '11px',
-                boxShadow: '0 2px 8px rgba(30, 37, 48, 0.08)'
-              }}
-            >
-              <span>⚡ LIVE IN PRODUCTION</span>
-            </div>
-
+          <div>
             <HeroAgentTerminal />
           </div>
         </div>

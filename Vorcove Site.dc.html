@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #F7F5EF; color: #1E2530; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  html { scroll-behavior: smooth; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #1E2530; }
+  ::selection { background: #1E2530; color: #F7F5EF; }
+  @keyframes vc-marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @keyframes vc-float { 0%,100% { transform: translateY(-12px); } 50% { transform: translateY(12px); } }
+  @keyframes vc-pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+</style>
+</helmet>
+
+<div style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; background: #F7F5EF; color: #1E2530; line-height: 1.6; position: relative;">
+
+  <div data-progress="" style="position: fixed; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #4A5464, #1E2530); transform: scaleX(0); transform-origin: 0 50%; z-index: 90; will-change: transform;"></div>
+
+  <header data-nav="" style="position: fixed; top: 0; left: 0; right: 0; z-index: 80; transition: background .45s ease, box-shadow .45s ease, border-color .45s ease, backdrop-filter .45s ease; border-bottom: 1px solid transparent;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <a href="#top" style="display: inline-flex; align-items: center; gap: 11px;">
+        <img src="assets/v-mark.png" alt="Vorcove" style="display: block; width: 26px; height: 26px; object-fit: contain;" />
+        <span style="font-size: 17px; font-weight: 600; letter-spacing: -.01em;">Vorcove</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 4px;">
+        <a href="#services" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: #4A5464; transition: color .2s, background .2s;" style-hover="background: #EFEDE5; color: #1E2530;">Services</a>
+        <a href="#approach" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: #4A5464; transition: color .2s, background .2s;" style-hover="background: #EFEDE5; color: #1E2530;">Approach</a>
+        <a href="#work" style="padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: #4A5464; transition: color .2s, background .2s;" style-hover="background: #EFEDE5; color: #1E2530;">Work</a>
+        <a href="#contact" style="margin-left: 10px; display: inline-flex; align-items: center; gap: 9px; padding: 10px 18px; border-radius: 999px; background: #1E2530; color: #F7F5EF; font-size: 14px; font-weight: 500; transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s cubic-bezier(.22,1,.36,1);" style-hover="transform: translateY(-2px); box-shadow: 0 18px 30px -18px rgba(30,37,48,.7); color: #F7F5EF;">
+          Start a project
+          <span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #F7F5EF; animation: vc-pulse 2.4s ease-in-out infinite;"></span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" style="position: relative; overflow: hidden; padding: 190px 0 88px; background: radial-gradient(1200px 560px at 78% -10%, #EFEDE5, rgba(239,237,229,0) 62%), #F7F5EF;">
+    <div data-parallax="-0.10" style="position: absolute; right: -7vw; top: 4vh; width: min(58vw, 700px); pointer-events: none; z-index: 0;">
+      <img src="assets/v-mark.png" alt="" style="display: block; width: 100%; opacity: .085; animation: vc-float 9s ease-in-out infinite;" />
+    </div>
+
+    <div style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(20px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px 7px 12px; border-radius: 999px; border: 1px solid #E2DFD5; background: rgba(255,255,255,.7); backdrop-filter: blur(8px); font-size: 12.5px; font-weight: 500; color: #4A5464; letter-spacing: .01em;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(135deg, #4A5464, #2B3440); animation: vc-pulse 2.4s ease-in-out infinite;"></span>
+        <span style="white-space: nowrap;">Now booking Q4 engagements</span>
+      </div>
+
+      <h1 data-reveal="" data-delay="90" style="opacity: 0; transform: translateY(26px); transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); margin: 30px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.022em; line-height: .96; font-size: clamp(3.1rem, 8.4vw, 6.4rem); max-width: 15ch; color: #1E2530;">
+        We ship the AI product your roadmap keeps <span style="font-style: italic; position: relative; white-space: nowrap;">postponing<span style="position: absolute; left: 0; right: 0; bottom: .1em; height: .085em; background: linear-gradient(90deg, #4A5464, #2B3440); opacity: .35; border-radius: 999px;"></span></span>.
+      </h1>
+
+      <div style="margin-top: 42px; display: grid; gap: 40px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: end;">
+        <p data-reveal="" data-delay="180" style="opacity: 0; transform: translateY(20px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); margin: 0; max-width: 46ch; font-size: 18.5px; color: #4A5464;">
+          Vorcove builds AI, data and full-stack products for companies in the US and EU — tied to revenue, margin and retention from the first line of scope. First working demo in two weeks.
+        </p>
+        <div data-reveal="" data-delay="260" style="opacity: 0; transform: translateY(20px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="#contact" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border-radius: 999px; background: #1E2530; color: #F7F5EF; font-size: 15px; font-weight: 500; transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s cubic-bezier(.22,1,.36,1);" style-hover="transform: translateY(-3px); box-shadow: 0 24px 40px -22px rgba(30,37,48,.8); color: #F7F5EF;">Start a project <span style="font-size: 17px; line-height: 1;">→</span></a>
+          <a href="#work" style="display: inline-flex; align-items: center; padding: 15px 26px; border-radius: 999px; border: 1px solid rgba(43,52,64,.22); color: #1E2530; font-size: 15px; font-weight: 500; transition: transform .3s cubic-bezier(.22,1,.36,1), background .3s ease;" style-hover="transform: translateY(-3px); background: #FFFFFF;">See the work</a>
+        </div>
+      </div>
+    </div>
+
+    <div data-reveal="" data-delay="340" style="opacity: 0; transform: translateY(20px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); position: relative; z-index: 1; max-width: 1180px; margin: 74px auto 0; padding: 0 32px;">
+      <div style="border-top: 1px solid #E2DFD5; padding-top: 22px; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); font-size: 13.5px; color: #8A8F99;">
+        <span style="display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 4px; border-radius: 50%; background: #C9C5B8;"></span>AI &amp; automation</span>
+        <span style="display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 4px; border-radius: 50%; background: #C9C5B8;"></span>Full-stack product</span>
+        <span style="display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 4px; border-radius: 50%; background: #C9C5B8;"></span>Data &amp; ML</span>
+        <span style="display: flex; align-items: center; gap: 10px;"><span style="width: 4px; height: 4px; border-radius: 50%; background: #C9C5B8;"></span>Shipped, not pitched</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="overflow: hidden; border-top: 1px solid #E2DFD5; border-bottom: 1px solid #E2DFD5; background: #EFEDE5; padding: 18px 0;">
+    <div style="display: flex; width: max-content; animation: vc-marquee 42s linear infinite;">
+      <div style="display: flex; align-items: center; gap: 44px; padding-right: 44px; font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #8A8F99; white-space: nowrap;">
+        <span>Agents &amp; copilots</span><span style="color: #C9C5B8;">✳</span>
+        <span>Retrieval pipelines</span><span style="color: #C9C5B8;">✳</span>
+        <span>Internal tooling</span><span style="color: #C9C5B8;">✳</span>
+        <span>Pricing &amp; forecasting</span><span style="color: #C9C5B8;">✳</span>
+        <span>Evals &amp; guardrails</span><span style="color: #C9C5B8;">✳</span>
+        <span>Cloud infrastructure</span><span style="color: #C9C5B8;">✳</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 44px; padding-right: 44px; font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #8A8F99; white-space: nowrap;" aria-hidden="true">
+        <span>Agents &amp; copilots</span><span style="color: #C9C5B8;">✳</span>
+        <span>Retrieval pipelines</span><span style="color: #C9C5B8;">✳</span>
+        <span>Internal tooling</span><span style="color: #C9C5B8;">✳</span>
+        <span>Pricing &amp; forecasting</span><span style="color: #C9C5B8;">✳</span>
+        <span>Evals &amp; guardrails</span><span style="color: #C9C5B8;">✳</span>
+        <span>Cloud infrastructure</span><span style="color: #C9C5B8;">✳</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="services" style="padding: 120px 0; background: #F7F5EF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: end;">
+        <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #8A8F99;">What we do</span>
+          <h2 style="margin: 14px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: 1.02; font-size: clamp(2.2rem, 4.6vw, 3.4rem); max-width: 16ch;">Three things, done properly.</h2>
+        </div>
+        <p data-reveal="" data-delay="100" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); margin: 0 0 8px; max-width: 40ch; font-size: 16.5px; color: #4A5464;">
+          No discovery theatre, no staffing pyramid. We scope narrowly, build the thing, and stay on until it holds up in production and shows up in the numbers.
+        </p>
+      </div>
+
+      <div style="margin-top: 56px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <article data-reveal="" style="opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1), border-color .45s ease; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 22px; padding: 30px 28px 34px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(30,37,48,.04);" style-hover="box-shadow: 0 30px 60px -34px rgba(30,37,48,.42); border-color: #CFCBBE;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; color: #C9C5B8;">01</span>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">AI</span>
+          </div>
+          <h3 style="margin: 22px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 27px; letter-spacing: -.01em;">AI &amp; automation</h3>
+          <p style="margin: 0; font-size: 15.5px; color: #4A5464;">Agents, copilots and workflow automation wired into the tools your team already uses — with evals, so you know when it works and when it drifts.</p>
+          <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Agents</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">RAG</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Evals</span>
+          </div>
+        </article>
+
+        <article data-reveal="" data-delay="110" style="opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1), border-color .45s ease; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 22px; padding: 30px 28px 34px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(30,37,48,.04);" style-hover="box-shadow: 0 30px 60px -34px rgba(30,37,48,.42); border-color: #CFCBBE;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; color: #C9C5B8;">02</span>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Product</span>
+          </div>
+          <h3 style="margin: 22px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 27px; letter-spacing: -.01em;">Product engineering</h3>
+          <p style="margin: 0; font-size: 15.5px; color: #4A5464;">Interface, backend and infrastructure built end to end. Senior teams only, no handoffs between vendors, something new in your hands every week.</p>
+          <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Web apps</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">APIs</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Cloud</span>
+          </div>
+        </article>
+
+        <article data-reveal="" data-delay="220" style="opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1), border-color .45s ease; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 22px; padding: 30px 28px 34px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 1px 2px rgba(30,37,48,.04);" style-hover="box-shadow: 0 30px 60px -34px rgba(30,37,48,.42); border-color: #CFCBBE;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between;">
+            <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; color: #C9C5B8;">03</span>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Data</span>
+          </div>
+          <h3 style="margin: 22px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 27px; letter-spacing: -.01em;">Data &amp; ML</h3>
+          <p style="margin: 0; font-size: 15.5px; color: #4A5464;">Pipelines, models and dashboards that turn the data you already own into pricing, retention and forecasting decisions people actually act on.</p>
+          <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Pipelines</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Forecasting</span>
+            <span style="padding: 5px 12px; border-radius: 999px; background: #EFEDE5; font-size: 12px; color: #4A5464;">Dashboards</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="revenue" style="padding: 0 0 120px; background: #F7F5EF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: end;">
+        <div>
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #8A8F99;">Why it pays</span>
+          <h2 style="margin: 14px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: 1.02; font-size: clamp(2.2rem, 4.6vw, 3.4rem); max-width: 17ch;">Every build carries a number.</h2>
+        </div>
+        <p data-reveal="" data-delay="100" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); margin: 0 0 8px; max-width: 42ch; font-size: 16.5px; color: #4A5464;">
+          Before a line of code, we agree on the metric the work has to move — new revenue, recovered margin, or hours returned to the team. It stays on the dashboard for the whole engagement.
+        </p>
+      </div>
+
+      <div style="margin-top: 52px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1), border-color .4s ease; border: 1px solid #E2DFD5; border-radius: 22px; background: #FFFFFF; padding: 32px 28px 34px;" style-hover="border-color: #CFCBBE;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Top line</span>
+          <div style="margin-top: 20px; font-family: 'Instrument Serif', Georgia, serif; font-size: 2.6rem; line-height: 1; color: #1E2530;">Win more of the pipeline you already have</div>
+          <p style="margin: 16px 0 0; font-size: 15.5px; color: #4A5464;">Faster quoting, smarter pricing, onboarding that doesn't stall — the deals already in motion close instead of leaking.</p>
+        </div>
+        <div data-reveal="" data-delay="110" style="opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), border-color .4s ease; border: 1px solid #E2DFD5; border-radius: 22px; background: #FFFFFF; padding: 32px 28px 34px;" style-hover="border-color: #CFCBBE;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Margin</span>
+          <div style="margin-top: 20px; font-family: 'Instrument Serif', Georgia, serif; font-size: 2.6rem; line-height: 1; color: #1E2530;">Serve the same customers at lower cost</div>
+          <p style="margin: 16px 0 0; font-size: 15.5px; color: #4A5464;">Automation takes the repetitive load off support, ops and finance, so headcount goes to growth instead of upkeep.</p>
+        </div>
+        <div data-reveal="" data-delay="220" style="opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), border-color .4s ease; border: 1px solid #E2DFD5; border-radius: 22px; background: #FFFFFF; padding: 32px 28px 34px;" style-hover="border-color: #CFCBBE;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Retention</span>
+          <div style="margin-top: 20px; font-family: 'Instrument Serif', Georgia, serif; font-size: 2.6rem; line-height: 1; color: #1E2530;">Keep the revenue you fought for</div>
+          <p style="margin: 16px 0 0; font-size: 15.5px; color: #4A5464;">Forecasting and product signals surface at-risk accounts early enough that someone can still do something about it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach" style="padding: 0 0 120px; background: #F7F5EF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); position: relative; overflow: hidden; background: #20262F; color: #FFFFFF; border-radius: 30px; padding: 72px 60px 66px;">
+        <div data-parallax="-0.05" style="position: absolute; right: -70px; top: -60px; width: 460px; opacity: .07; filter: brightness(0) invert(1); pointer-events: none;">
+          <img src="assets/v-mark.png" alt="" style="display: block; width: 100%;" />
+        </div>
+
+        <div style="position: relative; display: grid; gap: 48px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <div>
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #AEB4BF;">How we work</span>
+            <h2 style="margin: 16px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: 1.04; font-size: clamp(2.1rem, 3.8vw, 3rem); color: #FFFFFF; max-width: 15ch;">A short loop, run in the open.</h2>
+            <p style="margin: 20px 0 0; max-width: 44ch; font-size: 16.5px; color: #C3C8D1;">Every project runs the same way: narrow scope, a demo you can click within two weeks, then weekly releases against real usage until it's yours to run.</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 2px;">
+            <div data-reveal="" style="opacity: 0; transform: translateX(22px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.12);">
+              <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #6E7683;">01</span>
+              <div><div style="font-size: 16px; font-weight: 600; color: #FFFFFF;">Scope in a week</div><div style="margin-top: 5px; font-size: 14.5px; color: #9198A4;">One call, one written plan, a fixed price for phase one.</div></div>
+            </div>
+            <div data-reveal="" data-delay="90" style="opacity: 0; transform: translateX(22px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.12);">
+              <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #6E7683;">02</span>
+              <div><div style="font-size: 16px; font-weight: 600; color: #FFFFFF;">Demo in two</div><div style="margin-top: 5px; font-size: 14.5px; color: #9198A4;">A working slice on your data, not a deck of screens.</div></div>
+            </div>
+            <div data-reveal="" data-delay="180" style="opacity: 0; transform: translateX(22px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.12);">
+              <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #6E7683;">03</span>
+              <div><div style="font-size: 16px; font-weight: 600; color: #FFFFFF;">Ship weekly</div><div style="margin-top: 5px; font-size: 14.5px; color: #9198A4;">Releases into production, measured against the metric we agreed.</div></div>
+            </div>
+            <div data-reveal="" data-delay="270" style="opacity: 0; transform: translateX(22px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12);">
+              <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; color: #6E7683;">04</span>
+              <div><div style="font-size: 16px; font-weight: 600; color: #FFFFFF;">Hand over clean</div><div style="margin-top: 5px; font-size: 14.5px; color: #9198A4;">Documented code, your repos, your cloud. Retainer only if you want one.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position: relative; margin-top: 56px; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div data-reveal="" style="opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); border-top: 1px solid rgba(255,255,255,.14); padding-top: 20px;">
+            <div data-count="2" data-suffix="wk" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 3.1rem; line-height: 1; color: #FFFFFF;">2wk</div>
+            <div style="margin-top: 10px; font-size: 14px; color: #9198A4;">to your first working demo</div>
+          </div>
+          <div data-reveal="" data-delay="110" style="opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); border-top: 1px solid rgba(255,255,255,.14); padding-top: 20px;">
+            <div data-count="100" data-suffix="%" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 3.1rem; line-height: 1; color: #FFFFFF;">100%</div>
+            <div style="margin-top: 10px; font-size: 14px; color: #9198A4;">of projects tied to a revenue metric</div>
+          </div>
+          <div data-reveal="" data-delay="220" style="opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); border-top: 1px solid rgba(255,255,255,.14); padding-top: 20px;">
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 3.1rem; line-height: 1; color: #FFFFFF;">0</div>
+            <div style="margin-top: 10px; font-size: 14px; color: #9198A4;">middlemen, account layers, handoffs</div>
+          </div>
+          <div data-reveal="" data-delay="330" style="opacity: 0; transform: translateY(18px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); border-top: 1px solid rgba(255,255,255,.14); padding-top: 20px;">
+            <div data-count="9" data-suffix="%" style="font-family: 'Instrument Serif', Georgia, serif; font-size: 3.1rem; line-height: 1; color: #FFFFFF;">9%</div>
+            <div style="margin-top: 10px; font-size: 14px; color: #9198A4;">median margin lift across engagements</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="padding: 0 0 120px; background: #F7F5EF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); display: flex; flex-wrap: wrap; gap: 20px; align-items: end; justify-content: space-between;">
+        <div>
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #8A8F99;">Selected work</span>
+          <h2 style="margin: 14px 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: 1.02; font-size: clamp(2.2rem, 4.6vw, 3.4rem);">Four builds, four numbers.</h2>
+        </div>
+        <span style="font-size: 13.5px; color: #8A8F99;">2024 — 2026</span>
+      </div>
+
+      <div style="margin-top: 48px; border-top: 1px solid #E2DFD5;">
+        <a href="#contact" data-reveal="" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), background .4s ease, padding .4s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: minmax(160px, .8fr) minmax(240px, 1.6fr) minmax(180px, 1fr) 40px; gap: 24px; align-items: center; padding: 30px 16px; border-bottom: 1px solid #E2DFD5; border-radius: 16px;" style-hover="background: #FFFFFF; padding-left: 26px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">AI operations</span>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.01em; color: #1E2530;">Support triage copilot</span>
+          <span style="font-size: 15px; color: #4A5464;">First response down from 9 hours to 11 minutes across 4 markets.</span>
+          <span style="justify-self: end; font-size: 20px; color: #8A8F99;">→</span>
+        </a>
+        <a href="#contact" data-reveal="" data-delay="80" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), background .4s ease, padding .4s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: minmax(160px, .8fr) minmax(240px, 1.6fr) minmax(180px, 1fr) 40px; gap: 24px; align-items: center; padding: 30px 16px; border-bottom: 1px solid #E2DFD5; border-radius: 16px;" style-hover="background: #FFFFFF; padding-left: 26px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Revenue tooling</span>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.01em; color: #1E2530;">Dynamic pricing engine</span>
+          <span style="font-size: 15px; color: #4A5464;">Gross margin up 7.4% in a quarter, on the same traffic.</span>
+          <span style="justify-self: end; font-size: 20px; color: #8A8F99;">→</span>
+        </a>
+        <a href="#contact" data-reveal="" data-delay="160" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), background .4s ease, padding .4s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: minmax(160px, .8fr) minmax(240px, 1.6fr) minmax(180px, 1fr) 40px; gap: 24px; align-items: center; padding: 30px 16px; border-bottom: 1px solid #E2DFD5; border-radius: 16px;" style-hover="background: #FFFFFF; padding-left: 26px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Product</span>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.01em; color: #1E2530;">B2B onboarding platform</span>
+          <span style="font-size: 15px; color: #4A5464;">Activation doubled; 30 hours of manual setup gone each week.</span>
+          <span style="justify-self: end; font-size: 20px; color: #8A8F99;">→</span>
+        </a>
+        <a href="#contact" data-reveal="" data-delay="240" style="opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1), background .4s ease, padding .4s cubic-bezier(.22,1,.36,1); display: grid; grid-template-columns: minmax(160px, .8fr) minmax(240px, 1.6fr) minmax(180px, 1fr) 40px; gap: 24px; align-items: center; padding: 30px 16px; border-bottom: 1px solid #E2DFD5; border-radius: 16px;" style-hover="background: #FFFFFF; padding-left: 26px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #8A8F99;">Data &amp; ML</span>
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.6vw, 2.05rem); letter-spacing: -.01em; color: #1E2530;">Churn forecasting suite</span>
+          <span style="font-size: 15px; color: #4A5464;">82% of at-risk accounts flagged a full billing cycle early.</span>
+          <span style="justify-self: end; font-size: 20px; color: #8A8F99;">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding: 34px 0 120px; background: #F7F5EF;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal="" style="opacity: 0; transform: translateY(26px); transition: opacity 1s cubic-bezier(.22,1,.36,1), transform 1s cubic-bezier(.22,1,.36,1); border: 1px solid #E2DFD5; background: linear-gradient(180deg, #FFFFFF, #F7F5EF); border-radius: 30px; padding: 62px 48px 58px; display: grid; gap: 52px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start;">
+        <div>
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #8A8F99;">Start a project</span>
+          <h2 style="margin: 18px 0 0; max-width: 16ch; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -.02em; line-height: 1.02; font-size: clamp(2.2rem, 4.6vw, 3.4rem);">Tell us what's stuck. We'll tell you what we'd build.</h2>
+          <p style="margin: 22px 0 0; max-width: 42ch; font-size: 16.5px; color: #4A5464;">One call, no pitch deck. If it isn't a fit we'll say so and point you somewhere better.</p>
+          <div style="margin-top: 34px; display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; color: #8A8F99;">
+            <span>Replies within one business day</span>
+            <span>Working US and EU hours</span>
+            <a href="mailto:hello@vorcove.com" style="color: #1E2530; font-weight: 500; transition: opacity .2s;" style-hover="opacity: .65;">Or email hello@vorcove.com →</a>
+          </div>
+        </div>
+
+        <form data-form="" onSubmit="{{ onSubmit }}" style="display: flex; flex-direction: column; gap: 18px;">
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A8F99;">Your name</span>
+            <input name="name" type="text" required="required" placeholder="Alex Rivera" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15.5px; color: #1E2530; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 14px; padding: 14px 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #4A5464; box-shadow: 0 0 0 4px rgba(74,84,100,.1);" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A8F99;">Business name</span>
+            <input name="company" type="text" required="required" placeholder="Northwind Logistics" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15.5px; color: #1E2530; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 14px; padding: 14px 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #4A5464; box-shadow: 0 0 0 4px rgba(74,84,100,.1);" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A8F99;">Work email</span>
+            <input name="email" type="email" required="required" placeholder="alex@northwind.com" style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15.5px; color: #1E2530; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 14px; padding: 14px 16px; outline: none; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #4A5464; box-shadow: 0 0 0 4px rgba(74,84,100,.1);" />
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A8F99;">How can we help?</span>
+            <textarea name="brief" rows="4" required="required" placeholder="What you're trying to build or fix, and the number it should move." style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15.5px; line-height: 1.55; color: #1E2530; background: #FFFFFF; border: 1px solid #E2DFD5; border-radius: 14px; padding: 14px 16px; outline: none; resize: vertical; transition: border-color .25s ease, box-shadow .25s ease;" style-focus="border-color: #4A5464; box-shadow: 0 0 0 4px rgba(74,84,100,.1);"></textarea>
+          </label>
+          <button type="submit" style="margin-top: 6px; align-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; border: none; border-radius: 999px; background: #1E2530; color: #F7F5EF; font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 15.5px; font-weight: 500; cursor: pointer; transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s cubic-bezier(.22,1,.36,1);" style-hover="transform: translateY(-3px); box-shadow: 0 26px 44px -24px rgba(30,37,48,.8);">Send it over <span style="font-size: 17px; line-height: 1;">→</span></button>
+        </form>
+
+        <div data-form-done="" style="display: none; flex-direction: column; gap: 14px; align-self: center; border: 1px solid #E2DFD5; border-radius: 22px; background: #FFFFFF; padding: 40px 32px;">
+          <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 2rem; line-height: 1.1; color: #1E2530;">Got it — thanks.</span>
+          <span style="font-size: 15.5px; color: #4A5464;">We'll read it properly and come back within one business day, usually with a first take on what we'd build.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #20262F; color: #FFFFFF; padding: 72px 0 40px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; gap: 44px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 11px;">
+            <img src="assets/v-mark.png" alt="" style="display: block; width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); opacity: .9;" />
+            <span style="font-size: 17px; font-weight: 600; color: #EFEDE5; letter-spacing: -.01em;">Vorcove</span>
+          </div>
+          <p style="margin: 18px 0 0; max-width: 30ch; font-size: 14px; color: #9198A4;">A software studio building AI and data products that reach production and move revenue.</p>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 600; color: #EFEDE5; letter-spacing: .04em;">Services</div>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #9198A4;">
+            <a href="#services" style="transition: color .2s;" style-hover="color: #EFEDE5;">AI &amp; automation</a>
+            <a href="#services" style="transition: color .2s;" style-hover="color: #EFEDE5;">Product engineering</a>
+            <a href="#services" style="transition: color .2s;" style-hover="color: #EFEDE5;">Data &amp; ML</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 600; color: #EFEDE5; letter-spacing: .04em;">Studio</div>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #9198A4;">
+            <a href="#approach" style="transition: color .2s;" style-hover="color: #EFEDE5;">Approach</a>
+            <a href="#work" style="transition: color .2s;" style-hover="color: #EFEDE5;">Work</a>
+            <a href="#contact" style="transition: color .2s;" style-hover="color: #EFEDE5;">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 600; color: #EFEDE5; letter-spacing: .04em;">Get in touch</div>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #9198A4;">
+            <a href="mailto:hello@vorcove.com" style="transition: color .2s;" style-hover="color: #EFEDE5;">hello@vorcove.com</a>
+            <span>US &amp; EU hours</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 52px; border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 13px; color: #767D8A;">
+        <span>© 2026 Vorcove. All rights reserved.</span>
+        <span>Software measured in revenue, not story points.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.io = new IntersectionObserver((entries) => {
+      this.ioAlive = true;
+      entries.forEach((e) => {
+        if (e.isIntersecting) { this.show(e.target); this.io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+    // Watchdog: if IntersectionObserver never fires (some embedded frames), drive reveals from scroll.
+    this.ioWatchdog = setTimeout(() => {
+      if (!this.ioAlive) { this.fallback = true; if (this.io) this.io.disconnect(); this.sweep(); }
+    }, 500);
+    // Safety net: only reveal what's in (or above) the viewport, so below-fold motion survives.
+    this.safety = setTimeout(() => {
+      this.sweep();
+      if (!document.querySelector('[data-reveal][data-shown]')) {
+        document.querySelectorAll('[data-reveal]').forEach((el) => this.show(el));
+      }
+    }, 2600);
+
+    this.scan();
+    this.timer = setInterval(() => this.scan(), 350);
+    this.stopTimer = setTimeout(() => clearInterval(this.timer), 12000);
+
+    this.onScroll = () => {
+      const y = window.scrollY || 0;
+      const doc = document.documentElement;
+      const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const bar = document.querySelector('[data-progress]');
+      if (bar) bar.style.transform = 'scaleX(' + Math.min(1, y / max) + ')';
+      const nav = document.querySelector('[data-nav]');
+      if (nav) {
+        const stuck = y > 24;
+        nav.style.background = stuck ? 'rgba(247,245,239,.78)' : 'transparent';
+        nav.style.backdropFilter = stuck ? 'blur(14px)' : 'none';
+        nav.style.webkitBackdropFilter = stuck ? 'blur(14px)' : 'none';
+        nav.style.borderBottomColor = stuck ? '#E2DFD5' : 'transparent';
+        nav.style.boxShadow = stuck ? '0 1px 2px rgba(30,37,48,.04), 0 8px 24px -18px rgba(30,37,48,.3)' : 'none';
+      }
+      if (this.fallback) this.sweep();
+      if (!this.reduced) {
+        (this.parallax || []).forEach((el) => {
+          const speed = parseFloat(el.getAttribute('data-parallax')) || 0;
+          const r = el.getBoundingClientRect();
+          const mid = r.top + r.height / 2 - window.innerHeight / 2;
+          el.style.transform = 'translate3d(0,' + (mid * speed).toFixed(1) + 'px,0)';
+        });
+      }
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onScroll();
+  }
+
+  sweep() {
+    const h = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]:not([data-shown])').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < h * 0.92) this.show(el);
+    });
+  }
+
+  scan() {
+    this.parallax = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+    document.querySelectorAll('[data-reveal]:not([data-obs])').forEach((el) => {
+      el.setAttribute('data-obs', '');
+      if (this.reduced) { this.show(el); return; }
+      if (this.fallback) return;
+      this.io.observe(el);
+    });
+    if (this.fallback) this.sweep();
+    if (this.onScroll) this.onScroll();
+  }
+
+  show(el) {
+    if (el.getAttribute('data-shown')) return;
+    el.setAttribute('data-shown', '1');
+    const delay = parseInt(el.getAttribute('data-delay') || '0', 10);
+    el.style.transitionDelay = delay + 'ms';
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.querySelectorAll('[data-count]').forEach((n) => this.count(n, delay));
+  }
+
+  count(node, delay) {
+    if (node.getAttribute('data-counted')) return;
+    node.setAttribute('data-counted', '1');
+    const target = parseFloat(node.getAttribute('data-count')) || 0;
+    const suffix = node.getAttribute('data-suffix') || '';
+    if (this.reduced) return;
+    const dur = 1100;
+    const start = performance.now() + delay;
+    const tick = (t) => {
+      const p = Math.min(1, Math.max(0, (t - start) / dur));
+      const eased = 1 - Math.pow(1 - p, 3);
+      node.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    node.textContent = '0' + suffix;
+    requestAnimationFrame(tick);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+    clearInterval(this.timer);
+    clearTimeout(this.stopTimer);
+    clearTimeout(this.ioWatchdog);
+    clearTimeout(this.safety);
+    if (this.io) this.io.disconnect();
+  }
+
+  renderVals() {
+    return {
+      onSubmit: (e) => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const done = document.querySelector('[data-form-done]');
+        form.style.display = 'none';
+        if (done) {
+          done.style.display = 'flex';
+          done.style.opacity = '0';
+          done.style.transform = 'translateY(12px)';
+          done.style.transition = 'opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1)';
+          requestAnimationFrame(() => { done.style.opacity = '1'; done.style.transform = 'none'; });
+        }
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

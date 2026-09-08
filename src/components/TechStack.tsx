@@ -109,7 +109,7 @@ export const TechStack: React.FC = () => {
           {filtered.map((tech, idx) => (
             <div
               key={tech.name}
-              className={`glass-card reveal-item ${isRevealed ? 'revealed' : ''}`}
+              className={`glass-card glass-card-hover reveal-item ${isRevealed ? 'revealed' : ''}`}
               style={{
                 padding: '24px',
                 background: '#FFFFFF',

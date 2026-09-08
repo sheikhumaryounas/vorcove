@@ -102,14 +102,15 @@ export const FaqAccordion: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="glass-card"
+                className={`glass-card reveal-item ${isRevealed ? 'revealed' : ''}`}
                 style={{
                   borderRadius: '16px',
                   border: '1px solid var(--border-light)',
                   background: '#FFFFFF',
                   overflow: 'hidden',
                   transition: 'all 0.25s ease',
-                  boxShadow: isOpen ? 'var(--shadow-sm)' : 'none'
+                  boxShadow: isOpen ? 'var(--shadow-sm)' : 'none',
+                  transitionDelay: `${idx * 60}ms`
                 }}
               >
                 <button

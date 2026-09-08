@@ -26,21 +26,21 @@
   --accent-slate: #4A5464;
   --accent-highlight: #1E2530;
 
-  /* Borders & Neo-Brutalist Lines */
+  /* Borders & Clean Structural Lines */
   --border-light: #E2DFD5;
   --border-subtle: #EBE8DE;
   --border-bold: #1E2530;
   --border-dark: rgba(255, 255, 255, 0.14);
 
-  /* Tactile Neo-Brutalist & Soft Shadows */
-  --shadow-neo-sm: 2px 2px 0px #1E2530;
-  --shadow-neo: 4px 4px 0px #1E2530;
-  --shadow-neo-lg: 6px 6px 0px #1E2530;
-  --shadow-neo-hover: 6px 6px 0px #1E2530;
+  /* Shadows - Smooth & Consistent Elevation */
+  --shadow-neo-sm: 0 1px 3px rgba(30, 37, 48, 0.05);
+  --shadow-neo: 0 4px 14px -3px rgba(30, 37, 48, 0.08);
+  --shadow-neo-lg: 0 14px 32px -6px rgba(30, 37, 48, 0.12);
+  --shadow-neo-hover: 0 18px 40px -8px rgba(30, 37, 48, 0.16);
   --shadow-sm: 0 1px 3px rgba(30, 37, 48, 0.05);
   --shadow-md: 0 4px 16px -4px rgba(30, 37, 48, 0.08);
   --shadow-lg: 0 18px 40px -12px rgba(30, 37, 48, 0.12);
-  --shadow-lift: 0 24px 50px -16px rgba(30, 37, 48, 0.18);
+  --shadow-lift: 0 20px 45px -14px rgba(30, 37, 48, 0.14);
   --shadow-dark: 0 24px 60px -15px rgba(0, 0, 0, 0.5);
 
   /* Radii */
@@ -50,12 +50,12 @@
   --radius-xl: 28px;
   --radius-pill: 9999px;
 
-  /* Fonts - Modern High-End Business & Tech Studio Typography */
+  /* Fonts - Uniform Clean Modern Typography across entire website */
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-accent: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Menlo, monospace;
-  --font-accent: 'Instrument Serif', Georgia, serif;
 
   /* Transitions */
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
@@ -458,25 +458,25 @@ h1, h2, h3, h4, h5, h6 {
 .heading-editorial em,
 .heading-editorial i,
 .serif-accent {
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 
-/* Top Notice Announcement Bar (TapTile Touch) */
+/* Top Notice Announcement Bar */
 .top-announcement-bar {
   background: var(--ink-primary);
   color: var(--bg-page);
   padding: 8px 16px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 12.5px;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border-bottom: 2px solid var(--ink-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
   z-index: 95;
 }
@@ -487,37 +487,37 @@ h1, h2, h3, h4, h5, h6 {
   gap: 6px;
   background: #FFFFFF;
   color: var(--ink-primary);
-  border: 1.5px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   padding: 2px 9px;
   border-radius: var(--radius-pill);
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* Neo-Brutalist Pill Badges (TapTile Touch) */
+/* Unified Pill Badges */
 .badge-neo-pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 16px;
+  padding: 6px 14px;
   border-radius: var(--radius-pill);
-  border: 2px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   background: #FFFFFF;
   color: var(--ink-primary);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  box-shadow: var(--shadow-neo-sm);
+  box-shadow: var(--shadow-sm);
   transition: all var(--duration-fast) ease;
 }
 
 .badge-neo-pill:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px var(--ink-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .badge-pill {
@@ -526,9 +526,9 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   padding: 6px 14px;
   border-radius: var(--radius-pill);
-  border: 1.5px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 2px 2px 0px var(--ink-primary);
+  box-shadow: var(--shadow-sm);
   font-size: 13px;
   font-weight: 600;
   color: var(--ink-primary);
@@ -558,26 +558,26 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: scale(2.5); opacity: 0; }
 }
 
-/* Playful Neo-Brutalist Sticker Tags */
+/* Refined Sticker Tags */
 .sticker-tag {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: 8px;
-  border: 2px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   background: #FFFFFF;
   color: var(--ink-primary);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11.5px;
-  font-weight: 700;
-  box-shadow: 2.5px 2.5px 0px var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(30, 37, 48, 0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .sticker-tag:hover {
-  transform: translate(-1.5px, -1.5px) rotate(-1deg);
-  box-shadow: 4px 4px 0px var(--ink-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Hand-Drawn Doodle Oval Looping Highlight */
@@ -598,32 +598,34 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Neo-Brutalist Cards */
+/* Elevated Cards with Clean Borders */
 .neo-card {
   background: #FFFFFF;
-  border: 2px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-neo);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .neo-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-neo-lg);
+  transform: translateY(-3px);
+  border-color: #D0CCC0;
+  box-shadow: var(--shadow-md);
 }
 
 /* Spotlight Hover Cards */
 .spotlight-card {
   position: relative;
-  border: 2px solid var(--ink-primary);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-neo);
-  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s var(--ease-spring);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s var(--ease-spring), border-color 0.2s ease;
 }
 
 .spotlight-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-neo-lg);
+  transform: translateY(-3px);
+  border-color: #D0CCC0;
+  box-shadow: var(--shadow-md);
 }
 
 .spotlight-card::before {
@@ -633,72 +635,11 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: inherit;
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(30, 37, 48, 0.05),
+    rgba(30, 37, 48, 0.04),
     transparent 40%
   );
   pointer-events: none;
   z-index: 1;
-}
-
-/* Tactile Neo-Brutalist Buttons (TapTile Touch) */
-.btn-primary, .btn-neo-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 13px 26px;
-  border-radius: var(--radius-pill);
-  background: var(--ink-primary);
-  color: var(--bg-page);
-  font-family: var(--font-display);
-  font-size: 14.5px;
-  font-weight: 600;
-  border: 2px solid var(--ink-primary);
-  cursor: pointer;
-  box-shadow: var(--shadow-neo);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-  text-decoration: none;
-}
-
-.btn-primary:hover, .btn-neo-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-neo-lg);
-  color: #FFFFFF;
-}
-
-.btn-primary:active, .btn-neo-primary:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--ink-primary);
-}
-
-.btn-secondary, .btn-neo-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 13px 24px;
-  border-radius: var(--radius-pill);
-  background: #FFFFFF;
-  color: var(--ink-primary);
-  font-family: var(--font-display);
-  font-size: 14.5px;
-  font-weight: 600;
-  border: 2px solid var(--ink-primary);
-  box-shadow: var(--shadow-neo);
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-  text-decoration: none;
-}
-
-.btn-secondary:hover, .btn-neo-secondary:hover {
-  transform: translate(-2px, -2px);
-  background: #FCFBF7;
-  box-shadow: var(--shadow-neo-lg);
-}
-
-.btn-secondary:active, .btn-neo-secondary:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px var(--ink-primary);
 }
 
 /* Floating Brand Mark */
@@ -730,18 +671,20 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-pill);
 }
 
-/* Glassmorphism Card */
+/* Glassmorphism Card System */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  transition: all var(--duration-normal) var(--ease-spring);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
 }
 
 .glass-card-hover:hover {
-  transform: translateY(-5px);
-  border-color: #D0CCC0;
+  transform: translateY(-4px);
+  border-color: #D4D0C5;
   box-shadow: var(--shadow-lift);
 }
 
@@ -754,6 +697,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-xl);
   padding: 56px 40px;
   box-shadow: var(--shadow-dark);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 768px) {
@@ -778,18 +722,68 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: translateX(-50%); }
 }
 
-/* Viewport Reveal Animation */
+/* ─────────────────────────────────────────────────────────────
+   ADVANCED SCROLL REVEAL & STAGGER SYSTEM
+   ───────────────────────────────────────────────────────────── */
 .reveal-item {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s var(--ease-spring), transform 0.85s var(--ease-spring);
-  will-change: opacity, transform;
+  transform: translateY(28px);
+  filter: blur(2px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-item.revealed {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
 }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger utilities for smooth orchestrated reveals */
+.stagger-1 { transition-delay: 70ms !important; }
+.stagger-2 { transition-delay: 140ms !important; }
+.stagger-3 { transition-delay: 210ms !important; }
+.stagger-4 { transition-delay: 280ms !important; }
+.stagger-5 { transition-delay: 350ms !important; }
+.stagger-6 { transition-delay: 420ms !important; }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -921,4 +915,54 @@ input[type=range]::-webkit-slider-thumb:hover {
 .assistant-scroll::-webkit-scrollbar-thumb:hover {
   background: var(--ink-secondary);
 }
+
+/* ─────────────────────────────────────────────────────────────
+   LUXURY INTERACTIVE EFFECTS & AMBIENT SHIMMER
+   ───────────────────────────────────────────────────────────── */
+
+/* Animated Shimmer Hairline Border */
+.shimmer-border {
+  position: relative;
+}
+
+.shimmer-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(16, 185, 129, 0.3) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Soft Radial Ambient Lighting for Sections */
+.section-ambient-glow {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(74, 84, 100, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Smooth Magnetic Card Transition */
+.card-magnetic {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-magnetic:hover {
+  transform: translateY(-4px) scale(1.006);
+  box-shadow: 0 20px 40px -15px rgba(30, 37, 48, 0.12);
+}
+
 

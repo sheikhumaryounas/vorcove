@@ -89,8 +89,8 @@ export const HeroAgentTerminal: React.FC = () => {
       style={{
         borderRadius: '18px',
         background: 'linear-gradient(180deg, #1E2530 0%, #161B24 100%)',
-        border: '2px solid var(--ink-primary)',
-        boxShadow: 'var(--shadow-neo-lg)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        boxShadow: '0 16px 40px -10px rgba(30, 37, 48, 0.35)',
         overflow: 'hidden',
         color: '#FFFFFF',
         fontFamily: 'var(--font-sans)',
@@ -125,21 +125,21 @@ export const HeroAgentTerminal: React.FC = () => {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {/* TapTile-style Toggle Pill (MANUAL / AI) */}
+          {/* Toggle Pill (MANUAL / AI) */}
           <div
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               background: '#FFFFFF',
               color: 'var(--ink-primary)',
-              border: '1.5px solid var(--ink-primary)',
+              border: '1px solid var(--border-light)',
               borderRadius: '999px',
               padding: '2px 8px',
               fontSize: '10px',
               fontFamily: 'var(--font-mono)',
-              fontWeight: 800,
+              fontWeight: 700,
               gap: '4px',
-              boxShadow: '1.5px 1.5px 0px var(--ink-primary)'
+              boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
             }}
           >
             <span style={{ color: '#8A8F99' }}>MANUAL /</span>

@@ -3,6 +3,8 @@ import { ArrowRight, Check, Copy, Mail, Clock, Globe, Shield } from 'lucide-reac
 import { CONTACT_PRESETS } from '../data/content';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
+import { submitContactInquiry } from '../services/api';
+
 export const ContactSection: React.FC = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(['AI Agent / Copilot']);
   const [selectedBudget, setSelectedBudget] = useState<string>('$25k — $50k (Phase 1 Build)');
@@ -18,6 +20,7 @@ export const ContactSection: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
 
   const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
@@ -35,15 +38,32 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmissionError(null);
 
-    // Simulate realistic API request
-    setTimeout(() => {
+    try {
+      const response = await submitContactInquiry({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        brief: formData.brief,
+        selectedServices,
+        selectedBudget,
+        selectedTimeline
+      });
+
+      if (response.success) {
+        setIsSubmitted(true);
+      } else {
+        setSubmissionError(response.error || 'Failed to submit inquiry. Please try again.');
+      }
+    } catch (err: any) {
+      setSubmissionError(err.message || 'Submission error');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 850);
+    }
   };
 
   return (
@@ -223,6 +243,20 @@ export const ContactSection: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {submissionError && (
+                  <div
+                    style={{
+                      padding: '12px 16px',
+                      borderRadius: '10px',
+                      background: 'rgba(239, 68, 68, 0.1)',
+                      border: '1px solid rgba(239, 68, 68, 0.3)',
+                      color: '#DC2626',
+                      fontSize: '13.5px'
+                    }}
+                  >
+                    {submissionError}
+                  </div>
+                )}
                 {/* Services Tags */}
                 <div>
                   <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
@@ -269,7 +303,7 @@ export const ContactSection: React.FC = () => {
                         style={{
                           padding: '8px 12px',
                           borderRadius: '10px',
-                          border: selectedBudget === b ? '2px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                          border: selectedBudget === b ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                           background: selectedBudget === b ? 'var(--bg-surface)' : '#FFFFFF',
                           color: 'var(--ink-primary)',
                           fontSize: '12px',
@@ -299,7 +333,7 @@ export const ContactSection: React.FC = () => {
                         style={{
                           padding: '6px 12px',
                           borderRadius: '8px',
-                          border: selectedTimeline === tl ? '2px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                          border: selectedTimeline === tl ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                           background: selectedTimeline === tl ? 'var(--bg-surface)' : '#FFFFFF',
                           color: 'var(--ink-primary)',
                           fontSize: '12px',

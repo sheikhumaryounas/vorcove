@@ -17,11 +17,14 @@ import { FaqAccordion } from './components/FaqAccordion';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { StudioAssistantWidget } from './components/StudioAssistantWidget';
+import { AdminPortal } from './components/AdminPortal';
+import { ScrollNavigationControl } from './components/ScrollNavigationControl';
 import { CaseStudy } from './types';
 
 export function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [isAssistantOpen, setIsAssistantOpen] = useState<boolean>(false);
+  const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
 
   const scrollToContact = () => {
     const contactEl = document.getElementById('contact');
@@ -40,7 +43,10 @@ export function App() {
   return (
     <div className="page-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Fixed Sticky Navbar */}
-      <Navbar onOpenConsultation={scrollToContact} />
+      <Navbar
+        onOpenConsultation={scrollToContact}
+        onOpenPortal={() => setIsPortalOpen(true)}
+      />
 
       {/* Main Sections Stack */}
       <main style={{ flex: 1 }}>
@@ -88,7 +94,7 @@ export function App() {
       </main>
 
       {/* Studio Footer */}
-      <Footer />
+      <Footer onOpenPortal={() => setIsPortalOpen(true)} />
 
       {/* Case Study Deep-Dive Modal */}
       <CaseStudyModal
@@ -97,10 +103,19 @@ export function App() {
         onStartProject={scrollToContact}
       />
 
+      {/* Floating Scroll Navigation & Quick Action Indicator */}
+      <ScrollNavigationControl />
+
       {/* Menu-Based AI Studio Assistant Widget */}
       <StudioAssistantWidget
         isOpenExternal={isAssistantOpen}
         onCloseExternal={() => setIsAssistantOpen(false)}
+      />
+
+      {/* Studio Executive Admin Portal & Telemetry */}
+      <AdminPortal
+        isOpen={isPortalOpen}
+        onClose={() => setIsPortalOpen(false)}
       />
     </div>
   );

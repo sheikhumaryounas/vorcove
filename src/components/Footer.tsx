@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ArrowUp, Globe, Clock, Mail, ShieldCheck } from 'lucide-react';
 import { VorcoveLogo } from './VorcoveLogo';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onOpenPortal?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
   const [usTime, setUsTime] = useState<string>('');
   const [euTime, setEuTime] = useState<string>('');
 
@@ -157,6 +161,26 @@ export const Footer: React.FC = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+            {onOpenPortal && (
+              <button
+                onClick={onOpenPortal}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid rgba(255, 87, 34, 0.4)',
+                  color: '#FF7043',
+                  padding: '5px 12px',
+                  borderRadius: '999px',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px'
+                }}
+              >
+                <span>⚙ Studio Portal</span>
+              </button>
+            )}
             <span>SOC 2 Type II Compliant Architectures</span>
             <span>•</span>
             <button

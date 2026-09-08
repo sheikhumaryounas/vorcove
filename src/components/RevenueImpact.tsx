@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TrendingUp, ShieldCheck, DollarSign, ArrowUpRight } from 'lucide-react';
 import { REVENUE_METRICS } from '../data/content';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
 export const RevenueImpact: React.FC = () => {
   const { elementRef, isRevealed } = useIntersectionReveal(0.1);
+  const [animatedKpi, setAnimatedKpi] = useState({
+    0: 0,
+    1: 0,
+    2: 0
+  });
+
+  useEffect(() => {
+    if (!isRevealed) return;
+
+    const targets = [640, 98.4, 11];
+    const duration = 1200;
+    const start = performance.now();
+
+    const animate = (time: number) => {
+      const elapsed = time - start;
+      const progress = Math.min(1, elapsed / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setAnimatedKpi({
+        0: Math.round(targets[0] * eased),
+        1: parseFloat((targets[1] * eased).toFixed(1)),
+        2: Math.round(targets[2] * eased)
+      });
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isRevealed]);
 
   return (
     <section
@@ -156,7 +187,9 @@ export const RevenueImpact: React.FC = () => {
                       lineHeight: 1
                     }}
                   >
-                    {item.kpi}
+                    {idx === 0 && `+$${animatedKpi[0]}k`}
+                    {idx === 1 && `${animatedKpi[1]}%`}
+                    {idx === 2 && `<${animatedKpi[2]}m`}
                   </div>
                   <div style={{ fontSize: '12px', color: 'var(--ink-muted)', marginTop: '4px' }}>
                     {item.kpiLabel}

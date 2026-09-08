@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { Bot, Sliders, Activity, Sparkles, Check, ArrowRight, ShieldCheck, Clock, Zap, AlertCircle, RefreshCw } from 'lucide-react';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
+import { executeCopilotTriage, executePricingSimulation, executeChurnAnalysis } from '../services/api';
+
 export const LiveDemos: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'copilot' | 'pricing' | 'churn'>('copilot');
   const { elementRef, isRevealed } = useIntersectionReveal(0.1);
+  const [backendLatency, setBackendLatency] = useState<number | null>(null);
 
   // Copilot Demo State
   const sampleTickets = [
@@ -46,6 +49,7 @@ export const LiveDemos: React.FC = () => {
   const [selectedTicketIdx, setSelectedTicketIdx] = useState<number>(0);
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
   const [acceptedAction, setAcceptedAction] = useState<boolean>(false);
+  const [currentTicketData, setCurrentTicketData] = useState<any>(sampleTickets[0]);
 
   // Pricing Demo State
   const [monthlyRevenue, setMonthlyRevenue] = useState<number>(1200000); // $1.2M / mo
@@ -69,15 +73,37 @@ export const LiveDemos: React.FC = () => {
     return Math.min(99, Math.round((telemetryState.loginDrop * 0.4) + (telemetryState.exportDrop * 0.4) + (telemetryState.supportFriction * 5)));
   };
 
-  const currentTicket = sampleTickets[selectedTicketIdx];
+  const currentTicket = currentTicketData || sampleTickets[selectedTicketIdx];
 
-  const handleSelectTicket = (idx: number) => {
+  const handleSelectTicket = async (idx: number) => {
     setIsSimulating(true);
     setAcceptedAction(false);
     setSelectedTicketIdx(idx);
-    setTimeout(() => {
+    const selected = sampleTickets[idx];
+    
+    try {
+      const start = Date.now();
+      const res = await executeCopilotTriage({
+        ticketId: selected.id,
+        subject: selected.subject,
+        body: selected.body
+      });
+      const latency = Date.now() - start;
+      setBackendLatency(latency);
+
+      if (res.success && res.data) {
+        setCurrentTicketData({
+          ...selected,
+          ...res.data
+        });
+      } else {
+        setCurrentTicketData(selected);
+      }
+    } catch {
+      setCurrentTicketData(selected);
+    } finally {
       setIsSimulating(false);
-    }, 450);
+    }
   };
 
   return (
@@ -239,7 +265,7 @@ export const LiveDemos: React.FC = () => {
                         style={{
                           padding: '16px 18px',
                           borderRadius: '14px',
-                          border: isSelected ? '2px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                          border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                           background: isSelected ? 'var(--bg-surface)' : '#FFFFFF',
                           cursor: 'pointer',
                           transition: 'all 0.2s ease',
@@ -350,7 +376,7 @@ export const LiveDemos: React.FC = () => {
                         Extracted Metadata & Knowledge Retrieval
                       </span>
                       <div style={{ marginTop: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                        {Object.entries(currentTicket.entities).map(([key, val]) => (
+                        {Object.entries(currentTicket.entities || {}).map(([key, val]) => (
                           <span
                             key={key}
                             style={{
@@ -363,7 +389,7 @@ export const LiveDemos: React.FC = () => {
                               color: 'var(--ink-primary)'
                             }}
                           >
-                            <strong>{key}:</strong> {val}
+                            <strong>{key}:</strong> {String(val)}
                           </span>
                         ))}
                       </div>

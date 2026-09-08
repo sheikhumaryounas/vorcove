@@ -152,7 +152,7 @@ export const BentoGrid: React.FC = () => {
                     style={{
                       padding: '4px 10px',
                       fontSize: '11px',
-                      boxShadow: '2px 2px 0px var(--ink-primary)'
+                      boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)'
                     }}
                   >
                     {tag}
@@ -168,8 +168,8 @@ export const BentoGrid: React.FC = () => {
                 borderRadius: '16px',
                 padding: '24px',
                 color: '#FFFFFF',
-                border: '2px solid var(--ink-primary)',
-                boxShadow: '3px 3px 0px rgba(0,0,0,0.2)'
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.18)'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
@@ -179,7 +179,7 @@ export const BentoGrid: React.FC = () => {
                     Agent Execution Stream
                   </span>
                 </div>
-                <span className="sticker-tag" style={{ fontSize: '10px', padding: '2px 7px', background: '#FFFFFF', color: 'var(--ink-primary)', boxShadow: '1.5px 1.5px 0px #000' }}>
+                <span className="sticker-tag" style={{ fontSize: '10px', padding: '2px 7px', background: '#FFFFFF', color: 'var(--ink-primary)', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
                   Latency: 280ms
                 </span>
               </div>
@@ -248,7 +248,7 @@ export const BentoGrid: React.FC = () => {
               </p>
             </div>
 
-            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1.5px solid var(--ink-primary)', boxShadow: '2.5px 2.5px 0px var(--ink-primary)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Calculation SLA</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>45 Milliseconds</div>
@@ -294,7 +294,7 @@ export const BentoGrid: React.FC = () => {
               </p>
             </div>
 
-            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1.5px solid var(--ink-primary)', boxShadow: '2.5px 2.5px 0px var(--ink-primary)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Time to First Build</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>14 Days</div>

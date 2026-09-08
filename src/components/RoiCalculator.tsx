@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import { Calculator, ArrowRight, DollarSign, Clock, Zap, Check } from 'lucide-react';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
+import { saveRoiAudit } from '../services/api';
+
 export const RoiCalculator: React.FC = () => {
   const [teamSize, setTeamSize] = useState<number>(25);
   const [projectType, setProjectType] = useState<'ai-ops' | 'pricing' | 'product' | 'data'>('ai-ops');
   const [hourlyRate, setHourlyRate] = useState<number>(55);
   const [hoursWastedPerWeek, setHoursWastedPerWeek] = useState<number>(14);
+
+  // Email & saving state
+  const [showSaveModal, setShowSaveModal] = useState<boolean>(false);
+  const [clientEmail, setClientEmail] = useState<string>('');
+  const [clientName, setClientName] = useState<string>('');
+  const [isSaving, setIsSaving] = useState<boolean>(false);
+  const [isSaved, setIsSaved] = useState<boolean>(false);
 
   const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
@@ -22,6 +31,29 @@ export const RoiCalculator: React.FC = () => {
   // Estimated implementation investment
   const estimatedInvestment = projectType === 'ai-ops' ? 35000 : projectType === 'pricing' ? 45000 : projectType === 'data' ? 40000 : 38000;
   const paybackMonths = ((estimatedInvestment / estimatedAnnualSavings) * 12).toFixed(1);
+
+  const handleSaveAudit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!clientEmail) return;
+    setIsSaving(true);
+    try {
+      const res = await saveRoiAudit({
+        teamSize,
+        projectType,
+        hourlyRate,
+        hoursWastedPerWeek,
+        clientEmail,
+        clientName
+      });
+      if (res.success) {
+        setIsSaved(true);
+      }
+    } catch (err) {
+      console.error('Failed to save ROI audit:', err);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   return (
     <section
@@ -104,7 +136,7 @@ export const RoiCalculator: React.FC = () => {
                     style={{
                       padding: '10px 12px',
                       borderRadius: '10px',
-                      border: projectType === item.id ? '2px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                      border: projectType === item.id ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                       background: projectType === item.id ? 'var(--bg-surface)' : '#FFFFFF',
                       color: 'var(--ink-primary)',
                       fontSize: '12.5px',
@@ -252,7 +284,7 @@ export const RoiCalculator: React.FC = () => {
             </div>
 
             {/* CTA */}
-            <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+            <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <a
                 href="#contact"
                 className="btn-primary"
@@ -266,6 +298,113 @@ export const RoiCalculator: React.FC = () => {
                 <span>Lock in this scope for Phase 1</span>
                 <ArrowRight size={16} />
               </a>
+
+              {isSaved ? (
+                <div
+                  style={{
+                    padding: '10px',
+                    borderRadius: '10px',
+                    background: 'rgba(52, 211, 153, 0.15)',
+                    border: '1px solid rgba(52, 211, 153, 0.3)',
+                    color: '#6EE7B7',
+                    fontSize: '12.5px',
+                    textAlign: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Check size={15} />
+                  <span>ROI Scope Audit Saved to Vorcove Backend!</span>
+                </div>
+              ) : showSaveModal ? (
+                <form
+                  onSubmit={handleSaveAudit}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '8px',
+                    background: 'rgba(255,255,255,0.05)',
+                    padding: '12px',
+                    borderRadius: '12px'
+                  }}
+                >
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your work email..."
+                    value={clientEmail}
+                    onChange={(e) => setClientEmail(e.target.value)}
+                    style={{
+                      padding: '9px 12px',
+                      borderRadius: '8px',
+                      border: '1px solid rgba(255,255,255,0.15)',
+                      background: 'rgba(0,0,0,0.3)',
+                      color: '#FFF',
+                      fontSize: '13px',
+                      outline: 'none'
+                    }}
+                  />
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <button
+                      type="submit"
+                      disabled={isSaving}
+                      style={{
+                        flex: 1,
+                        padding: '8px',
+                        background: '#34D399',
+                        border: 'none',
+                        borderRadius: '6px',
+                        color: '#064E3B',
+                        fontWeight: 700,
+                        fontSize: '12px',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {isSaving ? 'Saving Audit...' : 'Confirm & Save Audit'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowSaveModal(false)}
+                      style={{
+                        padding: '8px 12px',
+                        background: 'transparent',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        borderRadius: '6px',
+                        color: '#9CA3AF',
+                        fontSize: '12px',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setShowSaveModal(true)}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    background: 'rgba(255,255,255,0.08)',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    borderRadius: '10px',
+                    color: '#E6E8EC',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Calculator size={15} />
+                  <span>Save Audit & Send Detailed Scope Proposal</span>
+                </button>
+              )}
             </div>
           </div>
         </div>

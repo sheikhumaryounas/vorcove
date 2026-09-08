@@ -23,6 +23,7 @@ import {
   Sparkle
 } from 'lucide-react';
 import { playTactileClick, playSuccessChime } from '../utils/audio';
+import { sendAssistantMessage } from '../services/api';
 
 export interface AssistantMenuTopic {
   id: string;
@@ -378,7 +379,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
     : [];
 
   // Handle Freeform Query
-  const handleSendQuery = (text: string) => {
+  const handleSendQuery = async (text: string) => {
     if (!text.trim()) return;
     playTactileClick();
 
@@ -389,46 +390,41 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
     setChatInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
-      const lower = userText.toLowerCase();
-      let matchedTopic: AssistantMenuTopic | undefined;
+    try {
+      const sessionId = 'sess_' + (localStorage.getItem('vorcove_session_id') || Date.now());
+      localStorage.setItem('vorcove_session_id', sessionId);
 
-      if (lower.includes('14') || lower.includes('day') || lower.includes('time') || lower.includes('sprint') || lower.includes('fast')) {
-        matchedTopic = allTopics.find(t => t.id === '14-deliverables');
-      } else if (lower.includes('price') || lower.includes('cost') || lower.includes('budget') || lower.includes('fixed') || lower.includes('pay')) {
-        matchedTopic = allTopics.find(t => t.id === 'fixed-price-model');
-      } else if (lower.includes('pricing engine') || lower.includes('margin') || lower.includes('sku') || lower.includes('metals')) {
-        matchedTopic = allTopics.find(t => t.id === 'case-metals');
-      } else if (lower.includes('ip') || lower.includes('own') || lower.includes('repo') || lower.includes('github') || lower.includes('code')) {
-        matchedTopic = allTopics.find(t => t.id === 'code-ownership');
-      } else if (lower.includes('security') || lower.includes('soc') || lower.includes('pii') || lower.includes('privacy') || lower.includes('vpc')) {
-        matchedTopic = allTopics.find(t => t.id === 'security-privacy');
-      } else if (lower.includes('agent') || lower.includes('rag') || lower.includes('eval') || lower.includes('drift')) {
-        matchedTopic = allTopics.find(t => t.id === 'ai-agents');
-      } else if (lower.includes('freight') || lower.includes('triage') || lower.includes('customs')) {
-        matchedTopic = allTopics.find(t => t.id === 'case-freight');
+      const res = await sendAssistantMessage(userText, sessionId, selectedTopicId || undefined, activeCategoryId || undefined);
+      
+      if (res.success && res.data) {
+        const payload = res.data;
+        setChatMessages(prev => [
+          ...prev,
+          {
+            sender: 'ai',
+            text: payload.text,
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            cta: payload.ctaLabel ? { label: payload.ctaLabel, targetId: payload.ctaTargetId || 'contact' } : undefined
+          }
+        ]);
+      } else {
+        throw new Error(res.error || 'Server error');
       }
-
-      let aiResponseText = matchedTopic
-        ? matchedTopic.answer
-        : `Vorcove specializes in AI agents, dynamic pricing engines, and enterprise web engineering. For "${userText}", we scope a 14-day working vertical slice committed directly to your repository with zero vendor lock-in.`;
-
-      let cta = matchedTopic?.ctaLabel
-        ? { label: matchedTopic.ctaLabel, targetId: matchedTopic.ctaTargetId || 'contact' }
-        : { label: 'Book 14-Day Sprint →', targetId: 'contact' };
-
+    } catch {
+      // Fallback
       setChatMessages(prev => [
         ...prev,
         {
           sender: 'ai',
-          text: aiResponseText,
+          text: `Vorcove specializes in AI agents, dynamic pricing engines, and enterprise web engineering. For "${userText}", we scope a 14-day working vertical slice committed directly to your repository with zero vendor lock-in.`,
           time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-          cta: cta
+          cta: { label: 'Book 14-Day Sprint →', targetId: 'contact' }
         }
       ]);
+    } finally {
       setIsTyping(false);
       playSuccessChime();
-    }, 600);
+    }
   };
 
   // Scope Estimator Generator
@@ -471,7 +467,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
         bottom: '24px',
         right: '24px',
         zIndex: 990,
-        fontFamily: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif"
+        fontFamily: 'var(--font-sans)'
       }}
     >
       {/* Floating Menu Launcher Button */}
@@ -1202,7 +1198,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
                           textAlign: 'left',
                           padding: '12px 14px',
                           background: wizardProject === opt.id ? '#F7F5EF' : '#FFFFFF',
-                          border: `2px solid ${wizardProject === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
+                          border: `1.5px solid ${wizardProject === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
                           borderRadius: '12px',
                           cursor: 'pointer'
                         }}
@@ -1251,7 +1247,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
                           textAlign: 'left',
                           padding: '12px 14px',
                           background: wizardDataState === opt.id ? '#F7F5EF' : '#FFFFFF',
-                          border: `2px solid ${wizardDataState === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
+                          border: `1.5px solid ${wizardDataState === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
                           borderRadius: '12px',
                           cursor: 'pointer'
                         }}
@@ -1320,7 +1316,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
                           style={{
                             padding: '10px 12px',
                             background: wizardGoal === opt.id ? '#F7F5EF' : '#FFFFFF',
-                            border: `2px solid ${wizardGoal === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
+                            border: `1.5px solid ${wizardGoal === opt.id ? 'var(--ink-primary)' : 'var(--border-light)'}`,
                             borderRadius: '10px',
                             fontSize: '12px',
                             fontWeight: 600,

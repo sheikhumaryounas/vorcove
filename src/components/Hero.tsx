@@ -223,7 +223,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
 
           {/* Right Column: Live Interactive Agent Execution Canvas */}
           <div style={{ position: 'relative' }}>
-            {/* Tilted Floating Sticker on Card Header (TapTile Touch) */}
+            {/* Floating Badge on Card Header */}
             <div
               className="sticker-tag"
               style={{
@@ -232,10 +232,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 right: '24px',
                 zIndex: 10,
                 background: '#FFFFFF',
-                transform: 'rotate(3deg)',
-                padding: '6px 14px',
-                fontSize: '11.5px',
-                boxShadow: '3px 3px 0px var(--ink-primary)'
+                transform: 'rotate(2deg)',
+                padding: '5px 12px',
+                fontSize: '11px',
+                boxShadow: '0 2px 8px rgba(30, 37, 48, 0.08)'
               }}
             >
               <span>⚡ LIVE IN PRODUCTION</span>
@@ -250,7 +250,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           style={{
             marginTop: '64px',
             paddingTop: '24px',
-            borderTop: '2px solid var(--border-light)',
+            borderTop: '1px solid var(--border-light)',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '16px'

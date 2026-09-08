@@ -9,9 +9,10 @@ import { VorcoveLogo } from './VorcoveLogo';
 interface NavbarProps {
   onOpenConsultation?: () => void;
   onOpenAssistant?: () => void;
+  onOpenPortal?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollProgress = useScrollProgress();
@@ -48,51 +49,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
   return (
     <>
-      {/* Top Reading Scroll Indicator Bar */}
+      {/* Top Precision Reading Scroll Progress Bar */}
       <div
         style={{
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
-          height: '3px',
-          background: 'var(--ink-primary)',
+          height: '2.5px',
+          background: 'linear-gradient(90deg, #1E2530 0%, #4A5464 50%, #10B981 100%)',
           transform: `scaleX(${scrollProgress / 100})`,
           transformOrigin: '0 50%',
           zIndex: 100,
           willChange: 'transform',
-          transition: 'transform 0.05s linear'
+          transition: 'transform 0.08s linear, opacity 0.2s ease',
+          opacity: scrollProgress > 1 ? 1 : 0,
+          boxShadow: scrollProgress > 2 ? '0 0 10px rgba(16, 185, 129, 0.4)' : 'none'
         }}
       />
 
-      {/* TapTile-style Top Notice Announcement Bar */}
-      <div className="top-announcement-bar">
-        <span className="top-announcement-pill">
-          ⚡ Launching Q4 Squads
-        </span>
-        <span style={{ letterSpacing: '0.02em', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-          <span>Enterprise AI & Full-Stack Product Network</span>
-          <span style={{ opacity: 0.5 }}>•</span>
-          <span style={{ fontWeight: 600 }}>First working demo in 14 days</span>
-        </span>
-        <a
-          href="#contact"
-          onClick={(e) => handleLinkClick(e, '#contact')}
-          style={{
-            color: '#FFFFFF',
-            fontWeight: 700,
-            textDecoration: 'underline',
-            fontSize: '12px',
-            marginLeft: '4px',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '3px'
-          }}
-        >
-          <span>Book slot →</span>
-        </a>
-      </div>
-
+      {/* Sticky Main Header - Stuck directly at top: 0 with compact sleek size */}
       <header
         style={{
           position: 'sticky',
@@ -100,23 +76,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
           left: 0,
           right: 0,
           zIndex: 90,
-          background: isScrolled ? 'rgba(247, 245, 239, 0.94)' : 'rgba(247, 245, 239, 0.85)',
+          background: isScrolled ? 'rgba(247, 245, 239, 0.94)' : 'rgba(247, 245, 239, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
-          borderBottom: '2px solid var(--ink-primary)',
-          boxShadow: isScrolled ? '0 4px 12px rgba(30, 37, 48, 0.06)' : 'none',
+          borderBottom: '1px solid var(--border-light)',
+          boxShadow: isScrolled ? '0 4px 16px rgba(30, 37, 48, 0.05)' : 'none',
           transition: 'all 0.25s ease'
         }}
       >
-        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 24px' }}>
+        <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '9px 24px' }}>
           {/* Logo Brand matching Vorcove Site.dc.html exactly */}
           <a
             href="#top"
-            onClick={(e) => handleLinkClick(e, '#top')}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
             aria-label="Vorcove Home"
           >
-            <VorcoveLogo markSize={26} fontSize="17px" color="var(--ink-primary)" />
+            <VorcoveLogo markSize={22} fontSize="15.5px" color="var(--ink-primary)" />
           </a>
 
           {/* Desktop Navigation Links with Underline Hover */}
@@ -124,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
             style={{
               display: 'none',
               alignItems: 'center',
-              gap: '6px'
+              gap: '4px'
             }}
             className="desktop-nav"
           >
@@ -136,6 +115,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                   href={item.href}
                   onClick={(e) => handleLinkClick(e, item.href)}
                   className={`nav-underline-link ${isActive ? 'active' : ''}`}
+                  style={{ padding: '6px 10px', fontSize: '13.5px' }}
                 >
                   <span>{item.label}</span>
                   {item.badge && (
@@ -150,6 +130,39 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
 
           {/* Right Controls */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* Studio Portal Button */}
+            {onOpenPortal && (
+              <button
+                onClick={() => {
+                  playTactileClick();
+                  onOpenPortal();
+                }}
+                className="nav-underline-link studio-portal-btn"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  background: 'rgba(0, 0, 0, 0.035)',
+                  border: '1px solid var(--border-light)',
+                  padding: '5px 11px',
+                  borderRadius: '999px',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  cursor: 'pointer'
+                }}
+              >
+                <span>Studio Portal</span>
+                <span
+                  style={{
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: '#10B981'
+                  }}
+                />
+              </button>
+            )}
+
             {/* Quick Action Start Project */}
             <a
               href="#contact"
@@ -162,6 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 }
               }}
               className="btn-primary"
+              style={{ padding: '7px 16px', fontSize: '13px' }}
             >
               <span>Start a project</span>
               <span className="pulse-dot" />
@@ -177,9 +191,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '38px',
-                height: '38px',
-                borderRadius: '12px',
+                width: '34px',
+                height: '34px',
+                borderRadius: '10px',
                 border: '1px solid var(--border-light)',
                 background: '#FFFFFF',
                 color: 'var(--ink-primary)',
@@ -188,7 +202,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
               className="mobile-toggle"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>

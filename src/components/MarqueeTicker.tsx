@@ -6,10 +6,10 @@ export const MarqueeTicker: React.FC = () => {
     <div
       style={{
         overflow: 'hidden',
-        borderTop: '2px solid var(--ink-primary)',
-        borderBottom: '2px solid var(--ink-primary)',
+        borderTop: '1px solid var(--border-light)',
+        borderBottom: '1px solid var(--border-light)',
         background: '#EFEDE5',
-        padding: '14px 0',
+        padding: '12px 0',
         userSelect: 'none'
       }}
     >
@@ -28,18 +28,18 @@ export const MarqueeTicker: React.FC = () => {
             <React.Fragment key={`m1-${idx}`}>
               <span
                 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '14px',
-                  fontWeight: 700,
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '13px',
+                  fontWeight: 600,
                   color: 'var(--ink-primary)',
-                  letterSpacing: '0.04em',
+                  letterSpacing: '0.03em',
                   textTransform: 'uppercase',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
                   background: '#FFFFFF',
-                  border: '1.5px solid var(--ink-primary)',
-                  boxShadow: '2px 2px 0px var(--ink-primary)',
+                  border: '1px solid var(--border-light)',
+                  boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)',
                   padding: '5px 14px',
                   borderRadius: '999px'
                 }}
@@ -47,7 +47,7 @@ export const MarqueeTicker: React.FC = () => {
                 <span>⚡</span>
                 <span>{item}</span>
               </span>
-              <span style={{ color: 'var(--ink-primary)', fontSize: '14px', fontWeight: 800 }}>•</span>
+              <span style={{ color: 'var(--ink-muted)', fontSize: '12px', fontWeight: 600 }}>•</span>
             </React.Fragment>
           ))}
         </div>
@@ -67,18 +67,18 @@ export const MarqueeTicker: React.FC = () => {
             <React.Fragment key={`m2-${idx}`}>
               <span
                 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '14px',
-                  fontWeight: 700,
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: '13px',
+                  fontWeight: 600,
                   color: 'var(--ink-primary)',
-                  letterSpacing: '0.04em',
+                  letterSpacing: '0.03em',
                   textTransform: 'uppercase',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
                   background: '#FFFFFF',
-                  border: '1.5px solid var(--ink-primary)',
-                  boxShadow: '2px 2px 0px var(--ink-primary)',
+                  border: '1px solid var(--border-light)',
+                  boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)',
                   padding: '5px 14px',
                   borderRadius: '999px'
                 }}
@@ -86,7 +86,7 @@ export const MarqueeTicker: React.FC = () => {
                 <span>⚡</span>
                 <span>{item}</span>
               </span>
-              <span style={{ color: 'var(--ink-primary)', fontSize: '14px', fontWeight: 800 }}>•</span>
+              <span style={{ color: 'var(--ink-muted)', fontSize: '12px', fontWeight: 600 }}>•</span>
             </React.Fragment>
           ))}
         </div>

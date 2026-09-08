@@ -73,10 +73,10 @@ export const VorcoveLogo: React.FC<VorcoveLogoProps> = ({
       {showText && (
         <span
           style={{
-            fontFamily: "'Space Grotesk', ui-sans-serif, system-ui, sans-serif",
+            fontFamily: "var(--font-sans), 'Plus Jakarta Sans', 'Inter', sans-serif",
             fontSize: typeof fontSize === 'number' ? `${fontSize}px` : fontSize,
-            fontWeight: 600,
-            letterSpacing: '-0.01em',
+            fontWeight: 700,
+            letterSpacing: '-0.02em',
             color: resolvedTextColor,
             lineHeight: 1,
             display: 'inline-block'

@@ -78,8 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               <div
                 className="sticker-tag"
                 style={{
-                  background: '#FFFFFF',
-                  transform: 'rotate(-2deg)'
+                  background: '#FFFFFF'
                 }}
               >
                 <span>⚡</span>
@@ -201,7 +200,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 right: '24px',
                 zIndex: 10,
                 background: '#FFFFFF',
-                transform: 'rotate(2deg)',
                 padding: '5px 12px',
                 fontSize: '11px',
                 boxShadow: '0 2px 8px rgba(30, 37, 48, 0.08)'

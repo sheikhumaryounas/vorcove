@@ -174,10 +174,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
                   handleLinkClick(e, '#contact');
                 }
               }}
-              className="btn-primary"
-              style={{ padding: '7px 16px', fontSize: '13px' }}
+              className="btn-primary nav-start-btn"
+              style={{ padding: '7px 14px', fontSize: '12.5px', whiteSpace: 'nowrap' }}
             >
-              <span>Start a project</span>
+              <span>Start project</span>
               <span className="pulse-dot" />
             </a>
 

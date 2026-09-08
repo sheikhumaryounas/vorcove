@@ -30,7 +30,8 @@ export const TechStack: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
@@ -102,7 +103,7 @@ export const TechStack: React.FC = () => {
           style={{
             marginTop: '52px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
             gap: '18px'
           }}
         >

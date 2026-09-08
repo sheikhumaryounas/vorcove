@@ -36,11 +36,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
       <div
         style={{
           position: 'absolute',
-          right: '-7vw',
+          right: '0vw',
           top: '4vh',
-          width: 'min(58vw, 700px)',
+          width: 'min(45vw, 550px)',
           pointerEvents: 'none',
           zIndex: 0,
+          overflow: 'hidden',
           transform: `translate3d(${mousePos.x * -0.3}px, ${mousePos.y * -0.3}px, 0)`,
           transition: 'transform 0.4s ease-out'
         }}

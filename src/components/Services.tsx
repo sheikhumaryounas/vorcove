@@ -37,7 +37,8 @@ export const Services: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
@@ -45,7 +46,7 @@ export const Services: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '32px',
             alignItems: 'end'
           }}
@@ -86,7 +87,7 @@ export const Services: React.FC = () => {
           style={{
             marginTop: '56px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(330px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '24px'
           }}
         >

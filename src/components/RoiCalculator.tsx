@@ -62,7 +62,8 @@ export const RoiCalculator: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
@@ -78,12 +79,12 @@ export const RoiCalculator: React.FC = () => {
           <h2
             className="heading-editorial"
             style={{
-              fontSize: 'clamp(2.2rem, 4.6vw, 3.6rem)',
+              fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
               marginTop: '14px',
               marginBottom: '16px'
             }}
           >
-            Calculate the exact payback timeline.
+            Compute your engineering payback timeline.
           </h2>
           <p
             style={{
@@ -101,7 +102,7 @@ export const RoiCalculator: React.FC = () => {
           style={{
             marginTop: '52px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '36px'
           }}
         >

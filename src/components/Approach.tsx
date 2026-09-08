@@ -48,25 +48,27 @@ export const Approach: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
         {/* Dark Obsidian Container Band */}
         <div
           className={`obsidian-band reveal-item ${isRevealed ? 'revealed' : ''}`}
-          style={{ position: 'relative' }}
+          style={{ position: 'relative', overflow: 'hidden' }}
         >
           {/* Watermark Vorcove Logo */}
           <div
             style={{
               position: 'absolute',
-              right: '-60px',
-              top: '-50px',
-              width: '480px',
+              right: '0px',
+              top: '-30px',
+              width: 'min(45vw, 420px)',
               opacity: 0.05,
               pointerEvents: 'none',
-              zIndex: 0
+              zIndex: 0,
+              overflow: 'hidden'
             }}
           >
             <img
@@ -81,8 +83,8 @@ export const Approach: React.FC = () => {
               position: 'relative',
               zIndex: 1,
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: '56px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gap: '48px',
               alignItems: 'start'
             }}
           >
@@ -231,8 +233,8 @@ export const Approach: React.FC = () => {
               paddingTop: '32px',
               borderTop: '1px solid var(--border-dark)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '32px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))',
+              gap: '24px'
             }}
           >
             {STUDIO_STATS.map((stat, sIdx) => (

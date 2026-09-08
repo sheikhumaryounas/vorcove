@@ -92,7 +92,8 @@ export const ArchitectureFlow: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        overflow: 'hidden'
       }}
     >
       <div className="container">
@@ -125,7 +126,7 @@ export const ArchitectureFlow: React.FC = () => {
           style={{
             marginTop: '52px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
             gap: '16px'
           }}
           className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
@@ -210,7 +211,7 @@ export const ArchitectureFlow: React.FC = () => {
             border: '1px solid var(--border-dark)',
             boxShadow: 'var(--shadow-dark)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '36px',
             alignItems: 'center'
           }}

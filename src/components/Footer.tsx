@@ -55,8 +55,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-            gap: '48px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+            gap: '40px',
             paddingBottom: '64px',
             borderBottom: '1px solid var(--border-dark)'
           }}

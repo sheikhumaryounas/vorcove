@@ -67,9 +67,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           }}
         >
           {/* Left Column: Editorial Value Proposition */}
-          <div>
+          <div style={{ maxWidth: '100%', minWidth: 0 }}>
             {/* Top Status & Sticker Cluster (TapTile Touch) */}
-            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '100%' }}>
               <div className="badge-neo-pill">
                 <span className="pulse-dot" />
                 <span>A smarter way to ship enterprise AI</span>
@@ -102,8 +102,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             <h1
               className="heading-editorial hero-headline-text"
               style={{
-                fontSize: 'clamp(2.4rem, 4.6vw, 4.4rem)',
-                marginTop: '24px',
+                fontSize: 'clamp(2.2rem, 4.4vw, 4.4rem)',
+                marginTop: '22px',
                 marginBottom: '0',
                 lineHeight: 1.08,
                 maxWidth: '22ch',
@@ -117,12 +117,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             {/* Subtitle */}
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 1.6vw, 1.22rem)',
+                fontSize: 'clamp(1rem, 1.5vw, 1.22rem)',
                 lineHeight: 1.6,
                 color: 'var(--ink-secondary)',
-                marginTop: '24px',
+                marginTop: '20px',
                 marginBottom: '0',
-                maxWidth: '46ch'
+                maxWidth: '46ch',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
               }}
             >
               Vorcove builds enterprise AI agents, dynamic pricing engines, and custom full-stack web products for companies in the US and EU, tied directly to EBITDA, revenue, and retention from day one.
@@ -131,18 +133,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             {/* TapTile Quick Stat Neo-Pills Strip */}
             <div
               style={{
-                marginTop: '24px',
+                marginTop: '22px',
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '10px'
+                gap: '8px',
+                maxWidth: '100%'
               }}
             >
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '7px 14px',
-                  borderRadius: '10px',
-                  fontSize: '12px'
+                  padding: '6px 12px',
+                  borderRadius: '9px',
+                  fontSize: '11.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>0</span> ROADMAP DELAYS
@@ -151,9 +154,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '7px 14px',
-                  borderRadius: '10px',
-                  fontSize: '12px'
+                  padding: '6px 12px',
+                  borderRadius: '9px',
+                  fontSize: '11.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>100%</span> SENIOR SQUADS
@@ -162,9 +165,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '7px 14px',
-                  borderRadius: '10px',
-                  fontSize: '12px'
+                  padding: '6px 12px',
+                  borderRadius: '9px',
+                  fontSize: '11.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>&lt;14 DAYS</span> TO LIVE DEMO
@@ -172,12 +175,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             </div>
 
             {/* Tactile Neo-Brutalist CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', marginTop: '32px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '28px', maxWidth: '100%' }}>
               <a
                 href="#contact"
                 onClick={() => playTactileClick()}
                 className="btn-neo-primary"
-                style={{ padding: '15px 30px', fontSize: '15px' }}
+                style={{ padding: '14px 28px', fontSize: '14.5px' }}
               >
                 <span>Start a project</span>
                 <ArrowRight size={17} strokeWidth={2.5} />
@@ -193,7 +196,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   }
                 }}
                 className="btn-neo-secondary"
-                style={{ padding: '15px 26px', fontSize: '15px', gap: '8px' }}
+                style={{ padding: '14px 24px', fontSize: '14.5px', gap: '8px' }}
               >
                 <Sparkles size={16} strokeWidth={2} />
                 <span>Explore live demos</span>
@@ -202,7 +205,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           </div>
 
           {/* Right Column: Live Interactive Agent Execution Canvas */}
-          <div>
+          <div style={{ maxWidth: '100%', minWidth: 0 }}>
             <HeroAgentTerminal />
           </div>
         </div>

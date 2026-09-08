@@ -1009,6 +1009,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     padding: 0 16px !important;
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .obsidian-band {
@@ -1025,9 +1026,27 @@ input[type=range]::-webkit-slider-thumb:hover {
 
   /* Headline sizing for mobile devices */
   .hero-headline-text {
-    font-size: clamp(1.9rem, 8vw, 2.7rem) !important;
-    line-height: 1.12 !important;
+    font-size: clamp(1.75rem, 7.2vw, 2.35rem) !important;
+    line-height: 1.14 !important;
     max-width: 100% !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .badge-neo-pill {
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+    letter-spacing: 0.02em !important;
+    max-width: 100% !important;
+  }
+
+  .sticker-tag {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+  }
+
+  .terminal-header-title {
+    max-width: 150px !important;
   }
 
   /* CTAs on mobile */
@@ -1049,7 +1068,18 @@ input[type=range]::-webkit-slider-thumb:hover {
 @media (max-width: 480px) {
   .hero-terminal-header {
     flex-wrap: wrap !important;
-    gap: 8px !important;
+    gap: 6px !important;
+    padding: 8px 10px !important;
+  }
+
+  .terminal-header-title {
+    max-width: 115px !important;
+    font-size: 10px !important;
+  }
+
+  .hero-headline-text {
+    font-size: clamp(1.6rem, 7.6vw, 2.1rem) !important;
+    line-height: 1.15 !important;
   }
 
   .nav-start-btn {

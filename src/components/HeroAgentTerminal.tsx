@@ -104,30 +104,38 @@ export const HeroAgentTerminal: React.FC = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '12px 18px',
+          padding: '10px 14px',
           background: 'rgba(255, 255, 255, 0.05)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
           flexWrap: 'wrap',
-          gap: '8px'
+          gap: '8px',
+          minWidth: 0,
+          maxWidth: '100%'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444' }} />
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }} />
-          <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0, flexShrink: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
+            <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#EF4444' }} />
+            <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#F59E0B' }} />
+            <div style={{ width: '9px', height: '9px', borderRadius: '50%', background: '#10B981' }} />
+          </div>
           <span
+            className="terminal-header-title"
             style={{
-              fontSize: '12px',
+              fontSize: '11.5px',
               fontFamily: 'var(--font-mono)',
               color: '#A3AAB5',
-              marginLeft: '8px'
+              marginLeft: '4px',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap'
             }}
           >
             vorcove-agent-v4.2:live_stream
           </span>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
           {/* Toggle Pill (MANUAL / AI) */}
           <div
             style={{
@@ -137,11 +145,11 @@ export const HeroAgentTerminal: React.FC = () => {
               color: 'var(--ink-primary)',
               border: '1px solid var(--border-light)',
               borderRadius: '999px',
-              padding: '2px 8px',
-              fontSize: '10px',
+              padding: '2px 7px',
+              fontSize: '9.5px',
               fontFamily: 'var(--font-mono)',
               fontWeight: 700,
-              gap: '4px',
+              gap: '3px',
               boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
             }}
           >
@@ -160,15 +168,15 @@ export const HeroAgentTerminal: React.FC = () => {
               cursor: isExecuting ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
-              padding: '4px 8px',
-              fontSize: '11px',
+              padding: '3px 7px',
+              fontSize: '10.5px',
               fontFamily: 'var(--font-mono)',
               gap: '4px',
               transition: 'all 0.15s ease'
             }}
             title="Rerun agent execution"
           >
-            <RefreshCw size={12} className={isExecuting ? 'floating-v-mark' : ''} />
+            <RefreshCw size={11} className={isExecuting ? 'floating-v-mark' : ''} />
             <span>RERUN</span>
           </button>
         </div>
@@ -176,13 +184,19 @@ export const HeroAgentTerminal: React.FC = () => {
 
       {/* Scenario Switcher Tabs */}
       <div
+        className="terminal-tabs-row"
         style={{
           display: 'flex',
           gap: '6px',
-          padding: '10px 16px',
+          padding: '8px 12px',
           background: 'rgba(0, 0, 0, 0.2)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
-          overflowX: 'auto'
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          maxWidth: '100%',
+          minWidth: 0
         }}
       >
         {SCENARIOS.map((s, idx) => {
@@ -192,16 +206,17 @@ export const HeroAgentTerminal: React.FC = () => {
               key={s.id}
               onClick={() => handleSelectScenario(idx)}
               style={{
-                padding: '6px 12px',
-                borderRadius: '8px',
+                padding: '5px 10px',
+                borderRadius: '7px',
                 border: isSelected ? '1px solid rgba(255,255,255,0.25)' : '1px solid transparent',
                 background: isSelected ? 'rgba(255, 255, 255, 0.12)' : 'transparent',
                 color: isSelected ? '#FFFFFF' : '#8F99A8',
-                fontSize: '12px',
+                fontSize: '11.5px',
                 fontFamily: 'var(--font-display)',
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
+                flexShrink: 0,
                 transition: 'all 0.15s ease'
               }}
             >
@@ -212,29 +227,32 @@ export const HeroAgentTerminal: React.FC = () => {
       </div>
 
       {/* Terminal Content Body */}
-      <div style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ padding: '14px 14px', display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '100%', minWidth: 0, boxSizing: 'border-box' }}>
         {/* Input Prompt */}
         <div
           style={{
             background: 'rgba(0, 0, 0, 0.3)',
-            borderRadius: '10px',
-            padding: '10px 14px',
+            borderRadius: '9px',
+            padding: '9px 12px',
             border: '1px solid rgba(255, 255, 255, 0.06)',
             display: 'flex',
             alignItems: 'flex-start',
-            gap: '10px'
+            gap: '8px',
+            maxWidth: '100%',
+            minWidth: 0,
+            boxSizing: 'border-box'
           }}
         >
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#10B981', fontWeight: 700 }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: '#10B981', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>
             &gt;
           </span>
-          <span style={{ fontSize: '13px', color: '#E2E8F0', lineHeight: 1.45 }}>
+          <span style={{ fontSize: '12px', color: '#E2E8F0', lineHeight: 1.45, wordBreak: 'break-word', overflowWrap: 'break-word', minWidth: 0, flex: 1 }}>
             {scenario.inputPrompt}
           </span>
         </div>
 
         {/* Real-Time Reasoning Pipeline */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', maxWidth: '100%', minWidth: 0 }}>
           {scenario.steps.map((step, sIdx) => {
             const isVisible = sIdx < activeStepCount;
             if (!isVisible) return null;
@@ -246,34 +264,39 @@ export const HeroAgentTerminal: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  fontSize: '12px',
+                  fontSize: '11.5px',
                   fontFamily: 'var(--font-mono)',
                   background: 'rgba(255, 255, 255, 0.03)',
-                  padding: '6px 12px',
-                  borderRadius: '8px',
+                  padding: '6px 10px',
+                  borderRadius: '7px',
                   border: '1px solid rgba(255, 255, 255, 0.05)',
-                  animation: 'modalFadeIn 0.2s ease-out'
+                  animation: 'modalFadeIn 0.2s ease-out',
+                  gap: '8px',
+                  maxWidth: '100%',
+                  minWidth: 0,
+                  boxSizing: 'border-box'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflow: 'hidden' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '7px', overflow: 'hidden', minWidth: 0, flex: 1 }}>
                   <span
                     style={{
-                      fontSize: '10px',
+                      fontSize: '9.5px',
                       fontWeight: 700,
                       color: step.color,
                       background: 'rgba(255, 255, 255, 0.08)',
-                      padding: '2px 6px',
-                      borderRadius: '4px'
+                      padding: '2px 5px',
+                      borderRadius: '4px',
+                      flexShrink: 0
                     }}
                   >
                     {step.tag}
                   </span>
-                  <span style={{ color: '#CBD5E1', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                  <span style={{ color: '#CBD5E1', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', minWidth: 0, flex: 1, fontSize: '11px' }}>
                     {step.text}
                   </span>
                 </div>
 
-                <span style={{ color: '#64748B', fontSize: '11px', flexShrink: 0, marginLeft: '8px' }}>
+                <span style={{ color: '#64748B', fontSize: '10.5px', flexShrink: 0, marginLeft: 'auto' }}>
                   {step.timing}
                 </span>
               </div>
@@ -286,28 +309,35 @@ export const HeroAgentTerminal: React.FC = () => {
           <div
             style={{
               background: '#0B0F15',
-              borderRadius: '12px',
-              padding: '12px 16px',
+              borderRadius: '10px',
+              padding: '10px 12px',
               border: '1px solid rgba(16, 185, 129, 0.25)',
-              position: 'relative'
+              position: 'relative',
+              maxWidth: '100%',
+              minWidth: 0,
+              boxSizing: 'border-box',
+              overflow: 'hidden'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-              <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#10B981', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
+              <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: '#10B981', fontWeight: 600 }}>
                 ✓ Deterministic Output (JSON Schema Validated)
               </span>
-              <span style={{ fontSize: '11px', color: '#64748B', fontFamily: 'var(--font-mono)' }}>
+              <span style={{ fontSize: '10px', color: '#64748B', fontFamily: 'var(--font-mono)' }}>
                 evals: 0.00% drift
               </span>
             </div>
             <pre
               style={{
                 fontFamily: 'var(--font-mono)',
-                fontSize: '11.5px',
+                fontSize: '11px',
                 color: '#38BDF8',
                 lineHeight: 1.45,
                 margin: 0,
-                overflowX: 'auto'
+                overflowX: 'auto',
+                maxWidth: '100%',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-all'
               }}
             >
               {scenario.outputJson}

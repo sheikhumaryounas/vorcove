@@ -209,8 +209,10 @@ export const RoiCalculator: React.FC = () => {
                 </div>
                 <div
                   style={{
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-display)',
                     fontSize: 'clamp(2.8rem, 4.5vw, 3.8rem)',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
                     color: '#34D399',
                     lineHeight: 1,
                     marginTop: '4px'
@@ -228,7 +230,7 @@ export const RoiCalculator: React.FC = () => {
                 <div style={{ fontSize: '11.5px', color: '#9DA7B5', textTransform: 'uppercase' }}>
                   Payback Period
                 </div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '26px', color: '#FFFFFF', marginTop: '4px' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
                   {paybackMonths} Months
                 </div>
                 <div style={{ fontSize: '11.5px', color: '#6EE7B7', marginTop: '2px' }}>
@@ -240,7 +242,7 @@ export const RoiCalculator: React.FC = () => {
                 <div style={{ fontSize: '11.5px', color: '#9DA7B5', textTransform: 'uppercase' }}>
                   Hours Returned
                 </div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '26px', color: '#FFFFFF', marginTop: '4px' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
                   {estimatedHoursSavedPerMonth.toLocaleString()} hrs
                 </div>
                 <div style={{ fontSize: '11.5px', color: '#9DA7B5', marginTop: '2px' }}>

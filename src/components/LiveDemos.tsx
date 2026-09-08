@@ -271,7 +271,7 @@ export const LiveDemos: React.FC = () => {
                       <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)' }}>
                         Legacy Human Triage
                       </div>
-                      <div style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', color: '#DC2626', marginTop: '2px' }}>
+                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, color: '#DC2626', marginTop: '2px' }}>
                         9.2 Hours avg
                       </div>
                     </div>
@@ -279,7 +279,7 @@ export const LiveDemos: React.FC = () => {
                       <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)' }}>
                         Vorcove AI Copilot
                       </div>
-                      <div style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', color: '#10B981', marginTop: '2px' }}>
+                      <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 800, color: '#10B981', marginTop: '2px' }}>
                         11 Minutes
                       </div>
                     </div>
@@ -326,7 +326,7 @@ export const LiveDemos: React.FC = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
                       <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-light)' }}>
                         <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Confidence</div>
-                        <div style={{ fontFamily: 'var(--font-serif)', fontSize: '20px', color: '#10B981', fontWeight: 600, marginTop: '2px' }}>
+                        <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: '#10B981', fontWeight: 800, marginTop: '2px' }}>
                           {currentTicket.confidence}%
                         </div>
                       </div>
@@ -557,8 +557,10 @@ export const LiveDemos: React.FC = () => {
                     </div>
                     <div
                       style={{
-                        fontFamily: 'var(--font-serif)',
+                        fontFamily: 'var(--font-display)',
                         fontSize: 'clamp(2.5rem, 4vw, 3.4rem)',
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em',
                         color: '#34D399',
                         lineHeight: 1.1,
                         marginTop: '4px'
@@ -727,8 +729,10 @@ export const LiveDemos: React.FC = () => {
                   <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', gap: '20px' }}>
                     <div
                       style={{
-                        fontFamily: 'var(--font-serif)',
+                        fontFamily: 'var(--font-display)',
                         fontSize: '3.6rem',
+                        fontWeight: 800,
+                        letterSpacing: '-0.03em',
                         lineHeight: 1,
                         color: calculateRiskScore() > 60 ? '#DC2626' : calculateRiskScore() > 30 ? '#F59E0B' : '#10B981'
                       }}

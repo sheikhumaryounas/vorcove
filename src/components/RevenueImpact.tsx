@@ -108,13 +108,14 @@ export const RevenueImpact: React.FC = () => {
                 </div>
               </div>
 
-              {/* Serif Title */}
+              {/* Card Title */}
               <h3
                 style={{
-                  fontFamily: 'var(--font-serif)',
-                  fontSize: '30px',
-                  fontWeight: 400,
-                  lineHeight: 1.12,
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '24px',
+                  fontWeight: 700,
+                  letterSpacing: '-0.025em',
+                  lineHeight: 1.2,
                   color: 'var(--ink-primary)'
                 }}
               >
@@ -147,9 +148,10 @@ export const RevenueImpact: React.FC = () => {
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '34px',
-                      fontWeight: 400,
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '32px',
+                      fontWeight: 800,
+                      letterSpacing: '-0.025em',
                       color: 'var(--ink-primary)',
                       lineHeight: 1
                     }}

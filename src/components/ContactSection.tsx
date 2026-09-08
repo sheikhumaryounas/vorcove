@@ -197,8 +197,10 @@ export const ContactSection: React.FC = () => {
 
                 <h3
                   style={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '32px',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '28px',
+                    fontWeight: 700,
+                    letterSpacing: '-0.025em',
                     color: 'var(--ink-primary)',
                     margin: 0
                   }}

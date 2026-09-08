@@ -152,10 +152,11 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onSelectCaseStudy }) =
               <div>
                 <h3
                   style={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '28px',
-                    fontWeight: 400,
-                    lineHeight: 1.15,
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '24px',
+                    fontWeight: 700,
+                    letterSpacing: '-0.025em',
+                    lineHeight: 1.2,
                     color: 'var(--ink-primary)',
                     margin: '0 0 6px'
                   }}
@@ -195,9 +196,10 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onSelectCaseStudy }) =
                 <div>
                   <div
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '30px',
-                      fontWeight: 400,
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '28px',
+                      fontWeight: 800,
+                      letterSpacing: '-0.02em',
                       color: 'var(--ink-primary)',
                       lineHeight: 1
                     }}

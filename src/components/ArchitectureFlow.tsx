@@ -154,8 +154,9 @@ export const ArchitectureFlow: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '22px',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '18px',
+                      fontWeight: 700,
                       color: isSelected ? '#6EE7B7' : 'var(--ink-muted)'
                     }}
                   >
@@ -228,9 +229,10 @@ export const ArchitectureFlow: React.FC = () => {
 
             <h3
               style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '32px',
-                fontWeight: 400,
+                fontFamily: 'var(--font-display)',
+                fontSize: '28px',
+                fontWeight: 700,
+                letterSpacing: '-0.025em',
                 marginTop: '10px',
                 marginBottom: '14px',
                 color: '#FFFFFF'

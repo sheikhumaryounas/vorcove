@@ -118,7 +118,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ study, onClose, 
               <div style={{ fontSize: '12px', color: 'var(--ink-muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 {m.metricName}
               </div>
-              <div style={{ fontFamily: 'var(--font-serif)', fontSize: '28px', color: 'var(--ink-primary)', marginTop: '4px', lineHeight: 1 }}>
+              <div style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--ink-primary)', marginTop: '4px', lineHeight: 1 }}>
                 {m.after}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '12px', color: 'var(--ink-secondary)', marginTop: '6px' }}>
@@ -220,7 +220,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ study, onClose, 
           >
             <Quote size={28} color="var(--ink-muted)" style={{ flexShrink: 0 }} />
             <div>
-              <p style={{ fontFamily: 'var(--font-serif)', fontSize: '19px', color: 'var(--ink-primary)', lineHeight: 1.45, fontStyle: 'italic', margin: 0 }}>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15.5px', fontWeight: 500, color: 'var(--ink-primary)', lineHeight: 1.6, margin: 0 }}>
                 "{study.clientQuote.text}"
               </p>
               <div style={{ marginTop: '12px', fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>

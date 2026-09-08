@@ -127,9 +127,10 @@ export const BentoGrid: React.FC = () => {
 
               <h3
                 style={{
-                  fontFamily: 'var(--font-serif)',
+                  fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
-                  fontWeight: 400,
+                  fontWeight: 700,
+                  letterSpacing: '-0.025em',
                   marginTop: '12px',
                   marginBottom: '12px',
                   color: 'var(--ink-primary)',
@@ -238,7 +239,7 @@ export const BentoGrid: React.FC = () => {
                 </span>
               </div>
 
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '28px', fontWeight: 400, marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
                 Dynamic Algorithmic Pricing Engines
               </h3>
 
@@ -254,7 +255,7 @@ export const BentoGrid: React.FC = () => {
               </div>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Quarterly Margin Gain</div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 700 }}>+$640,000</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 800 }}>+$640,000</div>
               </div>
             </div>
           </div>
@@ -284,7 +285,7 @@ export const BentoGrid: React.FC = () => {
                 </span>
               </div>
 
-              <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '28px', fontWeight: 400, marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
                 Full-Stack Product Engineering
               </h3>
 
@@ -300,7 +301,7 @@ export const BentoGrid: React.FC = () => {
               </div>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Activation Boost</div>
-                <div style={{ fontFamily: 'var(--font-serif)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 700 }}>2.1x Conversion</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 800 }}>2.1x Conversion</div>
               </div>
             </div>
           </div>

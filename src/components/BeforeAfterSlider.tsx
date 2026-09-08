@@ -118,10 +118,11 @@ export const BeforeAfterSlider: React.FC = () => {
 
             <h3
               style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '26px',
+                fontFamily: 'var(--font-display)',
+                fontSize: '24px',
                 color: 'var(--ink-primary)',
-                fontWeight: 400,
+                fontWeight: 700,
+                letterSpacing: '-0.025em',
                 margin: 0
               }}
             >
@@ -191,10 +192,11 @@ export const BeforeAfterSlider: React.FC = () => {
 
             <h3
               style={{
-                fontFamily: 'var(--font-serif)',
-                fontSize: '26px',
+                fontFamily: 'var(--font-display)',
+                fontSize: '24px',
                 color: '#FFFFFF',
-                fontWeight: 400,
+                fontWeight: 700,
+                letterSpacing: '-0.025em',
                 margin: 0
               }}
             >

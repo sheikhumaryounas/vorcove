@@ -90,11 +90,11 @@ export const Testimonials: React.FC = () => {
                 {/* Quote Text */}
                 <p
                   style={{
-                    fontFamily: 'var(--font-serif)',
-                    fontSize: '19px',
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '15.5px',
+                    fontWeight: 500,
                     color: 'var(--ink-primary)',
-                    lineHeight: 1.45,
-                    fontStyle: 'italic',
+                    lineHeight: 1.6,
                     margin: 0
                   }}
                 >

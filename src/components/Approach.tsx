@@ -114,11 +114,11 @@ export const Approach: React.FC = () => {
 
               <h2
                 style={{
-                  fontFamily: 'var(--font-serif)',
+                  fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2.3rem, 4.5vw, 3.6rem)',
-                  fontWeight: 400,
-                  letterSpacing: '-0.025em',
-                  lineHeight: 1.05,
+                  fontWeight: 800,
+                  letterSpacing: '-0.035em',
+                  lineHeight: 1.08,
                   color: '#FFFFFF',
                   marginTop: '18px',
                   maxWidth: '15ch'
@@ -187,8 +187,9 @@ export const Approach: React.FC = () => {
                 >
                   <span
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '24px',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '20px',
+                      fontWeight: 700,
                       color: '#656F80'
                     }}
                   >
@@ -236,8 +237,10 @@ export const Approach: React.FC = () => {
               <div key={sIdx}>
                 <div
                   style={{
-                    fontFamily: 'var(--font-serif)',
+                    fontFamily: 'var(--font-display)',
                     fontSize: '3.4rem',
+                    fontWeight: 800,
+                    letterSpacing: '-0.03em',
                     lineHeight: 1,
                     color: '#FFFFFF'
                   }}

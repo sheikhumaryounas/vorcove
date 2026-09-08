@@ -123,8 +123,9 @@ export const Services: React.FC = () => {
                   </div>
                   <span
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '32px',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '22px',
+                      fontWeight: 700,
                       color: 'var(--ink-muted)'
                     }}
                   >
@@ -147,11 +148,12 @@ export const Services: React.FC = () => {
                   </span>
                   <h3
                     style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontSize: '28px',
-                      fontWeight: 400,
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '24px',
+                      fontWeight: 700,
+                      letterSpacing: '-0.025em',
                       marginTop: '8px',
-                      lineHeight: 1.15,
+                      lineHeight: 1.2,
                       color: 'var(--ink-primary)'
                     }}
                   >
@@ -162,7 +164,7 @@ export const Services: React.FC = () => {
                 {/* Description */}
                 <p
                   style={{
-                    fontSize: '15.5px',
+                    fontSize: '15px',
                     color: 'var(--ink-secondary)',
                     lineHeight: 1.6,
                     margin: 0
@@ -259,10 +261,11 @@ export const Services: React.FC = () => {
                   <div>
                     <span
                       style={{
-                        fontFamily: 'var(--font-serif)',
-                        fontSize: '26px',
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '24px',
                         color: 'var(--ink-primary)',
-                        fontWeight: 400
+                        fontWeight: 800,
+                        letterSpacing: '-0.02em'
                       }}
                     >
                       {service.metricHighlight}

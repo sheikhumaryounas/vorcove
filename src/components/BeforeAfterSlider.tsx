@@ -224,12 +224,15 @@ export const BeforeAfterSlider: React.FC = () => {
             <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
               <a
                 href="#contact"
-                className="btn-primary"
+                className="btn-secondary"
                 style={{
                   width: '100%',
                   justifyContent: 'center',
                   background: '#FFFFFF',
-                  color: '#181E26'
+                  color: '#1E2530',
+                  fontWeight: 600,
+                  fontSize: '14.5px',
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
                 }}
               >
                 <span>Experience the difference</span>

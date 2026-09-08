@@ -287,12 +287,15 @@ export const RoiCalculator: React.FC = () => {
             <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <a
                 href="#contact"
-                className="btn-primary"
+                className="btn-secondary"
                 style={{
                   width: '100%',
                   justifyContent: 'center',
                   background: '#FFFFFF',
-                  color: '#181E26'
+                  color: '#1E2530',
+                  fontWeight: 600,
+                  fontSize: '14.5px',
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
                 }}
               >
                 <span>Lock in this scope for Phase 1</span>

@@ -281,7 +281,7 @@ textarea:focus,
   padding: 10px 20px;
   border-radius: var(--radius-pill);
   background: var(--ink-primary); /* #1E2530 */
-  color: #F7F5EF !important;
+  color: #F7F5EF;
   font-family: var(--font-sans);
   font-size: 14px;
   font-weight: 500;

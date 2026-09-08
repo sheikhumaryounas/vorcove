@@ -99,13 +99,16 @@ export const HeroAgentTerminal: React.FC = () => {
     >
       {/* Top Terminal Bar */}
       <div
+        className="hero-terminal-header"
         style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '12px 18px',
           background: 'rgba(255, 255, 255, 0.05)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          flexWrap: 'wrap',
+          gap: '8px'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

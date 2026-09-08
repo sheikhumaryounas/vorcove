@@ -60,10 +60,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* 2-Column Hero Layout */}
         <div
+          className="hero-grid-layout"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '48px',
             alignItems: 'center'
           }}
         >
@@ -76,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 <span>A smarter way to ship enterprise AI</span>
               </div>
 
-              {/* Playful Stickers */}
+              {/* Playful Sticker */}
               <div
                 className="sticker-tag"
                 style={{
@@ -87,45 +85,34 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 <span>⚡</span>
                 <span>14-Day Delivery</span>
               </div>
-
-              <div
-                className="sticker-tag"
-                style={{
-                  background: '#FFFFFF',
-                  transform: 'rotate(2deg)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}
-              >
-                <CheckCircle2 size={13} strokeWidth={2.5} />
-                <span>Zero POS/Roadmap Friction</span>
-              </div>
             </div>
 
             {/* High-Impact Headline with Hand-Drawn Doodle Loop Sketch */}
             <h1
-              className="heading-editorial"
+              className="heading-editorial hero-headline-text"
               style={{
-                fontSize: 'clamp(2.7rem, 5.2vw, 4.8rem)',
+                fontSize: 'clamp(2.4rem, 4.6vw, 4.4rem)',
                 marginTop: '24px',
                 marginBottom: '0',
-                lineHeight: 1.05
+                lineHeight: 1.08,
+                maxWidth: '22ch',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
               }}
             >
-              We ship the AI product{' '}
+              We ship the AI product your roadmap{' '}
               <span className="doodle-highlight-wrap">
-                your roadmap keeps postponing.
+                keeps postponing.
                 <svg
                   className="doodle-loop-svg"
-                  viewBox="0 0 440 100"
+                  viewBox="0 0 320 80"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M 16 50 C 35 14, 210 10, 410 24 C 438 28, 432 78, 270 90 C 120 100, 10 90, 22 46 C 30 18, 240 14, 420 40"
+                    d="M 12 40 C 25 10, 150 8, 298 18 C 318 22, 314 62, 195 72 C 85 80, 8 72, 16 36 C 22 14, 170 12, 305 32"
                     stroke="var(--ink-primary)"
-                    strokeWidth="2.5"
+                    strokeWidth="2.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     opacity="0.85"

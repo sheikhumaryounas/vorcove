@@ -256,6 +256,46 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
                 )}
               </a>
             ))}
+            {/* Studio Portal link in Mobile Dropdown */}
+            {onOpenPortal && (
+              <button
+                onClick={() => {
+                  playTactileClick();
+                  setMobileMenuOpen(false);
+                  onOpenPortal();
+                }}
+                style={{
+                  padding: '10px 14px',
+                  borderRadius: '10px',
+                  fontSize: '15px',
+                  fontWeight: 600,
+                  color: 'var(--ink-primary)',
+                  background: 'rgba(0, 0, 0, 0.03)',
+                  border: '1px solid var(--border-light)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  cursor: 'pointer',
+                  width: '100%',
+                  textAlign: 'left',
+                  marginTop: '4px'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span>Studio Portal</span>
+                  <span
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: '#10B981'
+                    }}
+                  />
+                </div>
+                <ArrowUpRight size={16} color="var(--ink-muted)" />
+              </button>
+            )}
+
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid var(--border-light)' }}>
               <a
                 href="#contact"
@@ -271,6 +311,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
       </header>
 
       <style>{`
+        @media (max-width: 768px) {
+          .studio-portal-btn {
+            display: none !important;
+          }
+        }
         @media (min-width: 960px) {
           .desktop-nav {
             display: flex !important;

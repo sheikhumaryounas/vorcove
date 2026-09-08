@@ -157,7 +157,10 @@ export const LiveDemos: React.FC = () => {
               padding: '6px',
               borderRadius: '999px',
               border: '1px solid var(--border-light)',
-              boxShadow: 'var(--shadow-sm)'
+              boxShadow: 'var(--shadow-sm)',
+              maxWidth: '100%',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch'
             }}
           >
             <button
@@ -166,7 +169,7 @@ export const LiveDemos: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
+                padding: '10px 18px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'copilot' ? 'var(--ink-primary)' : 'transparent',
@@ -175,6 +178,7 @@ export const LiveDemos: React.FC = () => {
                 fontSize: '13.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
                 transition: 'all 0.25s ease'
               }}
             >
@@ -188,7 +192,7 @@ export const LiveDemos: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
+                padding: '10px 18px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'pricing' ? 'var(--ink-primary)' : 'transparent',
@@ -197,6 +201,7 @@ export const LiveDemos: React.FC = () => {
                 fontSize: '13.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
                 transition: 'all 0.25s ease'
               }}
             >
@@ -210,7 +215,7 @@ export const LiveDemos: React.FC = () => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 20px',
+                padding: '10px 18px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'churn' ? 'var(--ink-primary)' : 'transparent',
@@ -219,6 +224,7 @@ export const LiveDemos: React.FC = () => {
                 fontSize: '13.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
+                whiteSpace: 'nowrap',
                 transition: 'all 0.25s ease'
               }}
             >

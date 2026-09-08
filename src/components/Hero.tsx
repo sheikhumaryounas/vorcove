@@ -87,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               </div>
             </div>
 
-            {/* High-Impact Headline with Hand-Drawn Doodle Loop Sketch */}
+            {/* High-Impact Headline */}
             <h1
               className="heading-editorial hero-headline-text"
               style={{
@@ -100,25 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 overflowWrap: 'break-word'
               }}
             >
-              We ship the AI product your roadmap{' '}
-              <span className="doodle-highlight-wrap">
-                keeps postponing.
-                <svg
-                  className="doodle-loop-svg"
-                  viewBox="0 0 320 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M 12 40 C 25 10, 150 8, 298 18 C 318 22, 314 62, 195 72 C 85 80, 8 72, 16 36 C 22 14, 170 12, 305 32"
-                    stroke="var(--ink-primary)"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    opacity="0.85"
-                  />
-                </svg>
-              </span>
+              We ship the AI product your roadmap keeps postponing.
             </h1>
 
             {/* Subtitle */}

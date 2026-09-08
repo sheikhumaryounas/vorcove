@@ -1,4 +1,4 @@
-# Vorcove — MERN Stack Enterprise Web Application & API Server
+# Vorcove: MERN Stack Enterprise Web Application & API Server
 
 Vorcove is a high-performance, full-stack enterprise web application built on the **MERN** stack (MongoDB, Express, React, Node.js + TypeScript).
 

@@ -152,21 +152,21 @@ export const APPROACH_STEPS: ApproachStep[] = [
   {
     number: "01",
     title: "Scope in a Week",
-    timing: "Days 1 — 5",
+    timing: "Days 1 to 5",
     description: "One deep-dive discovery session, one clear architecture document, and a fixed-price commitment for Phase 1. No vague discovery retainers.",
     deliverable: "Target architecture blueprint, API contract specs, and fixed milestone budget."
   },
   {
     number: "02",
     title: "Demo in Two",
-    timing: "Days 6 — 14",
+    timing: "Days 6 to 14",
     description: "A clickable, fully functional vertical slice running against your actual sandbox or synthetic data. You test real code, not Figma mockups.",
     deliverable: "Working production deploy running on private preview staging."
   },
   {
     number: "03",
     title: "Ship Weekly",
-    timing: "Weeks 3 — 8",
+    timing: "Weeks 3 to 8",
     description: "Continuous delivery to staging and production every Friday. Direct Slack/Discord channel with the engineers writing the code.",
     deliverable: "Live changelogs, test suite results, and business metric impact reports."
   },
@@ -429,9 +429,9 @@ export const CONTACT_PRESETS = {
     "Evaluation & RAG Audit"
   ],
   budgets: [
-    "$15k — $25k (Sprint)",
-    "$25k — $50k (Phase 1 Build)",
-    "$50k — $100k+ (Enterprise Product)",
+    "$15k to $25k (Sprint)",
+    "$25k to $50k (Phase 1 Build)",
+    "$50k to $100k+ (Enterprise Product)",
     "Not sure yet / Exploratory"
   ],
   timelines: [

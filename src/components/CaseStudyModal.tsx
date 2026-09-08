@@ -224,7 +224,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ study, onClose, 
                 "{study.clientQuote.text}"
               </p>
               <div style={{ marginTop: '12px', fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
-                {study.clientQuote.author} — <span style={{ fontWeight: 400, color: 'var(--ink-secondary)' }}>{study.clientQuote.role}, {study.clientQuote.company}</span>
+                {study.clientQuote.author}, <span style={{ fontWeight: 400, color: 'var(--ink-secondary)' }}>{study.clientQuote.role}, {study.clientQuote.company}</span>
               </div>
             </div>
           </div>

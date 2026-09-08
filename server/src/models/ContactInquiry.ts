@@ -52,7 +52,7 @@ const ContactInquirySchema: Schema = new Schema(
     },
     selectedBudget: {
       type: String,
-      default: '$25k — $50k (Phase 1 Build)'
+      default: '$25k to $50k (Phase 1 Build)'
     },
     selectedTimeline: {
       type: String,

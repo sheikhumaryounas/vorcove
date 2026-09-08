@@ -141,7 +141,7 @@ export const BentoGrid: React.FC = () => {
               </h3>
 
               <p style={{ fontSize: '15.5px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: '0 0 20px' }}>
-                Context-aware agents and deterministic retrieval pipelines wired directly into your existing ERP, CRM, and internal databases — with automated evals to prevent semantic drift.
+                Context-aware agents and deterministic retrieval pipelines wired directly into your existing ERP, CRM, and internal databases, with automated evals to prevent semantic drift.
               </p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>

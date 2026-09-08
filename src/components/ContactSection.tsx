@@ -7,7 +7,7 @@ import { submitContactInquiry } from '../services/api';
 
 export const ContactSection: React.FC = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(['AI Agent / Copilot']);
-  const [selectedBudget, setSelectedBudget] = useState<string>('$25k — $50k (Phase 1 Build)');
+  const [selectedBudget, setSelectedBudget] = useState<string>('$25k to $50k (Phase 1 Build)');
   const [selectedTimeline, setSelectedTimeline] = useState<string>('ASAP (within 2 weeks)');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
@@ -225,7 +225,7 @@ export const ContactSection: React.FC = () => {
                     margin: 0
                   }}
                 >
-                  Brief Received — Thank You.
+                  Brief Received. Thank You.
                 </h3>
 
                 <p style={{ fontSize: '15.5px', color: 'var(--ink-secondary)', maxWidth: '42ch', lineHeight: 1.6, margin: 0 }}>

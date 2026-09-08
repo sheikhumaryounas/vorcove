@@ -20,7 +20,7 @@ export const createInquiry = async (req: Request, res: Response) => {
       company: (company || '').trim(),
       brief: brief.trim(),
       selectedServices: Array.isArray(selectedServices) ? selectedServices : [],
-      selectedBudget: selectedBudget || '$25k — $50k (Phase 1 Build)',
+      selectedBudget: selectedBudget || '$25k to $50k (Phase 1 Build)',
       selectedTimeline: selectedTimeline || 'ASAP (within 2 weeks)',
       status: 'new',
       priority: 'medium',

@@ -9,7 +9,7 @@ const KNOWLEDGE_RESPONSES = [
     keywords: ['14', 'days', 'sprint', 'deliver', 'mvp', 'timeline', 'fast', 'quick', 'prototype'],
     title: '14-Day Rapid MVP Sprint',
     badge: 'Core SLA',
-    text: 'Vorcove delivers a working, functional vertical slice deployed to your staging environment within exactly 14 calendar days. Zero pitch decks or wireframe mockups—only real, working code hooked to live test endpoints and real database schemas.',
+    text: 'Vorcove delivers a working, functional vertical slice deployed to your staging environment within exactly 14 calendar days. Zero pitch decks or wireframe mockups, only real, working code hooked to live test endpoints and real database schemas.',
     bulletPoints: [
       'Day 1-3: Architecture blueprint, API contracts, database schema lock',
       'Day 4-10: Core logic, deterministic pipeline, UI integration',
@@ -24,7 +24,7 @@ const KNOWLEDGE_RESPONSES = [
     badge: 'Transparent',
     text: 'We work on transparent, fixed-scope sprint cycles and dedicated senior squad retainers. A typical Phase 1 MVP sprint ranges from $25,000 to $50,000 with a 100% money-back guarantee if the agreed vertical slice is not delivered on time.',
     bulletPoints: [
-      'Phase 1 Sprint (14 Days): $25k — $50k fixed scope',
+      'Phase 1 Sprint (14 Days): $25k to $50k fixed scope',
       'Dedicated Senior Squad (Monthly): $35k/mo (2 staff engineers + architect)',
       'Enterprise Custom Build: Custom milestone-based SLA'
     ],
@@ -115,7 +115,7 @@ export const processChatMessage = async (req: Request, res: Response) => {
           bulletPoints: [
             '14-Day working production vertical slice SLA',
             '100% full IP and GitHub repository ownership',
-            'Senior engineers only—zero junior outsourcing'
+            'Senior engineers only, zero junior outsourcing'
           ],
           ctaLabel: 'Schedule Technical Scoping',
           ctaTargetId: 'contact',

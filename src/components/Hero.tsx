@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 maxWidth: '46ch'
               }}
             >
-              Vorcove builds enterprise AI agents, dynamic pricing engines, and custom full-stack web products for companies in the US and EU — tied directly to EBITDA, revenue, and retention from day one.
+              Vorcove builds enterprise AI agents, dynamic pricing engines, and custom full-stack web products for companies in the US and EU, tied directly to EBITDA, revenue, and retention from day one.
             </p>
 
             {/* TapTile Quick Stat Neo-Pills Strip */}

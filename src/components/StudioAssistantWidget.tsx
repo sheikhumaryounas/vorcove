@@ -88,7 +88,7 @@ export const ASSISTANT_MENU_CATEGORIES: AssistantCategory[] = [
       {
         id: 'existing-stack',
         question: 'Can you work with our existing stack and codebase?',
-        summary: 'Yes — seamless integration with Python, Next.js, Postgres, AWS/GCP, and Kafka.',
+        summary: 'Yes, seamless integration with Python, Next.js, Postgres, AWS/GCP, and Kafka.',
         answer: 'We integrate directly into your existing infrastructure without forcing costly migrations. Our senior engineers hook into your PostgreSQL, Snowflake, Kafka streams, or legacy REST/GraphQL APIs on Day 1.',
         bulletPoints: [
           'Frontend: React, Next.js, TypeScript, Tailwind/Vanilla CSS',
@@ -119,7 +119,7 @@ export const ASSISTANT_MENU_CATEGORIES: AssistantCategory[] = [
           'Single transparent investment figure agreed in advance',
           'Clear milestone criteria and guaranteed delivery dates',
           'Zero junior staffing markups or hourly overrun risk',
-          'No vendor lock-in — follow-on sprints are completely optional'
+          'No vendor lock-in, follow-on sprints are completely optional'
         ],
         ctaLabel: 'Calculate Your ROI →',
         ctaTargetId: 'calculator',

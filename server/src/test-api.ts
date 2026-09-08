@@ -21,7 +21,7 @@ async function testBackend() {
       company: 'Enterprise Solutions Inc',
       brief: 'Need automated AI operations copilot for customer support.',
       selectedServices: ['AI Agent / Copilot', 'High-Throughput Backend'],
-      selectedBudget: '$50k — $100k (Full Squad)',
+      selectedBudget: '$50k to $100k (Full Squad)',
       selectedTimeline: 'ASAP'
     })
   });

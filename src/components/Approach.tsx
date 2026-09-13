@@ -55,7 +55,7 @@ export const Approach: React.FC = () => {
       <div className="container">
         {/* Dark Obsidian Container Band */}
         <div
-          className={`obsidian-band reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="obsidian-band reveal-item"
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           {/* Real Architectural Studio Backdrop (Dark Atmosphere Texture) */}
@@ -197,15 +197,13 @@ export const Approach: React.FC = () => {
               {APPROACH_STEPS.map((step, idx) => (
                 <div
                   key={step.number}
-                  className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '48px 1fr',
                     gap: '20px',
                     padding: '24px 0',
                     borderTop: '1px solid var(--border-dark)',
-                    borderBottom: idx === APPROACH_STEPS.length - 1 ? '1px solid var(--border-dark)' : 'none',
-                    transitionDelay: `${idx * 80}ms`
+                    borderBottom: idx === APPROACH_STEPS.length - 1 ? '1px solid var(--border-dark)' : 'none'
                   }}
                 >
                   <span

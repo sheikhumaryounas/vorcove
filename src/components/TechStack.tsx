@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { TECH_STACK } from '../data/content';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { Cpu, Terminal, Database, Layout, ShieldCheck, Zap } from 'lucide-react';
 import { playTactileClick } from '../utils/audio';
 
 export const TechStack: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   const categories = ['All', 'AI / LLM', 'Backend & Cloud', 'Data & ML', 'Frontend'];
 
@@ -27,7 +25,6 @@ export const TechStack: React.FC = () => {
   return (
     <section
       id="stack"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
@@ -45,7 +42,7 @@ export const TechStack: React.FC = () => {
             alignItems: 'flex-end',
             justifyContent: 'space-between'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div>
             <div className="kicker">
@@ -119,7 +116,7 @@ export const TechStack: React.FC = () => {
           {filtered.map((tech, idx) => (
             <div
               key={tech.name}
-              className={`glass-card tech-stack-card reveal-item ${isRevealed ? 'revealed' : ''}`}
+              className="glass-card tech-stack-card reveal-item"
               style={{
                 padding: '24px',
                 background: '#FFFFFF',

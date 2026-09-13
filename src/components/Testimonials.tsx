@@ -1,15 +1,11 @@
 import React from 'react';
 import { Quote, Star, ArrowUpRight } from 'lucide-react';
 import { TESTIMONIALS } from '../data/content';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
 export const Testimonials: React.FC = () => {
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
-
   return (
     <section
       id="testimonials"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
@@ -21,7 +17,7 @@ export const Testimonials: React.FC = () => {
         {/* Section Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
@@ -54,7 +50,7 @@ export const Testimonials: React.FC = () => {
           {TESTIMONIALS.map((t, idx) => (
             <div
               key={t.id}
-              className={`glass-card glass-card-hover reveal-item ${isRevealed ? 'revealed' : ''}`}
+              className="glass-card glass-card-hover reveal-item"
               style={{
                 padding: '36px 32px',
                 display: 'flex',

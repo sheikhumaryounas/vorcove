@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Calculator, ArrowRight, DollarSign, Clock, Zap, Check } from 'lucide-react';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
 import { saveRoiAudit } from '../services/api';
 import { playTactileClick } from '../utils/audio';
@@ -17,8 +16,6 @@ export const RoiCalculator: React.FC = () => {
   const [clientName, setClientName] = useState<string>('');
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [isSaved, setIsSaved] = useState<boolean>(false);
-
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   // Calculations
   const weeklyWastedCost = teamSize * hoursWastedPerWeek * hourlyRate;
@@ -59,7 +56,6 @@ export const RoiCalculator: React.FC = () => {
   return (
     <section
       id="calculator"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
@@ -71,7 +67,7 @@ export const RoiCalculator: React.FC = () => {
         {/* Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
@@ -109,7 +105,7 @@ export const RoiCalculator: React.FC = () => {
         >
           {/* Controls Input Card */}
           <div
-            className={`glass-card reveal-left stagger-1 ${isRevealed ? 'revealed' : ''}`}
+            className="glass-card reveal-left stagger-1"
             style={{
               padding: '36px',
               background: '#FFFFFF',
@@ -301,7 +297,7 @@ export const RoiCalculator: React.FC = () => {
 
           {/* Results Output Band */}
           <div
-            className={`reveal-right stagger-2 ${isRevealed ? 'revealed' : ''}`}
+            className="reveal-right stagger-2"
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',

@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
 
 /**
- * Clean & Simple Bidirectional Scroll Observer
- * Consistently triggers simple fade-in on BOTH Scroll Down and Scroll Up.
+ * Universal Bidirectional Scroll Animation Controller
+ * Smoothly triggers animations on both scroll-down and scroll-up.
+ * Zero flicker, zero premature unmounting, silky-smooth 60fps performance.
  */
 export function useGlobalScrollAnimations() {
   useEffect(() => {
+    const targetSelector =
+      '.reveal-item, .reveal-left, .reveal-right, .reveal-scale, .reveal-up, .reveal-card, .reveal-heading, .scroll-reveal';
+
+    // If user prefers reduced motion, reveal everything immediately
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document.querySelectorAll('.reveal-item, .scroll-reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right, .spotlight-card, .glass-card').forEach(el => {
+      document.querySelectorAll(targetSelector).forEach((el) => {
         el.classList.add('revealed', 'is-visible');
       });
       return;
@@ -19,28 +24,35 @@ export function useGlobalScrollAnimations() {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed', 'is-visible');
           } else {
-            // Remove classes when off-screen so scrolling back into view re-triggers animation
             entry.target.classList.remove('revealed', 'is-visible');
           }
         });
       },
       {
-        threshold: 0.05,
-        rootMargin: '0px 0px 0px 0px'
+        threshold: 0,
+        rootMargin: '40px 0px -10px 0px'
       }
     );
 
-    const observeElements = () => {
-      const targets = document.querySelectorAll(
-        '.reveal-item, .scroll-reveal, .reveal-up, .reveal-scale, .reveal-left, .reveal-right, .spotlight-card, .glass-card'
-      );
-      targets.forEach((el) => observer.observe(el));
+    const observeTargets = () => {
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const targets = document.querySelectorAll(targetSelector);
+      targets.forEach((el) => {
+        // Reveal immediately if already within viewport on initial load
+        const rect = el.getBoundingClientRect();
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          el.classList.add('revealed', 'is-visible');
+        }
+        observer.observe(el);
+      });
     };
 
-    observeElements();
+    // Initial pass
+    observeTargets();
 
+    // Re-scan when dynamic content changes or renders
     const mutationObserver = new MutationObserver(() => {
-      observeElements();
+      observeTargets();
     });
 
     mutationObserver.observe(document.body, {

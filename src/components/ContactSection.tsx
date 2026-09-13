@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Check, Copy, Mail, Clock, Globe, Shield } from 'lucide-react';
 import { CONTACT_PRESETS } from '../data/content';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 import { submitContactInquiry } from '../services/api';
@@ -22,8 +21,6 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
-
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   const toggleService = (svc: string) => {
     setSelectedServices(prev =>
@@ -70,7 +67,6 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
@@ -80,7 +76,7 @@ export const ContactSection: React.FC = () => {
     >
       <div className="container">
         <div
-          className={`glass-card reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="glass-card reveal-item"
           style={{
             padding: '56px 44px',
             background: 'linear-gradient(180deg, #FFFFFF 0%, #F9F8F4 100%)',

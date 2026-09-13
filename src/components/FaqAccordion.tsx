@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
 import { FAQS } from '../data/content';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 export const FaqAccordion: React.FC = () => {
   const [openId, setOpenId] = useState<string>('faq-1');
   const [filter, setFilter] = useState<'all' | 'engagements' | 'engineering' | 'pricing'>('all');
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   const toggleOpen = (id: string) => {
     playTactileClick();
@@ -21,7 +19,6 @@ export const FaqAccordion: React.FC = () => {
   return (
     <section
       id="faq"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
@@ -38,7 +35,7 @@ export const FaqAccordion: React.FC = () => {
             alignItems: 'flex-end',
             justifyContent: 'space-between'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div>
             <div className="kicker">
@@ -112,7 +109,7 @@ export const FaqAccordion: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className={`glass-card faq-accordion-item reveal-item ${isOpen ? 'is-open' : ''} ${isRevealed ? 'revealed' : ''}`}
+                className={`glass-card faq-accordion-item reveal-item ${isOpen ? 'is-open' : ''}`}
                 style={{
                   borderRadius: '16px',
                   border: isOpen ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',

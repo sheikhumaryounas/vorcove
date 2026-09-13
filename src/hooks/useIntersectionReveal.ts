@@ -12,7 +12,6 @@ export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setIsRevealed(true);
-      el.classList.add('revealed', 'is-visible');
       return;
     }
 
@@ -20,13 +19,9 @@ export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsRevealed(true);
-          el.classList.add('revealed', 'is-visible');
-        } else {
-          setIsRevealed(false);
-          el.classList.remove('revealed', 'is-visible');
         }
       },
-      { threshold: Math.min(threshold, 0.05), rootMargin: '0px 0px 0px 0px' }
+      { threshold, rootMargin: '0px 0px 50px 0px' }
     );
 
     observer.observe(el);

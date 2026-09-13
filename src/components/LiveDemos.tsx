@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Bot, Sliders, Activity, Sparkles, Check, ArrowRight, ShieldCheck, Clock, Zap, AlertCircle, RefreshCw } from 'lucide-react';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 import { executeCopilotTriage, executePricingSimulation, executeChurnAnalysis } from '../services/api';
 
 export const LiveDemos: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'copilot' | 'pricing' | 'churn'>('copilot');
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
   const [backendLatency, setBackendLatency] = useState<number | null>(null);
 
   // Copilot Demo State
@@ -155,7 +153,6 @@ export const LiveDemos: React.FC = () => {
   return (
     <section
       id="demos"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
@@ -167,7 +164,7 @@ export const LiveDemos: React.FC = () => {
         {/* Section Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Database, ShieldCheck, Zap, Bot, ArrowRight, Check, Code, GitFork, Cpu, Layers } from 'lucide-react';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 interface PipelineNode {
@@ -76,7 +75,6 @@ const NODES: PipelineNode[] = [
 
 export const ArchitectureFlow: React.FC = () => {
   const [activeNodeId, setActiveNodeId] = useState<string>('agent');
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   const activeNode = NODES.find(n => n.id === activeNodeId) || NODES[0];
 
@@ -88,7 +86,6 @@ export const ArchitectureFlow: React.FC = () => {
   return (
     <section
       id="architecture"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
@@ -100,7 +97,7 @@ export const ArchitectureFlow: React.FC = () => {
         {/* Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
@@ -129,7 +126,6 @@ export const ArchitectureFlow: React.FC = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
             gap: '16px'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
         >
           {NODES.map((node, idx) => {
             const isSelected = activeNodeId === node.id;
@@ -138,7 +134,7 @@ export const ArchitectureFlow: React.FC = () => {
               <div
                 key={node.id}
                 onClick={() => handleSelectNode(node.id)}
-                className={`architecture-node-card reveal-item ${isSelected ? 'is-selected' : ''} ${isRevealed ? 'revealed' : ''}`}
+                className={`architecture-node-card reveal-item ${isSelected ? 'is-selected' : ''}`}
                 style={{
                   background: isSelected ? 'var(--bg-dark)' : '#FFFFFF',
                   color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
@@ -286,13 +282,16 @@ export const ArchitectureFlow: React.FC = () => {
             </div>
             <pre
               style={{
-                padding: '18px',
+                padding: '18px 22px',
                 margin: 0,
                 fontFamily: 'var(--font-mono)',
                 fontSize: '12.5px',
                 color: '#38BDF8',
-                lineHeight: 1.5,
-                overflowX: 'auto'
+                lineHeight: 1.6,
+                overflowX: 'hidden',
+                whiteSpace: 'pre-wrap',
+                wordBreak: 'break-word',
+                scrollbarWidth: 'none'
               }}
             >
               {activeNode.codeSnippet}

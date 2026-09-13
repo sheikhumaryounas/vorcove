@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { XCircle, CheckCircle2, Sliders, ArrowRight } from 'lucide-react';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 export const BeforeAfterSlider: React.FC = () => {
   const [sliderPos, setSliderPos] = useState<number>(50); // percentage 0 - 100
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
 
   const comparisonRows = [
     {
@@ -43,7 +41,6 @@ export const BeforeAfterSlider: React.FC = () => {
   return (
     <section
       id="comparison"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
@@ -55,7 +52,7 @@ export const BeforeAfterSlider: React.FC = () => {
         {/* Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
@@ -84,11 +81,10 @@ export const BeforeAfterSlider: React.FC = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '24px'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
         >
           {/* Column A: Legacy Approach */}
           <div
-            className={`reveal-left stagger-1 ${isRevealed ? 'revealed' : ''}`}
+            className="reveal-left stagger-1"
             style={{
               background: '#FFFFFF',
               borderRadius: '22px',
@@ -147,7 +143,7 @@ export const BeforeAfterSlider: React.FC = () => {
 
           {/* Column B: The Vorcove Way */}
           <div
-            className={`reveal-right stagger-2 ${isRevealed ? 'revealed' : ''}`}
+            className="reveal-right stagger-2"
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',

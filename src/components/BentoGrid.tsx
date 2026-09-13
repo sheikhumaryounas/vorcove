@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { Bot, Layers, BarChart3, ShieldCheck, Zap, ArrowRight, Check, Code, GitBranch, Cpu, Activity } from 'lucide-react';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { playTactileClick } from '../utils/audio';
 
 export const BentoGrid: React.FC = () => {
-  const { elementRef, isRevealed } = useIntersectionReveal(0.1);
-
   // Mouse spotlight coordinates tracking for each card
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
@@ -19,7 +16,6 @@ export const BentoGrid: React.FC = () => {
   return (
     <section
       id="services"
-      ref={elementRef}
       style={{
         padding: '120px 0',
         background: 'var(--bg-page)',
@@ -36,7 +32,7 @@ export const BentoGrid: React.FC = () => {
             alignItems: 'flex-end',
             justifyContent: 'space-between'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
+          className="reveal-item"
         >
           <div>
             <div className="kicker">
@@ -76,12 +72,11 @@ export const BentoGrid: React.FC = () => {
             gridTemplateColumns: 'repeat(12, 1fr)',
             gap: '24px'
           }}
-          className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
         >
           {/* Card 1: Large Operational Workflow Automation Banner (Span 8 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className={`spotlight-card reveal-item stagger-1 ${isRevealed ? 'revealed' : ''}`}
+            className="spotlight-card reveal-item stagger-1"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
@@ -217,7 +212,7 @@ export const BentoGrid: React.FC = () => {
           {/* Card 2: Dynamic Quoting & Pricing Engine (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className={`spotlight-card reveal-item stagger-2 ${isRevealed ? 'revealed' : ''}`}
+            className="spotlight-card reveal-item stagger-2"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
@@ -263,7 +258,7 @@ export const BentoGrid: React.FC = () => {
           {/* Card 3: Custom Business Applications & Portals (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className={`spotlight-card reveal-item stagger-3 ${isRevealed ? 'revealed' : ''}`}
+            className="spotlight-card reveal-item stagger-3"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',

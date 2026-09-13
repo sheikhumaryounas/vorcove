@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '100%' }}>
               <div className="badge-neo-pill">
                 <span className="pulse-dot" />
-                <span>A smarter way to ship enterprise AI</span>
+                <span>Custom Software & Workflow Automation</span>
               </div>
 
               {/* 14-Day Delivery Sticker */}
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 }}
               >
                 <span>⚡</span>
-                <span>14-Day Delivery</span>
+                <span>14-Day Working Software</span>
               </div>
 
               {/* Live in Production Sticker */}
@@ -94,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 }}
               >
                 <span>⚡</span>
-                <span>Live in Production</span>
+                <span>100% IP Ownership</span>
               </div>
             </div>
 
@@ -111,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 overflowWrap: 'break-word'
               }}
             >
-              We ship the AI product your roadmap keeps postponing.
+              We turn your real-time business bottlenecks into custom automated software.
             </h1>
 
             {/* Subtitle */}
@@ -122,12 +122,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 color: 'var(--ink-secondary)',
                 marginTop: '20px',
                 marginBottom: '0',
-                maxWidth: '46ch',
+                maxWidth: '48ch',
                 wordBreak: 'break-word',
                 overflowWrap: 'break-word'
               }}
             >
-              Vorcove builds enterprise AI agents, dynamic pricing engines, and custom full-stack web products for companies in the US and EU, tied directly to EBITDA, revenue, and retention from day one.
+              Vorcove engineers custom software products, intelligent workflow automations, and high-speed operational systems for growing businesses, eliminating manual friction and delivering your first working build in 14 days.
             </p>
 
             {/* TapTile Quick Stat Neo-Pills Strip */}
@@ -148,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   fontSize: '11.5px'
                 }}
               >
-                <span style={{ fontWeight: 800 }}>0</span> ROADMAP DELAYS
+                <span style={{ fontWeight: 800 }}>0</span> MANUAL TOIL
               </div>
 
               <div
@@ -159,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   fontSize: '11.5px'
                 }}
               >
-                <span style={{ fontWeight: 800 }}>100%</span> SENIOR SQUADS
+                <span style={{ fontWeight: 800 }}>100%</span> SENIOR ENGINEERS
               </div>
 
               <div
@@ -170,7 +170,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   fontSize: '11.5px'
                 }}
               >
-                <span style={{ fontWeight: 800 }}>&lt;14 DAYS</span> TO LIVE DEMO
+                <span style={{ fontWeight: 800 }}>&lt;14 DAYS</span> TO WORKING BUILD
               </div>
             </div>
 

@@ -3,6 +3,7 @@ import { Calculator, ArrowRight, DollarSign, Clock, Zap, Check } from 'lucide-re
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
 import { saveRoiAudit } from '../services/api';
+import { playTactileClick } from '../utils/audio';
 
 export const RoiCalculator: React.FC = () => {
   const [teamSize, setTeamSize] = useState<number>(25);
@@ -74,7 +75,7 @@ export const RoiCalculator: React.FC = () => {
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
-            <span>ROI & Scope Calculator</span>
+            <span>ROI & Efficiency Calculator</span>
           </div>
           <h2
             className="heading-editorial"
@@ -84,7 +85,7 @@ export const RoiCalculator: React.FC = () => {
               marginBottom: '16px'
             }}
           >
-            Compute your engineering payback timeline.
+            Compute your operational payback timeline.
           </h2>
           <p
             style={{
@@ -93,7 +94,7 @@ export const RoiCalculator: React.FC = () => {
               lineHeight: 1.6
             }}
           >
-            Estimate your operational cost recovery, annual EBITDA savings, and payback period before booking a scoping call.
+            Estimate your team's manual hours recovered, operational cost savings, and investment payback period through custom automated software.
           </p>
         </div>
 
@@ -112,107 +113,188 @@ export const RoiCalculator: React.FC = () => {
             style={{
               padding: '36px',
               background: '#FFFFFF',
-              boxShadow: 'var(--shadow-md)'
+              boxShadow: 'var(--shadow-md)',
+              borderRadius: '24px'
             }}
           >
-            <h3 style={{ fontSize: '15px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '24px' }}>
-              Your Team & Operational Scope
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '22px' }}>
+              <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />
+              <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-muted)', margin: 0 }}>
+                Your Team & Operational Scope
+              </h3>
+            </div>
 
             {/* Scope Type Selector */}
-            <div style={{ marginBottom: '24px' }}>
-              <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)', marginBottom: '10px' }}>
-                Primary Build Objective
+            <div style={{ marginBottom: '28px' }}>
+              <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)', marginBottom: '12px' }}>
+                Primary Automation Objective
               </label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
                 {[
-                  { id: 'ai-ops', label: 'AI Triage & Copilot' },
-                  { id: 'pricing', label: 'Dynamic Pricing Engine' },
-                  { id: 'product', label: 'Full-Stack Web App' },
-                  { id: 'data', label: 'Churn & ML Pipeline' }
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => setProjectType(item.id as any)}
-                    style={{
-                      padding: '10px 12px',
-                      borderRadius: '10px',
-                      border: projectType === item.id ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
-                      background: projectType === item.id ? 'var(--bg-surface)' : '#FFFFFF',
-                      color: 'var(--ink-primary)',
-                      fontSize: '12.5px',
-                      fontWeight: 600,
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    {item.label}
-                  </button>
-                ))}
+                  { id: 'ai-ops', label: 'Workflow Automation & Triage' },
+                  { id: 'pricing', label: 'Dynamic Quoting Engine' },
+                  { id: 'product', label: 'Custom Software / Portal' },
+                  { id: 'data', label: 'Operational Telemetry' }
+                ].map((item) => {
+                  const isSelected = projectType === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => {
+                        playTactileClick();
+                        setProjectType(item.id as any);
+                      }}
+                      className={`roi-objective-btn ${isSelected ? 'is-selected' : ''}`}
+                      style={{
+                        padding: '12px 14px',
+                        borderRadius: '12px',
+                        border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                        background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
+                        color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
+                        fontSize: '12.5px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '8px',
+                        boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
+                      }}
+                    >
+                      <span>{item.label}</span>
+                      {isSelected ? (
+                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
+                      ) : (
+                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--border-light)', flexShrink: 0 }} />
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* Sliders */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               {/* Team Size */}
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <div className="roi-slider-group">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                     Impacted Team Size
                   </span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700 }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      background: 'var(--bg-surface)',
+                      border: '1px solid var(--border-light)',
+                      padding: '3px 10px',
+                      borderRadius: '8px',
+                      color: 'var(--ink-primary)'
+                    }}
+                  >
                     {teamSize} people
                   </span>
                 </div>
-                <input
-                  type="range"
-                  min={5}
-                  max={150}
-                  step={5}
-                  value={teamSize}
-                  onChange={(e) => setTeamSize(Number(e.target.value))}
-                />
+                {(() => {
+                  const teamSizePercent = Math.round(((teamSize - 5) / (150 - 5)) * 100);
+                  return (
+                    <input
+                      type="range"
+                      min={5}
+                      max={150}
+                      step={5}
+                      value={teamSize}
+                      className="custom-roi-slider"
+                      style={{
+                        background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${teamSizePercent}%, #E5E2D8 ${teamSizePercent}%, #E5E2D8 100%)`
+                      }}
+                      onChange={(e) => setTeamSize(Number(e.target.value))}
+                    />
+                  );
+                })()}
               </div>
 
               {/* Hours Wasted */}
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <div className="roi-slider-group">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                     Manual Toil per Person / Week
                   </span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700 }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      background: 'var(--bg-surface)',
+                      border: '1px solid var(--border-light)',
+                      padding: '3px 10px',
+                      borderRadius: '8px',
+                      color: 'var(--ink-primary)'
+                    }}
+                  >
                     {hoursWastedPerWeek} hrs/wk
                   </span>
                 </div>
-                <input
-                  type="range"
-                  min={4}
-                  max={30}
-                  step={1}
-                  value={hoursWastedPerWeek}
-                  onChange={(e) => setHoursWastedPerWeek(Number(e.target.value))}
-                />
+                {(() => {
+                  const hoursWastedPercent = Math.round(((hoursWastedPerWeek - 4) / (30 - 4)) * 100);
+                  return (
+                    <input
+                      type="range"
+                      min={4}
+                      max={30}
+                      step={1}
+                      value={hoursWastedPerWeek}
+                      className="custom-roi-slider"
+                      style={{
+                        background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${hoursWastedPercent}%, #E5E2D8 ${hoursWastedPercent}%, #E5E2D8 100%)`
+                      }}
+                      onChange={(e) => setHoursWastedPerWeek(Number(e.target.value))}
+                    />
+                  );
+                })()}
               </div>
 
               {/* Hourly Rate */}
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <div className="roi-slider-group">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
                   <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                     Average Loaded Hourly Cost
                   </span>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '14px', fontWeight: 700 }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '13px',
+                      fontWeight: 700,
+                      background: 'var(--bg-surface)',
+                      border: '1px solid var(--border-light)',
+                      padding: '3px 10px',
+                      borderRadius: '8px',
+                      color: 'var(--ink-primary)'
+                    }}
+                  >
                     ${hourlyRate}/hr
                   </span>
                 </div>
-                <input
-                  type="range"
-                  min={30}
-                  max={150}
-                  step={5}
-                  value={hourlyRate}
-                  onChange={(e) => setHourlyRate(Number(e.target.value))}
-                />
+                {(() => {
+                  const hourlyRatePercent = Math.round(((hourlyRate - 30) / (150 - 30)) * 100);
+                  return (
+                    <input
+                      type="range"
+                      min={30}
+                      max={150}
+                      step={5}
+                      value={hourlyRate}
+                      className="custom-roi-slider"
+                      style={{
+                        background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${hourlyRatePercent}%, #E5E2D8 ${hourlyRatePercent}%, #E5E2D8 100%)`
+                      }}
+                      onChange={(e) => setHourlyRate(Number(e.target.value))}
+                    />
+                  );
+                })()}
               </div>
             </div>
           </div>
@@ -413,6 +495,95 @@ export const RoiCalculator: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .roi-objective-btn {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .roi-objective-btn:hover {
+          transform: translateY(-2px);
+        }
+
+        .roi-objective-btn:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 6px 16px -2px rgba(30, 37, 48, 0.12) !important;
+          background: #FFFFFF !important;
+        }
+
+        .roi-objective-btn.is-selected:hover {
+          box-shadow: 0 8px 20px -2px rgba(30, 37, 48, 0.3) !important;
+        }
+
+        .roi-objective-btn:active {
+          transform: translateY(0) scale(0.98);
+        }
+
+        .roi-slider-group {
+          padding: 8px 0;
+        }
+
+        .custom-roi-slider {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 100%;
+          height: 6px;
+          border-radius: 999px;
+          outline: none;
+          cursor: pointer;
+        }
+
+        .custom-roi-slider::-webkit-slider-runnable-track {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 100%;
+          height: 6px;
+          background: transparent;
+          border-radius: 999px;
+        }
+
+        .custom-roi-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: var(--ink-primary);
+          border: 2.5px solid #FFFFFF;
+          box-shadow: 0 2px 8px rgba(30, 37, 48, 0.28);
+          cursor: grab;
+          margin-top: -7px; /* (6px track - 20px thumb) / 2 = -7px for perfect vertical centering */
+          transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease, background-color 0.18s ease;
+        }
+
+        .custom-roi-slider::-webkit-slider-thumb:hover {
+          transform: scale(1.25);
+          box-shadow: 0 4px 12px rgba(30, 37, 48, 0.4);
+          background: #111827;
+        }
+
+        .custom-roi-slider::-webkit-slider-thumb:active {
+          cursor: grabbing;
+          transform: scale(1.15);
+        }
+
+        .custom-roi-slider::-moz-range-thumb {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: var(--ink-primary);
+          border: 2.5px solid #FFFFFF;
+          box-shadow: 0 2px 8px rgba(30, 37, 48, 0.28);
+          cursor: grab;
+          transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+        }
+
+        .custom-roi-slider::-moz-range-thumb:hover {
+          transform: scale(1.25);
+          box-shadow: 0 4px 12px rgba(30, 37, 48, 0.4);
+        }
+      `}</style>
     </section>
   );
 };

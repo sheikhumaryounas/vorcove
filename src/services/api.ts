@@ -277,7 +277,21 @@ export const fetchTestimonials = async () => {
 };
 
 // ==========================================
-// 7. Admin Authentication & Analytics
+// 7. Newsletter Subscription
+// ==========================================
+export const subscribeNewsletter = async (email: string, source = 'website_footer') => {
+  return apiRequest('/newsletter/subscribe', {
+    method: 'POST',
+    body: JSON.stringify({ email, source })
+  });
+};
+
+export const fetchAdminSubscribers = async () => {
+  return apiRequest<any[]>('/newsletter');
+};
+
+// ==========================================
+// 8. Admin Authentication & Analytics
 // ==========================================
 export const loginAdmin = async (email: string, password: string) => {
   const response = await apiRequest<{ token: string; user: AdminUser }>('/auth/login', {
@@ -303,6 +317,7 @@ export const fetchAdminStats = async () => {
       capturedChatLeads: number;
       totalDemoRuns: number;
       caseStudiesCount: number;
+      totalSubscribers: number;
     };
     system: {
       uptimeSeconds: number;

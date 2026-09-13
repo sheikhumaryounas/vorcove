@@ -41,7 +41,7 @@ export const BentoGrid: React.FC = () => {
           <div>
             <div className="kicker">
               <span className="kicker-dot" />
-              <span>Bento Architecture</span>
+              <span>Tailored Solutions</span>
             </div>
             <h2
               className="heading-editorial"
@@ -51,7 +51,7 @@ export const BentoGrid: React.FC = () => {
                 marginBottom: 0
               }}
             >
-              Engineered for velocity, tested against EBITDA.
+              Engineered to eliminate friction, proven by business ROI.
             </h2>
           </div>
 
@@ -64,7 +64,7 @@ export const BentoGrid: React.FC = () => {
               margin: 0
             }}
           >
-            Senior engineering teams only. We scope the highest-impact slice, build in the open, and deliver production software tied to verifiable financial outcomes.
+            Senior engineering squad only. We scope your largest operational bottleneck, build the custom software solution, and deliver production-ready systems tied to verifiable financial outcomes.
           </p>
         </div>
 
@@ -78,7 +78,7 @@ export const BentoGrid: React.FC = () => {
           }}
           className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
         >
-          {/* Card 1: Large AI & Copilot Banner (Span 8 cols) */}
+          {/* Card 1: Large Operational Workflow Automation Banner (Span 8 cols) */}
           <div
             onMouseMove={handleMouseMove}
             className="spotlight-card"
@@ -137,15 +137,15 @@ export const BentoGrid: React.FC = () => {
                   lineHeight: 1.15
                 }}
               >
-                Autonomous AI Agents & Hybrid RAG
+                Intelligent Workflow Automation
               </h3>
 
               <p style={{ fontSize: '15.5px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: '0 0 20px' }}>
-                Context-aware agents and deterministic retrieval pipelines wired directly into your existing ERP, CRM, and internal databases, with automated evals to prevent semantic drift.
+                Automated document intake, invoice parsing, and multi-system data routing wired directly into your existing ERP, CRM, and databases with zero error drift.
               </p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                {['Multi-Agent Orchestration', 'Hybrid Vector Search', 'Continuous Evals', 'PII Sandboxing'].map((tag) => (
+                {['Document Processing', 'Automated Triage', 'ERP & Database Sync', 'Human-in-the-Loop'].map((tag) => (
                   <span
                     key={tag}
                     className="sticker-tag"
@@ -176,7 +176,7 @@ export const BentoGrid: React.FC = () => {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <Bot size={16} color="#FFFFFF" />
                   <span style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF' }}>
-                    Agent Execution Stream
+                    Automated Processing Stream
                   </span>
                 </div>
                 <span className="sticker-tag" style={{ fontSize: '10px', padding: '2px 7px', background: '#FFFFFF', color: 'var(--ink-primary)', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
@@ -187,25 +187,25 @@ export const BentoGrid: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
                   <Check size={13} strokeWidth={3} />
-                  <span>Verified JWT auth & PII scrubbed</span>
+                  <span>Verified JWT auth & data sanitized</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
                   <Check size={13} strokeWidth={3} />
-                  <span>pgvector semantic search matched 3 manifests</span>
+                  <span>Document parser matched 3 customs manifests</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
                   <Check size={13} strokeWidth={3} />
-                  <span>LangGraph tool call executed on AS400 ERP</span>
+                  <span>Automated sync executed on internal ERP</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#E2E8F0' }}>
                   <Activity size={13} />
-                  <span>Eval test: 0.00% hallucination drift</span>
+                  <span>Verification test: 100% data integrity</span>
                 </div>
               </div>
 
               <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.15)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: '12px', color: '#CBD5E1' }}>
-                  First Response: <strong style={{ color: '#FFFFFF' }}>11m (was 9h)</strong>
+                  Processing Time: <strong style={{ color: '#FFFFFF' }}>11m (was 9h)</strong>
                 </span>
                 <a href="#demos" style={{ fontSize: '12px', fontWeight: 700, color: '#FFFFFF', textDecoration: 'underline' }}>
                   Test Live Demo →
@@ -214,7 +214,7 @@ export const BentoGrid: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 2: Dynamic Pricing Engine (Span 6 cols) */}
+          {/* Card 2: Dynamic Quoting & Pricing Engine (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
             className="spotlight-card"
@@ -232,7 +232,7 @@ export const BentoGrid: React.FC = () => {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
-                  02 • Revenue Tooling
+                  02 • Revenue & Quoting
                 </span>
                 <span className="sticker-tag" style={{ fontSize: '11px' }}>
                   +7.4% Margin Lift
@@ -240,11 +240,11 @@ export const BentoGrid: React.FC = () => {
               </div>
 
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
-                Dynamic Algorithmic Pricing Engines
+                Real-Time Quoting & Calculation Engines
               </h3>
 
               <p style={{ fontSize: '15px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: 0 }}>
-                High-throughput microservices recalculating 180,000+ catalog SKU prices in 45ms based on real-time spot indexes, competitor scrapes, and purchase velocity.
+                High-speed custom calculation engines recalculating 180,000+ catalog SKU prices in 45ms based on live supplier costs, purchase tiers, and margin protection rules.
               </p>
             </div>
 
@@ -260,7 +260,7 @@ export const BentoGrid: React.FC = () => {
             </div>
           </div>
 
-          {/* Card 3: Full-Stack Product Engineering (Span 6 cols) */}
+          {/* Card 3: Custom Business Applications & Portals (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
             className="spotlight-card"
@@ -278,7 +278,7 @@ export const BentoGrid: React.FC = () => {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
-                  03 • Full-Stack Product
+                  03 • Custom Software
                 </span>
                 <span className="sticker-tag" style={{ fontSize: '11px' }}>
                   14-Day Delivery
@@ -286,11 +286,11 @@ export const BentoGrid: React.FC = () => {
               </div>
 
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
-                Full-Stack Product Engineering
+                Custom Software & Operations Portals
               </h3>
 
               <p style={{ fontSize: '15px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: 0 }}>
-                Pixel-perfect React/TypeScript frontends and resilient Go/Python backend services built by staff-level engineers. Weekly production deployments directly to your repositories.
+                Tailored web platforms, client onboarding hubs, and internal management systems built by staff-level engineers to replace spreadsheet chaos with bulletproof software.
               </p>
             </div>
 

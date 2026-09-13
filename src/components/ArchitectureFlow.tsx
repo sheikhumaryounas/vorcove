@@ -104,7 +104,7 @@ export const ArchitectureFlow: React.FC = () => {
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
-            <span>Under The Hood</span>
+            <span>System Architecture</span>
           </div>
           <h2
             className="heading-editorial"
@@ -114,10 +114,10 @@ export const ArchitectureFlow: React.FC = () => {
               marginBottom: '16px'
             }}
           >
-            Deterministic, Zero-Drift Pipeline Architecture
+            Deterministic, Zero-Error Automation Pipeline
           </h2>
           <p style={{ fontSize: '17px', color: 'var(--ink-secondary)', lineHeight: 1.6 }}>
-            Click through our 4-stage autonomous pipeline to inspect latency benchmarks, vector search algorithms, and continuous eval guardrails.
+            Click through our 4-stage pipeline to inspect how raw business data and operational requests are ingested, sanitized, automatically routed, and validated with zero error drift.
           </p>
         </div>
 
@@ -138,14 +138,14 @@ export const ArchitectureFlow: React.FC = () => {
               <div
                 key={node.id}
                 onClick={() => handleSelectNode(node.id)}
+                className={`architecture-node-card ${isSelected ? 'is-selected' : ''}`}
                 style={{
                   background: isSelected ? 'var(--bg-dark)' : '#FFFFFF',
                   color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
                   borderRadius: '16px',
                   padding: '24px 20px',
-                  border: isSelected ? '1px solid var(--border-dark)' : '1px solid var(--border-light)',
+                  border: isSelected ? '1px solid rgba(52, 211, 153, 0.4)' : '1px solid var(--border-light)',
                   cursor: 'pointer',
-                  transition: 'all 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
                   boxShadow: isSelected ? 'var(--shadow-dark)' : 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -178,8 +178,10 @@ export const ArchitectureFlow: React.FC = () => {
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Icon size={18} color={isSelected ? '#34D399' : '#181E26'} />
-                  <h3 style={{ fontSize: '15px', fontWeight: 600, margin: 0 }}>
+                  <div className="card-icon-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon size={18} color={isSelected ? '#34D399' : '#181E26'} />
+                  </div>
+                  <h3 style={{ fontSize: '15px', fontWeight: 600, margin: 0, color: isSelected ? '#FFFFFF' : 'var(--ink-primary)' }}>
                     {node.name}
                   </h3>
                 </div>
@@ -297,6 +299,38 @@ export const ArchitectureFlow: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .architecture-node-card {
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease !important;
+          user-select: none;
+        }
+
+        .architecture-node-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .architecture-node-card:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 14px 30px -4px rgba(30, 37, 48, 0.12), 0 3px 8px rgba(30, 37, 48, 0.04) !important;
+        }
+
+        .architecture-node-card.is-selected:hover {
+          box-shadow: 0 22px 48px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(52, 211, 153, 0.6) !important;
+        }
+
+        .architecture-node-card:active {
+          transform: translateY(-2px) scale(0.985);
+        }
+
+        .architecture-node-card .card-icon-wrap {
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .architecture-node-card:hover .card-icon-wrap {
+          transform: scale(1.2) rotate(-3deg);
+        }
+      `}</style>
     </section>
   );
 };

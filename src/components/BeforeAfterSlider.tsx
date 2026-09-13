@@ -15,28 +15,28 @@ export const BeforeAfterSlider: React.FC = () => {
       delta: '10x Faster'
     },
     {
-      metric: 'Support Inquiry Resolution',
-      before: '9.2 hours average wait across email queues',
-      after: '11 minutes with 98.4% auto-resolution triage',
+      metric: 'Fit to Your Business Workflow',
+      before: 'Rigid off-the-shelf software forcing messy workarounds',
+      after: 'Custom automated software tailored to your exact bottleneck',
+      delta: '100% Custom'
+    },
+    {
+      metric: 'Operational Latency & Backlog',
+      before: '9.2 hours average wait across manual email & ERP queues',
+      after: '11 minutes with automated data extraction & triage',
       delta: '-98% Latency'
     },
     {
-      metric: 'Engineering Squad Structure',
-      before: 'Junior offshore teams & account manager layers',
-      after: 'Senior/staff engineers with direct Slack/Git access',
-      delta: 'Zero Middlemen'
+      metric: 'Quoting & Pricing Accuracy',
+      before: 'Static price sheets with frequent errors & 6-9% margin leaks',
+      after: 'Real-time dynamic quoting engine recalculating in 45ms',
+      delta: '+7.4% Margin'
     },
     {
-      metric: 'Pricing & Catalog Margin',
-      before: 'Static quarterly PDF price sheets leaking 6-9%',
-      after: 'Real-time dynamic pricing engine recalculating in 45ms',
-      delta: '+7.4% Gross Margin'
-    },
-    {
-      metric: 'Code Ownership & IP',
-      before: 'Proprietary vendor lock-in & hidden licensing fees',
-      after: '100% clean code committed to your organization repos',
-      delta: '100% Client Owned'
+      metric: 'Code Ownership & Pricing',
+      before: 'Endless hourly billing and proprietary vendor lock-in',
+      after: 'Fixed-price sprints & 100% clean code ownership in your repo',
+      delta: 'Zero Lock-In'
     }
   ];
 
@@ -69,10 +69,10 @@ export const BeforeAfterSlider: React.FC = () => {
               marginBottom: '16px'
             }}
           >
-            Traditional Consulting vs. Vorcove
+            Generic Software vs. Vorcove Custom Automation
           </h2>
           <p style={{ fontSize: '17px', color: 'var(--ink-secondary)', lineHeight: 1.6 }}>
-            Most agencies sell billable hours and discovery theatre. We ship production software measured strictly in gross margin, revenue velocity, and customer retention.
+            Most agencies sell billable hours, and off-the-shelf software never fits your workflow. We engineer custom automated software built specifically around your operational bottlenecks.
           </p>
         </div>
 
@@ -112,7 +112,7 @@ export const BeforeAfterSlider: React.FC = () => {
                   borderRadius: '999px'
                 }}
               >
-                Traditional Agency / Enterprise IT
+                Traditional Software & Generic IT
               </span>
               <XCircle size={22} color="#DC2626" />
             </div>
@@ -127,7 +127,7 @@ export const BeforeAfterSlider: React.FC = () => {
                 margin: 0
               }}
             >
-              The Billable Hours Trap
+              The Generic & Rigid Trap
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -186,7 +186,7 @@ export const BeforeAfterSlider: React.FC = () => {
                   border: '1px solid rgba(16, 185, 129, 0.3)'
                 }}
               >
-                The Vorcove Engineering Loop
+                The Vorcove Custom Automation Model
               </span>
               <CheckCircle2 size={22} color="#34D399" />
             </div>
@@ -201,7 +201,7 @@ export const BeforeAfterSlider: React.FC = () => {
                 margin: 0
               }}
             >
-              Fixed Price • 14-Day Velocity • Zero Fluff
+              Tailored Software • 14-Day Delivery • Full IP Ownership
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

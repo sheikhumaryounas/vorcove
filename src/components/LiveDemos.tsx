@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bot, Sliders, Activity, Sparkles, Check, ArrowRight, ShieldCheck, Clock, Zap, AlertCircle, RefreshCw } from 'lucide-react';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
+import { playTactileClick } from '../utils/audio';
 
 import { executeCopilotTriage, executePricingSimulation, executeChurnAnalysis } from '../services/api';
 
@@ -106,6 +107,51 @@ export const LiveDemos: React.FC = () => {
     }
   };
 
+  // Sync Pricing simulation to backend telemetry
+  React.useEffect(() => {
+    if (activeTab === 'pricing') {
+      const timer = setTimeout(async () => {
+        try {
+          const start = Date.now();
+          const res = await executePricingSimulation({
+            monthlyRevenue,
+            baseMargin,
+            elasticityScore
+          });
+          if (res.success) {
+            setBackendLatency(Date.now() - start);
+          }
+        } catch {
+          // fallback gracefully
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTab, monthlyRevenue, baseMargin, elasticityScore]);
+
+  // Sync Churn simulation to backend telemetry
+  React.useEffect(() => {
+    if (activeTab === 'churn') {
+      const timer = setTimeout(async () => {
+        try {
+          const start = Date.now();
+          const res = await executeChurnAnalysis({
+            accountName: telemetryState.accountTier,
+            usageDropPercent: telemetryState.loginDrop,
+            openTickets: telemetryState.supportFriction,
+            contractValue: 120000
+          });
+          if (res.success) {
+            setBackendLatency(Date.now() - start);
+          }
+        } catch {
+          // fallback gracefully
+        }
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [activeTab, telemetryState]);
+
   return (
     <section
       id="demos"
@@ -125,7 +171,7 @@ export const LiveDemos: React.FC = () => {
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
             <span className="kicker-dot" />
-            <span>Interactive Simulator</span>
+            <span>Interactive Simulators</span>
           </div>
           <h2
             className="heading-editorial"
@@ -135,7 +181,7 @@ export const LiveDemos: React.FC = () => {
               marginBottom: '18px'
             }}
           >
-            Experience what we build before you commit.
+            Experience our automated solutions before you commit.
           </h2>
           <p
             style={{
@@ -144,13 +190,12 @@ export const LiveDemos: React.FC = () => {
               lineHeight: 1.6
             }}
           >
-            Test interactive prototypes of our deployed enterprise AI and machine learning systems. Click scenarios or tweak parameters to see real-time performance.
+            Test interactive simulations of our custom automation systems, dynamic quoting engines, and operational monitoring tools. Select scenarios or tweak business parameters to see real-time performance.
           </p>
 
           {/* Tab Switchers */}
           <div
             style={{
-              marginTop: '36px',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
@@ -165,12 +210,16 @@ export const LiveDemos: React.FC = () => {
             }}
           >
             <button
-              onClick={() => setActiveTab('copilot')}
+              onClick={() => {
+                playTactileClick();
+                setActiveTab('copilot');
+              }}
+              className={`demo-nav-tab ${activeTab === 'copilot' ? 'is-active' : ''}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 18px',
+                padding: '10px 20px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'copilot' ? 'var(--ink-primary)' : 'transparent',
@@ -180,20 +229,24 @@ export const LiveDemos: React.FC = () => {
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                transition: 'all 0.25s ease'
+                boxShadow: activeTab === 'copilot' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
               }}
             >
               <Bot size={16} />
-              <span>AI Triage Copilot</span>
+              <span>Automated Ops Triage</span>
             </button>
 
             <button
-              onClick={() => setActiveTab('pricing')}
+              onClick={() => {
+                playTactileClick();
+                setActiveTab('pricing');
+              }}
+              className={`demo-nav-tab ${activeTab === 'pricing' ? 'is-active' : ''}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 18px',
+                padding: '10px 20px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'pricing' ? 'var(--ink-primary)' : 'transparent',
@@ -203,20 +256,24 @@ export const LiveDemos: React.FC = () => {
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                transition: 'all 0.25s ease'
+                boxShadow: activeTab === 'pricing' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
               }}
             >
               <Sliders size={16} />
-              <span>Dynamic Pricing Engine</span>
+              <span>Dynamic Quoting Engine</span>
             </button>
 
             <button
-              onClick={() => setActiveTab('churn')}
+              onClick={() => {
+                playTactileClick();
+                setActiveTab('churn');
+              }}
+              className={`demo-nav-tab ${activeTab === 'churn' ? 'is-active' : ''}`}
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                padding: '10px 18px',
+                padding: '10px 20px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'churn' ? 'var(--ink-primary)' : 'transparent',
@@ -226,11 +283,11 @@ export const LiveDemos: React.FC = () => {
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                transition: 'all 0.25s ease'
+                boxShadow: activeTab === 'churn' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
               }}
             >
               <Activity size={16} />
-              <span>Churn Early-Warning</span>
+              <span>Operational Retention Radar</span>
             </button>
           </div>
         </div>
@@ -262,35 +319,54 @@ export const LiveDemos: React.FC = () => {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   {sampleTickets.map((ticket, idx) => {
                     const isSelected = selectedTicketIdx === idx;
                     return (
                       <div
                         key={ticket.id}
-                        onClick={() => handleSelectTicket(idx)}
+                        onClick={() => {
+                          playTactileClick();
+                          handleSelectTicket(idx);
+                        }}
+                        className={`demo-ticket-card ${isSelected ? 'is-selected' : ''}`}
                         style={{
-                          padding: '16px 18px',
-                          borderRadius: '14px',
+                          padding: '18px 20px',
+                          borderRadius: '16px',
                           border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
-                          background: isSelected ? 'var(--bg-surface)' : '#FFFFFF',
+                          background: isSelected ? 'linear-gradient(135deg, #FFFFFF 0%, #F5F3EC 100%)' : '#FFFFFF',
                           cursor: 'pointer',
-                          transition: 'all 0.2s ease',
-                          boxShadow: isSelected ? 'var(--shadow-sm)' : 'none'
+                          boxShadow: isSelected ? '0 8px 20px -2px rgba(30, 37, 48, 0.15)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
                         }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11.5px', color: 'var(--ink-muted)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11.5px', fontWeight: 600, color: isSelected ? 'var(--ink-primary)' : 'var(--ink-muted)' }}>
                             {ticket.id}
                           </span>
-                          <span style={{ fontSize: '11px', fontWeight: 600, padding: '2px 8px', borderRadius: '999px', background: isSelected ? '#181E26' : '#ECE8DC', color: isSelected ? '#FFFFFF' : '#4A5464' }}>
-                            {ticket.category}
+                          <span
+                            style={{
+                              fontSize: '11px',
+                              fontWeight: 600,
+                              padding: '3px 10px',
+                              borderRadius: '999px',
+                              background: isSelected ? 'var(--ink-primary)' : '#EFECE3',
+                              color: isSelected ? '#FFFFFF' : '#4A5464',
+                              border: isSelected ? '1px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '5px'
+                            }}
+                          >
+                            <span>{ticket.category}</span>
+                            {isSelected && (
+                              <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#34D399' }} />
+                            )}
                           </span>
                         </div>
-                        <h4 style={{ fontSize: '14.5px', fontWeight: 600, color: 'var(--ink-primary)', lineHeight: 1.35 }}>
+                        <h4 style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--ink-primary)', lineHeight: 1.35 }}>
                           {ticket.subject}
                         </h4>
-                        <p style={{ fontSize: '13px', color: 'var(--ink-secondary)', marginTop: '6px', lineHeight: 1.45, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                        <p style={{ fontSize: '13px', color: 'var(--ink-secondary)', marginTop: '6px', lineHeight: 1.5, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                           {ticket.body}
                         </p>
                       </div>
@@ -357,20 +433,20 @@ export const LiveDemos: React.FC = () => {
                   <>
                     {/* Metrics Radar */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px' }}>
-                      <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-light)' }}>
-                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Confidence</div>
+                      <div className="demo-metric-pill" style={{ background: '#FFFFFF', padding: '12px', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Confidence</div>
                         <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', color: '#10B981', fontWeight: 800, marginTop: '2px' }}>
                           {currentTicket.confidence}%
                         </div>
                       </div>
-                      <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-light)' }}>
-                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Classification</div>
+                      <div className="demo-metric-pill" style={{ background: '#FFFFFF', padding: '12px', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Classification</div>
                         <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--ink-primary)', marginTop: '4px' }}>
                           {currentTicket.priority}
                         </div>
                       </div>
-                      <div style={{ background: '#FFFFFF', padding: '12px', borderRadius: '10px', border: '1px solid var(--border-light)' }}>
-                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase' }}>Evals Drift</div>
+                      <div className="demo-metric-pill" style={{ background: '#FFFFFF', padding: '12px', borderRadius: '12px', border: '1px solid var(--border-light)' }}>
+                        <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 600 }}>Evals Drift</div>
                         <div style={{ fontSize: '12px', fontWeight: 600, color: '#10B981', marginTop: '4px' }}>
                           0.00% Zero Drift
                         </div>
@@ -386,17 +462,19 @@ export const LiveDemos: React.FC = () => {
                         {Object.entries(currentTicket.entities || {}).map(([key, val]) => (
                           <span
                             key={key}
+                            className="demo-entity-chip"
                             style={{
                               fontSize: '12px',
                               fontFamily: 'var(--font-mono)',
                               background: '#FFFFFF',
-                              padding: '4px 10px',
-                              borderRadius: '6px',
+                              padding: '5px 12px',
+                              borderRadius: '8px',
                               border: '1px solid var(--border-light)',
-                              color: 'var(--ink-primary)'
+                              color: 'var(--ink-primary)',
+                              boxShadow: '0 1px 3px rgba(30, 37, 48, 0.04)'
                             }}
                           >
-                            <strong>{key}:</strong> {String(val)}
+                            <strong style={{ color: 'var(--ink-muted)' }}>{key}:</strong> {String(val)}
                           </span>
                         ))}
                       </div>
@@ -408,8 +486,9 @@ export const LiveDemos: React.FC = () => {
                         <span style={{ fontSize: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)' }}>
                           Autonomous Resolution Draft
                         </span>
-                        <span style={{ fontSize: '11px', color: '#10B981', fontWeight: 600 }}>
-                          ✓ Ready for Auto-Dispatch
+                        <span style={{ fontSize: '11px', color: '#10B981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <Check size={12} />
+                          <span>Ready for Auto-Dispatch</span>
                         </span>
                       </div>
                       <div
@@ -420,7 +499,8 @@ export const LiveDemos: React.FC = () => {
                           padding: '14px 16px',
                           fontSize: '13.5px',
                           color: 'var(--ink-primary)',
-                          lineHeight: 1.55
+                          lineHeight: 1.55,
+                          boxShadow: '0 1px 4px rgba(30, 37, 48, 0.03)'
                         }}
                       >
                         {currentTicket.draftResponse}
@@ -430,22 +510,26 @@ export const LiveDemos: React.FC = () => {
                     {/* Action Bar */}
                     <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <button
-                        onClick={() => setAcceptedAction(true)}
+                        onClick={() => {
+                          playTactileClick();
+                          setAcceptedAction(true);
+                        }}
+                        className="btn-dispatch-action"
                         style={{
                           flex: 1,
-                          padding: '12px',
+                          padding: '13px 20px',
                           borderRadius: '999px',
                           background: acceptedAction ? '#10B981' : 'var(--ink-primary)',
                           color: '#FFFFFF',
-                          border: 'none',
+                          border: '1px solid rgba(255, 255, 255, 0.14)',
                           fontSize: '13.5px',
                           fontWeight: 600,
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          gap: '6px',
-                          transition: 'all 0.2s ease'
+                          gap: '8px',
+                          boxShadow: acceptedAction ? '0 6px 18px rgba(16, 185, 129, 0.35)' : '0 4px 14px rgba(30, 37, 48, 0.28)'
                         }}
                       >
                         {acceptedAction ? (
@@ -497,14 +581,22 @@ export const LiveDemos: React.FC = () => {
                         ${(monthlyRevenue / 1000).toLocaleString()}k / month
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={200000}
-                      max={5000000}
-                      step={100000}
-                      value={monthlyRevenue}
-                      onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
-                    />
+                    {(() => {
+                      const monthlyRevPercent = Math.round(((monthlyRevenue - 200000) / (5000000 - 200000)) * 100);
+                      return (
+                        <input
+                          type="range"
+                          min={200000}
+                          max={5000000}
+                          step={100000}
+                          value={monthlyRevenue}
+                          style={{
+                            background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${monthlyRevPercent}%, #E2DFD5 ${monthlyRevPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setMonthlyRevenue(Number(e.target.value))}
+                        />
+                      );
+                    })()}
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--ink-muted)', marginTop: '4px' }}>
                       <span>$200k/mo</span>
                       <span>$5,000,000/mo</span>
@@ -521,14 +613,22 @@ export const LiveDemos: React.FC = () => {
                         {baseMargin}%
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={10}
-                      max={50}
-                      step={1}
-                      value={baseMargin}
-                      onChange={(e) => setBaseMargin(Number(e.target.value))}
-                    />
+                    {(() => {
+                      const baseMarginPercent = Math.round(((baseMargin - 10) / (50 - 10)) * 100);
+                      return (
+                        <input
+                          type="range"
+                          min={10}
+                          max={50}
+                          step={1}
+                          value={baseMargin}
+                          style={{
+                            background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${baseMarginPercent}%, #E2DFD5 ${baseMarginPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setBaseMargin(Number(e.target.value))}
+                        />
+                      );
+                    })()}
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--ink-muted)', marginTop: '4px' }}>
                       <span>10% Margin</span>
                       <span>50% Margin</span>
@@ -545,14 +645,22 @@ export const LiveDemos: React.FC = () => {
                         +{elasticityScore.toFixed(1)}%
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={3}
-                      max={12}
-                      step={0.2}
-                      value={elasticityScore}
-                      onChange={(e) => setElasticityScore(Number(e.target.value))}
-                    />
+                    {(() => {
+                      const elasticityPercent = Math.round(((elasticityScore - 3) / (12 - 3)) * 100);
+                      return (
+                        <input
+                          type="range"
+                          min={3}
+                          max={12}
+                          step={0.2}
+                          value={elasticityScore}
+                          style={{
+                            background: `linear-gradient(to right, #10B981 0%, #10B981 ${elasticityPercent}%, #E2DFD5 ${elasticityPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setElasticityScore(Number(e.target.value))}
+                        />
+                      );
+                    })()}
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: 'var(--ink-muted)', marginTop: '4px' }}>
                       <span>+3.0% (Conservative)</span>
                       <span>+12.0% (Aggressive)</span>
@@ -683,13 +791,21 @@ export const LiveDemos: React.FC = () => {
                         -{telemetryState.loginDrop}%
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={0}
-                      max={100}
-                      value={telemetryState.loginDrop}
-                      onChange={(e) => setTelemetryState(prev => ({ ...prev, loginDrop: Number(e.target.value) }))}
-                    />
+                    {(() => {
+                      const dropPercent = telemetryState.loginDrop;
+                      return (
+                        <input
+                          type="range"
+                          min={0}
+                          max={100}
+                          value={telemetryState.loginDrop}
+                          style={{
+                            background: `linear-gradient(to right, #DC2626 0%, #DC2626 ${dropPercent}%, #E2DFD5 ${dropPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setTelemetryState(prev => ({ ...prev, loginDrop: Number(e.target.value) }))}
+                        />
+                      );
+                    })()}
                   </div>
 
                   <div>
@@ -701,13 +817,21 @@ export const LiveDemos: React.FC = () => {
                         -{telemetryState.exportDrop}%
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={0}
-                      max={100}
-                      value={telemetryState.exportDrop}
-                      onChange={(e) => setTelemetryState(prev => ({ ...prev, exportDrop: Number(e.target.value) }))}
-                    />
+                    {(() => {
+                      const exportPercent = telemetryState.exportDrop;
+                      return (
+                        <input
+                          type="range"
+                          min={0}
+                          max={100}
+                          value={telemetryState.exportDrop}
+                          style={{
+                            background: `linear-gradient(to right, #DC2626 0%, #DC2626 ${exportPercent}%, #E2DFD5 ${exportPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setTelemetryState(prev => ({ ...prev, exportDrop: Number(e.target.value) }))}
+                        />
+                      );
+                    })()}
                   </div>
 
                   <div>
@@ -719,13 +843,21 @@ export const LiveDemos: React.FC = () => {
                         {telemetryState.supportFriction} tickets
                       </span>
                     </div>
-                    <input
-                      type="range"
-                      min={0}
-                      max={10}
-                      value={telemetryState.supportFriction}
-                      onChange={(e) => setTelemetryState(prev => ({ ...prev, supportFriction: Number(e.target.value) }))}
-                    />
+                    {(() => {
+                      const frictionPercent = Math.round((telemetryState.supportFriction / 10) * 100);
+                      return (
+                        <input
+                          type="range"
+                          min={0}
+                          max={10}
+                          value={telemetryState.supportFriction}
+                          style={{
+                            background: `linear-gradient(to right, var(--ink-primary) 0%, var(--ink-primary) ${frictionPercent}%, #E2DFD5 ${frictionPercent}%, #E2DFD5 100%)`
+                          }}
+                          onChange={(e) => setTelemetryState(prev => ({ ...prev, supportFriction: Number(e.target.value) }))}
+                        />
+                      );
+                    })()}
                   </div>
                 </div>
 
@@ -807,6 +939,91 @@ export const LiveDemos: React.FC = () => {
           )}
         </div>
       </div>
+
+      <style>{`
+        .demo-nav-tab {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .demo-nav-tab:hover {
+          transform: translateY(-2px);
+        }
+
+        .demo-nav-tab:not(.is-active):hover {
+          background: rgba(30, 37, 48, 0.06) !important;
+          color: var(--ink-primary) !important;
+        }
+
+        .demo-nav-tab.is-active:hover {
+          box-shadow: 0 6px 18px rgba(30, 37, 48, 0.3) !important;
+        }
+
+        .demo-nav-tab:active {
+          transform: translateY(0) scale(0.97);
+        }
+
+        .demo-ticket-card {
+          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease !important;
+          user-select: none;
+        }
+
+        .demo-ticket-card:hover {
+          transform: translateY(-3px) scale(1.008);
+        }
+
+        .demo-ticket-card:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 8px 22px -4px rgba(30, 37, 48, 0.14), 0 2px 6px rgba(30, 37, 48, 0.04) !important;
+          background: #FFFFFF !important;
+        }
+
+        .demo-ticket-card.is-selected:hover {
+          box-shadow: 0 12px 28px -4px rgba(30, 37, 48, 0.22) !important;
+        }
+
+        .demo-ticket-card:active {
+          transform: translateY(-1px) scale(0.99);
+        }
+
+        .btn-dispatch-action {
+          transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background-color 0.2s ease, border-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .btn-dispatch-action:hover {
+          transform: translateY(-2.5px);
+          background: #11161D !important;
+          box-shadow: 0 12px 28px -4px rgba(30, 37, 48, 0.45) !important;
+          border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+
+        .btn-dispatch-action:active {
+          transform: translateY(0) scale(0.98);
+        }
+
+        .demo-entity-chip {
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .demo-entity-chip:hover {
+          transform: translateY(-2px);
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 4px 12px rgba(30, 37, 48, 0.1) !important;
+          background: #FFFFFF !important;
+        }
+
+        .demo-metric-pill {
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+        }
+
+        .demo-metric-pill:hover {
+          transform: translateY(-2px);
+          border-color: #CBD5E1 !important;
+          box-shadow: 0 6px 16px rgba(30, 37, 48, 0.08) !important;
+        }
+      `}</style>
     </section>
   );
 };

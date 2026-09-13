@@ -4,6 +4,7 @@ import { RoiAudit } from '../models/RoiAudit';
 import { AssistantConversation } from '../models/AssistantConversation';
 import { DemoExecution } from '../models/DemoExecution';
 import { CaseStudy } from '../models/CaseStudy';
+import { NewsletterSubscriber } from '../models/NewsletterSubscriber';
 import { memoryStore } from '../config/memoryStore';
 import { getDbStatus, isMongoReady } from '../config/db';
 
@@ -19,6 +20,7 @@ export const getAdminStats = async (req: Request, res: Response) => {
     let capturedChatLeads = 0;
     let totalDemoRuns = 0;
     let caseStudiesCount = 0;
+    let totalSubscribers = 0;
 
     if (isMongoReady()) {
       totalInquiries = await ContactInquiry.countDocuments();
@@ -34,6 +36,7 @@ export const getAdminStats = async (req: Request, res: Response) => {
       capturedChatLeads = await AssistantConversation.countDocuments({ status: 'lead_captured' });
       totalDemoRuns = await DemoExecution.countDocuments();
       caseStudiesCount = await CaseStudy.countDocuments();
+      totalSubscribers = await NewsletterSubscriber.countDocuments();
     } else {
       totalInquiries = memoryStore.inquiries.length;
       newInquiries = memoryStore.inquiries.filter(i => i.status === 'new').length;
@@ -46,6 +49,7 @@ export const getAdminStats = async (req: Request, res: Response) => {
       capturedChatLeads = memoryStore.chatSessions.filter(s => s.status === 'lead_captured').length;
       totalDemoRuns = memoryStore.demoLogs.length;
       caseStudiesCount = memoryStore.caseStudies.length;
+      totalSubscribers = memoryStore.subscribers.length;
     }
 
     const systemStats = {
@@ -66,7 +70,8 @@ export const getAdminStats = async (req: Request, res: Response) => {
         totalChatSessions,
         capturedChatLeads,
         totalDemoRuns,
-        caseStudiesCount
+        caseStudiesCount,
+        totalSubscribers
       },
       system: systemStats
     });

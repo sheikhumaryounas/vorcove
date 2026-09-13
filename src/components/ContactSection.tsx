@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { ArrowRight, Check, Copy, Mail, Clock, Globe, Shield } from 'lucide-react';
 import { CONTACT_PRESETS } from '../data/content';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
+import { playTactileClick } from '../utils/audio';
 
 import { submitContactInquiry } from '../services/api';
 
 export const ContactSection: React.FC = () => {
-  const [selectedServices, setSelectedServices] = useState<string[]>(['AI Agent / Copilot']);
+  const [selectedServices, setSelectedServices] = useState<string[]>(['Workflow Automation System']);
   const [selectedBudget, setSelectedBudget] = useState<string>('$25k to $50k (Phase 1 Build)');
   const [selectedTimeline, setSelectedTimeline] = useState<string>('ASAP (within 2 weeks)');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
@@ -104,10 +105,10 @@ export const ContactSection: React.FC = () => {
                 fontSize: 'clamp(2.3rem, 4.4vw, 3.5rem)',
                 marginTop: '16px',
                 marginBottom: '18px',
-                maxWidth: '16ch'
+                maxWidth: '18ch'
               }}
             >
-              Tell us what's stuck. We'll tell you what we'd build.
+              Tell us what's stuck in your operations. We'll show you what we'd build.
             </h2>
 
             <p
@@ -118,7 +119,7 @@ export const ContactSection: React.FC = () => {
                 maxWidth: '42ch'
               }}
             >
-              One scoping conversation, zero pitch decks. If we aren't the best team in the world to build your system, we'll tell you immediately and point you in the right direction.
+              One direct conversation to pinpoint your manual bottleneck or software requirement. Within one business day, our senior engineering squad will reply with a preliminary technical architecture and fixed-price scope.
             </p>
 
             {/* Studio Commitments */}
@@ -161,7 +162,11 @@ export const ContactSection: React.FC = () => {
 
               <button
                 type="button"
-                onClick={handleCopyEmail}
+                onClick={() => {
+                  playTactileClick();
+                  handleCopyEmail();
+                }}
+                className="contact-copy-btn"
                 style={{
                   padding: '7px 14px',
                   borderRadius: '999px',
@@ -173,8 +178,7 @@ export const ContactSection: React.FC = () => {
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px',
-                  transition: 'all 0.2s ease'
+                  gap: '6px'
                 }}
               >
                 {copiedEmail ? <Check size={14} /> : <Copy size={14} />}
@@ -260,30 +264,40 @@ export const ContactSection: React.FC = () => {
                 )}
                 {/* Services Tags */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
+                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
                     What are you looking to build?
                   </label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                     {CONTACT_PRESETS.services.map((svc) => {
                       const isSelected = selectedServices.includes(svc);
                       return (
                         <button
                           type="button"
                           key={svc}
-                          onClick={() => toggleService(svc)}
+                          onClick={() => {
+                            playTactileClick();
+                            toggleService(svc);
+                          }}
+                          className={`contact-chip-btn ${isSelected ? 'is-selected' : ''}`}
                           style={{
-                            padding: '7px 14px',
+                            padding: '8px 16px',
                             borderRadius: '999px',
-                            border: isSelected ? '1px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                            border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                             background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
-                            color: isSelected ? '#FFFFFF' : 'var(--ink-secondary)',
+                            color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
                             fontSize: '12.5px',
-                            fontWeight: 500,
+                            fontWeight: isSelected ? 600 : 500,
                             cursor: 'pointer',
-                            transition: 'all 0.15s ease'
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
                           }}
                         >
-                          {svc}
+                          <span>{svc}</span>
+                          {isSelected && (
+                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
+                          )}
                         </button>
                       );
                     })}
@@ -292,60 +306,91 @@ export const ContactSection: React.FC = () => {
 
                 {/* Estimated Budget Range */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
+                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
                     Estimated Project Budget
                   </label>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
-                    {CONTACT_PRESETS.budgets.map((b) => (
-                      <button
-                        type="button"
-                        key={b}
-                        onClick={() => setSelectedBudget(b)}
-                        style={{
-                          padding: '8px 12px',
-                          borderRadius: '10px',
-                          border: selectedBudget === b ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
-                          background: selectedBudget === b ? 'var(--bg-surface)' : '#FFFFFF',
-                          color: 'var(--ink-primary)',
-                          fontSize: '12px',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          textAlign: 'left',
-                          transition: 'all 0.15s ease'
-                        }}
-                      >
-                        {b}
-                      </button>
-                    ))}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                    {CONTACT_PRESETS.budgets.map((b) => {
+                      const isSelected = selectedBudget === b;
+                      return (
+                        <button
+                          type="button"
+                          key={b}
+                          onClick={() => {
+                            playTactileClick();
+                            setSelectedBudget(b);
+                          }}
+                          className={`contact-budget-btn ${isSelected ? 'is-selected' : ''}`}
+                          style={{
+                            padding: '10px 14px',
+                            borderRadius: '12px',
+                            border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                            background: isSelected ? 'var(--bg-surface)' : '#FFFFFF',
+                            color: 'var(--ink-primary)',
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            textAlign: 'left',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '8px',
+                            boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.12)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
+                          }}
+                        >
+                          <span>{b}</span>
+                          <div
+                            style={{
+                              width: '6px',
+                              height: '6px',
+                              borderRadius: '50%',
+                              background: isSelected ? '#10B981' : 'transparent',
+                              border: isSelected ? 'none' : '1.5px solid var(--border-light)',
+                              flexShrink: 0
+                            }}
+                          />
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
                 {/* Target Timeline */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
+                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
                     Target Start Timeline
                   </label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                    {CONTACT_PRESETS.timelines.map((tl) => (
-                      <button
-                        type="button"
-                        key={tl}
-                        onClick={() => setSelectedTimeline(tl)}
-                        style={{
-                          padding: '6px 12px',
-                          borderRadius: '8px',
-                          border: selectedTimeline === tl ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
-                          background: selectedTimeline === tl ? 'var(--bg-surface)' : '#FFFFFF',
-                          color: 'var(--ink-primary)',
-                          fontSize: '12px',
-                          fontWeight: 600,
-                          cursor: 'pointer',
-                          transition: 'all 0.15s ease'
-                        }}
-                      >
-                        {tl}
-                      </button>
-                    ))}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    {CONTACT_PRESETS.timelines.map((tl) => {
+                      const isSelected = selectedTimeline === tl;
+                      return (
+                        <button
+                          type="button"
+                          key={tl}
+                          onClick={() => {
+                            playTactileClick();
+                            setSelectedTimeline(tl);
+                          }}
+                          className={`contact-timeline-btn ${isSelected ? 'is-selected' : ''}`}
+                          style={{
+                            padding: '8px 14px',
+                            borderRadius: '10px',
+                            border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
+                            background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
+                            color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
+                          }}
+                        >
+                          <span>{tl}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -436,7 +481,7 @@ export const ContactSection: React.FC = () => {
                   <textarea
                     rows={4}
                     required
-                    placeholder="Tell us what you're trying to build or automate, your current stack, and the target revenue or margin metric you need to move."
+                    placeholder="Describe the manual operational bottleneck, workflow delay, or custom software application you need built..."
                     value={formData.brief}
                     onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
                     style={{
@@ -482,6 +527,93 @@ export const ContactSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .contact-chip-btn {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .contact-chip-btn:hover {
+          transform: translateY(-2.5px);
+        }
+
+        .contact-chip-btn:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 6px 16px -2px rgba(30, 37, 48, 0.12) !important;
+          color: var(--ink-primary) !important;
+          background: #FFFFFF !important;
+        }
+
+        .contact-chip-btn.is-selected:hover {
+          box-shadow: 0 8px 20px -2px rgba(30, 37, 48, 0.28) !important;
+        }
+
+        .contact-chip-btn:active {
+          transform: translateY(0) scale(0.97);
+        }
+
+        .contact-budget-btn {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .contact-budget-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px -2px rgba(30, 37, 48, 0.1) !important;
+        }
+
+        .contact-budget-btn:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          background: #FFFFFF !important;
+        }
+
+        .contact-budget-btn.is-selected:hover {
+          box-shadow: 0 8px 20px -2px rgba(30, 37, 48, 0.18) !important;
+        }
+
+        .contact-budget-btn:active {
+          transform: translateY(0) scale(0.98);
+        }
+
+        .contact-timeline-btn {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .contact-timeline-btn:hover {
+          transform: translateY(-2px);
+        }
+
+        .contact-timeline-btn:not(.is-selected):hover {
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 6px 16px -2px rgba(30, 37, 48, 0.1) !important;
+          background: #FFFFFF !important;
+        }
+
+        .contact-timeline-btn.is-selected:hover {
+          box-shadow: 0 8px 20px -2px rgba(30, 37, 48, 0.25) !important;
+        }
+
+        .contact-timeline-btn:active {
+          transform: translateY(0) scale(0.97);
+        }
+
+        .contact-copy-btn {
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+          user-select: none;
+        }
+
+        .contact-copy-btn:hover {
+          transform: translateY(-2px);
+          border-color: var(--ink-primary) !important;
+          box-shadow: 0 6px 16px -2px rgba(30, 37, 48, 0.12) !important;
+        }
+
+        .contact-copy-btn:active {
+          transform: translateY(0) scale(0.96);
+        }
+      `}</style>
     </section>
   );
 };

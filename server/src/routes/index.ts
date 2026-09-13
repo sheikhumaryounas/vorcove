@@ -9,6 +9,8 @@ import authRoutes from './authRoutes';
 import adminRoutes from './adminRoutes';
 import healthRoutes from './healthRoutes';
 
+import newsletterRoutes from './newsletterRoutes';
+
 const router = Router();
 
 router.use('/health', healthRoutes);
@@ -18,6 +20,7 @@ router.use('/assistant', assistantRoutes);
 router.use('/demos', demosRoutes);
 router.use('/case-studies', caseStudiesRoutes);
 router.use('/testimonials', testimonialsRoutes);
+router.use('/newsletter', newsletterRoutes);
 router.use('/auth', authRoutes);
 router.use('/admin', adminRoutes);
 

@@ -62,7 +62,7 @@ export const RevenueImpact: React.FC = () => {
           <div>
             <div className="kicker">
               <span className="kicker-dot" />
-              <span>Why It Pays</span>
+              <span>Measurable Impact</span>
             </div>
             <h2
               className="heading-editorial"
@@ -72,7 +72,7 @@ export const RevenueImpact: React.FC = () => {
                 marginTop: '14px'
               }}
             >
-              Every build carries a number.
+              Every build solves a tangible operational problem.
             </h2>
           </div>
 
@@ -85,7 +85,7 @@ export const RevenueImpact: React.FC = () => {
               margin: '0 0 8px'
             }}
           >
-            Before writing a single line of code, we agree on the financial or operational metric the software has to move: new revenue pipeline, recovered margin, or automated hours returned to the team.
+            Before writing a single line of code, we align on the exact operational or financial metric the custom software must move: manual hours eliminated, margin protected, or deal turnaround accelerated.
           </p>
         </div>
 

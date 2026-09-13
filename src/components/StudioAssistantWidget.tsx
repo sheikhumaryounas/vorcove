@@ -76,10 +76,10 @@ export const ASSISTANT_MENU_CATEGORIES: AssistantCategory[] = [
         summary: 'Week 1 architecture & API lock; Week 2 staging deployment & SLA verification.',
         answer: 'Our velocity loop is disciplined and tightly orchestrated to eliminate discovery theatre and endless meetings.',
         bulletPoints: [
-          'Days 1–3: Scope lock, schema definition, and API contract freeze',
-          'Days 4–8: Core engine development & multi-agent pipeline wiring',
-          'Days 9–11: Staging deployment & live data ingest testing',
-          'Days 12–14: Continuous eval benchmark runs and executive signoff'
+          'Days 1 to 3: Scope lock, schema definition, and API contract freeze',
+          'Days 4 to 8: Core engine development & multi-agent pipeline wiring',
+          'Days 9 to 11: Staging deployment & live data ingest testing',
+          'Days 12 to 14: Continuous eval benchmark runs and executive signoff'
         ],
         ctaLabel: 'View 4-Step Velocity Loop →',
         ctaTargetId: 'approach',
@@ -315,7 +315,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
   const [chatMessages, setChatMessages] = useState<{ sender: 'ai' | 'user'; text: string; time: string; cta?: { label: string; targetId: string } }[]>([
     {
       sender: 'ai',
-      text: 'Hello! I am the Vorcove Studio AI Architect. Explore our interactive topic menus above, or type any specific question about our 14-day sprints, pricing engines, or stack.',
+      text: 'Hello! I am the Vorcove Studio Assistant. Explore our topics to learn how we turn real-time business bottlenecks and manual workflows into custom automated software in 14 days, or ask any question.',
       time: 'Just now'
     }
   ]);
@@ -437,7 +437,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
       'Automated continuous evaluation harness benchmarked against golden test sets',
       'Zero vendor lock-in with 100% client repository ownership'
     ];
-    let investment = '$18,000 – $28,000 (Fixed-Scope Phase 1)';
+    let investment = '$18,000 to $28,000 (Fixed-Scope Phase 1)';
 
     if (wizardProject === 'pricing') {
       squad = '1 Lead Algorithmic Engineer + 1 Full-Stack Systems Engineer';
@@ -446,7 +446,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
         'Elasticity curves calibrated on historical sales data',
         'Live margin tracking dashboard with automated fallback guardrails'
       ];
-      investment = '$22,000 – $32,000 (Fixed-Scope Phase 1)';
+      investment = '$22,000 to $32,000 (Fixed-Scope Phase 1)';
     } else if (wizardProject === 'fullstack') {
       squad = '1 Lead Full-Stack Architect + 1 Backend Systems Engineer';
       deliverables = [
@@ -454,7 +454,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
         'Real-time data synchronization & high-throughput API endpoints',
         'Automated CI/CD pipeline deployed to AWS/GCP'
       ];
-      investment = '$20,000 – $30,000 (Fixed-Scope Phase 1)';
+      investment = '$20,000 to $30,000 (Fixed-Scope Phase 1)';
     }
 
     return { squad, timeline, deliverables, investment };
@@ -1302,7 +1302,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                       {[
-                        { id: 'margin', label: 'Expand Gross Margins (+5–10%)' },
+                        { id: 'margin', label: 'Expand Gross Margins (+5% to 10%)' },
                         { id: 'velocity', label: '14-Day Working MVP' },
                         { id: 'automation', label: 'Slash Manual Triage >80%' },
                         { id: 'replace-vendor', label: 'Replace Slow Agency' }

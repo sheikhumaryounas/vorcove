@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             <VorcoveLogo inverted={true} markSize={26} fontSize="17px" />
 
             <p style={{ fontSize: '14px', color: '#9DA7B5', lineHeight: 1.6, maxWidth: '28ch', margin: 0 }}>
-              A specialized software studio engineering autonomous AI systems, dynamic pricing engines, and enterprise full-stack web products.
+              A specialized software studio engineering custom automated software products, intelligent operational systems, and tailored business applications.
             </p>
 
             {/* Live Global Timezone Clocks */}
@@ -88,11 +88,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               Capabilities
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#9DA7B5' }}>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>AI Agents & Copilots</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Hybrid RAG Pipelines</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Pricing Engines</a>
+              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Workflow Automation & Triage</a>
+              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Custom Business Portals</a>
+              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engines</a>
               <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Full-Stack Web Engineering</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Continuous Evals & Guardrails</a>
+              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Deterministic Validation & Sync</a>
             </div>
           </div>
 
@@ -102,11 +102,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               Selected Work
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#9DA7B5' }}>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Support Triage Copilot (9h → 11m)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Pricing Engine (+7.4% Margin)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>B2B Onboarding (2.1x Conversion)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Churn Forecasting Suite (82% Early)</a>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Live Interactive Demos</a>
+              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Logistics Triage Platform (9h → 11m)</a>
+              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engine (+7.4% Margin)</a>
+              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Client Onboarding Hub (2.1x Conversion)</a>
+              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Operational Retention Radar (82% Early)</a>
+              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Live Interactive Simulators</a>
             </div>
           </div>
 

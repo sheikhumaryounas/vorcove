@@ -7,9 +7,9 @@ export const calculateRoi = (req: Request, res: Response) => {
   try {
     const { teamSize = 25, projectType = 'ai-ops', hourlyRate = 55, hoursWastedPerWeek = 14 } = req.body;
 
-    const numTeamSize = Number(teamSize);
-    const numHourlyRate = Number(hourlyRate);
-    const numHoursWasted = Number(hoursWastedPerWeek);
+    const numTeamSize = Math.max(1, Number(teamSize) || 25);
+    const numHourlyRate = Math.max(1, Number(hourlyRate) || 55);
+    const numHoursWasted = Math.max(0.5, Number(hoursWastedPerWeek) || 14);
 
     const weeklyWastedCost = numTeamSize * numHoursWasted * numHourlyRate;
     const annualWastedCost = weeklyWastedCost * 52;
@@ -23,7 +23,10 @@ export const calculateRoi = (req: Request, res: Response) => {
     const estimatedInvestment =
       projectType === 'ai-ops' ? 35000 : projectType === 'pricing' ? 45000 : projectType === 'data' ? 40000 : 38000;
 
-    const paybackMonths = Number(((estimatedInvestment / estimatedAnnualSavings) * 12).toFixed(1));
+    const paybackMonths =
+      estimatedAnnualSavings > 0
+        ? Number(((estimatedInvestment / estimatedAnnualSavings) * 12).toFixed(1))
+        : 0;
 
     return res.json({
       success: true,
@@ -61,9 +64,9 @@ export const saveRoiAudit = async (req: Request, res: Response) => {
       clientCompany
     } = req.body;
 
-    const numTeamSize = Number(teamSize || 25);
-    const numHourlyRate = Number(hourlyRate || 55);
-    const numHoursWasted = Number(hoursWastedPerWeek || 14);
+    const numTeamSize = Math.max(1, Number(teamSize) || 25);
+    const numHourlyRate = Math.max(1, Number(hourlyRate) || 55);
+    const numHoursWasted = Math.max(0.5, Number(hoursWastedPerWeek) || 14);
     const projType = projectType || 'ai-ops';
 
     const weeklyWastedCost = numTeamSize * numHoursWasted * numHourlyRate;
@@ -75,7 +78,10 @@ export const saveRoiAudit = async (req: Request, res: Response) => {
     const estimatedHoursSavedPerMonth = Math.round(numTeamSize * numHoursWasted * 4.33 * efficiencyMultiplier);
     const estimatedInvestment =
       projType === 'ai-ops' ? 35000 : projType === 'pricing' ? 45000 : projType === 'data' ? 40000 : 38000;
-    const paybackMonths = Number(((estimatedInvestment / estimatedAnnualSavings) * 12).toFixed(1));
+    const paybackMonths =
+      estimatedAnnualSavings > 0
+        ? Number(((estimatedInvestment / estimatedAnnualSavings) * 12).toFixed(1))
+        : 0;
 
     const auditData = {
       teamSize: numTeamSize,

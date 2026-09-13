@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 import { ContactInquiry } from '../models/ContactInquiry';
 import { memoryStore } from '../config/memoryStore';
 import { isMongoReady } from '../config/db';
@@ -127,10 +128,15 @@ export const getInquiries = async (req: Request, res: Response) => {
 export const updateInquiryStatus = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const paramId = String(id);
     const { status, internalNotes, priority } = req.body;
 
     if (isMongoReady()) {
-      const inquiry = await ContactInquiry.findById(id);
+      if (!mongoose.Types.ObjectId.isValid(paramId)) {
+        return res.status(404).json({ success: false, error: 'Inquiry not found' });
+      }
+
+      const inquiry = await ContactInquiry.findById(paramId);
       if (!inquiry) {
         return res.status(404).json({ success: false, error: 'Inquiry not found' });
       }
@@ -143,7 +149,7 @@ export const updateInquiryStatus = async (req: Request, res: Response) => {
       await inquiry.save();
       return res.json({ success: true, data: inquiry });
     } else {
-      const idx = memoryStore.inquiries.findIndex(i => i._id === id || i.id === id);
+      const idx = memoryStore.inquiries.findIndex(i => i._id === paramId || i.id === paramId);
       if (idx === -1) {
         return res.status(404).json({ success: false, error: 'Inquiry not found in memory store' });
       }
@@ -166,15 +172,20 @@ export const updateInquiryStatus = async (req: Request, res: Response) => {
 export const deleteInquiry = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    const paramId = String(id);
 
     if (isMongoReady()) {
-      const deleted = await ContactInquiry.findByIdAndDelete(id);
+      if (!mongoose.Types.ObjectId.isValid(paramId)) {
+        return res.status(404).json({ success: false, error: 'Inquiry not found' });
+      }
+
+      const deleted = await ContactInquiry.findByIdAndDelete(paramId);
       if (!deleted) {
         return res.status(404).json({ success: false, error: 'Inquiry not found' });
       }
       return res.json({ success: true, message: 'Inquiry deleted successfully' });
     } else {
-      const idx = memoryStore.inquiries.findIndex(i => i._id === id || i.id === id);
+      const idx = memoryStore.inquiries.findIndex(i => i._id === paramId || i.id === paramId);
       if (idx === -1) {
         return res.status(404).json({ success: false, error: 'Inquiry not found' });
       }

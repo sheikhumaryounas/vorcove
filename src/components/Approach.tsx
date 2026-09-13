@@ -111,7 +111,7 @@ export const Approach: React.FC = () => {
                     background: '#10B981'
                   }}
                 />
-                <span>How We Work</span>
+                <span>Our Process</span>
               </div>
 
               <h2
@@ -123,10 +123,10 @@ export const Approach: React.FC = () => {
                   lineHeight: 1.08,
                   color: '#FFFFFF',
                   marginTop: '18px',
-                  maxWidth: '15ch'
+                  maxWidth: '16ch'
                 }}
               >
-                A short loop, run in the open.
+                From business bottleneck to custom software in 14 days.
               </h2>
 
               <p
@@ -138,7 +138,7 @@ export const Approach: React.FC = () => {
                   maxWidth: '44ch'
                 }}
               >
-                Every engagement follows the exact same velocity rhythm: sharp initial scoping, a working build in your hands within two weeks, then weekly deployments directly to your repositories.
+                Every engagement follows a disciplined, transparent rhythm: diagnose the operational bottleneck in week one, test a working custom software build within two weeks, then ship weekly releases directly to your team.
               </p>
 
               <div style={{ marginTop: '36px' }}>

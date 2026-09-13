@@ -3,12 +3,14 @@ import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { HERO_HIGHLIGHTS } from '../data/content';
 import { HeroAgentTerminal } from './HeroAgentTerminal';
 import { playTactileClick } from '../utils/audio';
+import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 
 interface HeroProps {
   onExploreDemos?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
+  const { elementRef, isRevealed } = useIntersectionReveal(0.05);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -22,16 +24,34 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
   return (
     <section
       id="top"
+      ref={elementRef}
       onMouseMove={handleMouseMove}
       style={{
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '140px',
         paddingBottom: '88px',
-        background: 'radial-gradient(1400px 700px at 75% -10%, #EDEAE0 0%, rgba(239, 237, 229, 0) 70%), var(--bg-page)',
+        background: 'radial-gradient(1400px 700px at 75% -10%, rgba(255, 255, 255, 0.6) 0%, rgba(243, 246, 249, 0) 70%), var(--bg-page)',
         borderBottom: '1px solid var(--border-light)'
       }}
     >
+      {/* Real High-Tech Engineering & Software Network Backdrop */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          width: 'min(65vw, 920px)',
+          height: '100%',
+          backgroundImage: `radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(243, 246, 249, 0.75) 60%, var(--bg-page) 98%), url('/assets/network-bg.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          opacity: 0.18,
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
+
       {/* Background Ambient Floating V-Mark */}
       <div
         style={{
@@ -52,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           style={{
             display: 'block',
             width: '100%',
-            opacity: 0.085,
+            opacity: 0.07,
             animation: 'vc-float 9s ease-in-out infinite'
           }}
         />
@@ -61,13 +81,13 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* 2-Column Hero Layout */}
         <div
-          className="hero-grid-layout"
+          className={`hero-grid-layout reveal-item ${isRevealed ? 'revealed' : ''}`}
           style={{
             alignItems: 'center'
           }}
         >
           {/* Left Column: Editorial Value Proposition */}
-          <div style={{ maxWidth: '100%', minWidth: 0 }}>
+          <div className={`reveal-item stagger-1 ${isRevealed ? 'revealed' : ''}`} style={{ maxWidth: '100%', minWidth: 0 }}>
             {/* Top Status & Sticker Cluster (TapTile Touch) */}
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '100%' }}>
               <div className="badge-neo-pill">
@@ -205,7 +225,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           </div>
 
           {/* Right Column: Live Interactive Agent Execution Canvas */}
-          <div style={{ maxWidth: '100%', minWidth: 0 }}>
+          <div className={`reveal-item stagger-2 ${isRevealed ? 'revealed' : ''}`} style={{ maxWidth: '100%', minWidth: 0 }}>
             <HeroAgentTerminal />
           </div>
         </div>
@@ -220,17 +240,20 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
             gap: '16px'
           }}
+          className={`reveal-item stagger-3 ${isRevealed ? 'revealed' : ''}`}
         >
           {HERO_HIGHLIGHTS.map((item, idx) => (
             <div
               key={idx}
+              className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
                 fontSize: '13.5px',
                 fontWeight: 600,
-                color: 'var(--ink-secondary)'
+                color: 'var(--ink-secondary)',
+                transitionDelay: `${idx * 80 + 200}ms`
               }}
             >
               <div

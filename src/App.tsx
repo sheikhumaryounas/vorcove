@@ -3,13 +3,10 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { MarqueeTicker } from './components/MarqueeTicker';
 import { BentoGrid } from './components/BentoGrid';
-import { RevenueImpact } from './components/RevenueImpact';
 import { Approach } from './components/Approach';
 import { LiveDemos } from './components/LiveDemos';
 import { BeforeAfterSlider } from './components/BeforeAfterSlider';
 import { ArchitectureFlow } from './components/ArchitectureFlow';
-import { CaseStudies } from './components/CaseStudies';
-import { CaseStudyModal } from './components/CaseStudyModal';
 import { RoiCalculator } from './components/RoiCalculator';
 import { TechStack } from './components/TechStack';
 import { Testimonials } from './components/Testimonials';
@@ -19,10 +16,10 @@ import { Footer } from './components/Footer';
 import { StudioAssistantWidget } from './components/StudioAssistantWidget';
 import { AdminPortal } from './components/AdminPortal';
 import { ScrollNavigationControl } from './components/ScrollNavigationControl';
-import { CaseStudy } from './types';
+import { useGlobalScrollAnimations } from './hooks/useGlobalScrollAnimations';
 
 export function App() {
-  const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
+  useGlobalScrollAnimations();
   const [isAssistantOpen, setIsAssistantOpen] = useState<boolean>(false);
   const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
 
@@ -42,6 +39,9 @@ export function App() {
 
   return (
     <div className="page-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Real Architectural Studio Atmospheric Background Layer */}
+      <div className="bg-atmosphere-layer" aria-hidden="true" />
+
       {/* Fixed Sticky Navbar */}
       <Navbar
         onOpenConsultation={scrollToContact}
@@ -59,9 +59,6 @@ export function App() {
         {/* 2026 Bento Grid Services Architecture */}
         <BentoGrid />
 
-        {/* Revenue & Margin Impact */}
-        <RevenueImpact />
-
         {/* 4-Step Velocity Loop & Stats */}
         <Approach />
 
@@ -73,9 +70,6 @@ export function App() {
 
         {/* Deterministic Pipeline Flow & Code Inspector */}
         <ArchitectureFlow />
-
-        {/* Flagship Case Studies */}
-        <CaseStudies onSelectCaseStudy={(study) => setSelectedCaseStudy(study)} />
 
         {/* Interactive ROI & Scope Estimator */}
         <RoiCalculator />
@@ -95,13 +89,6 @@ export function App() {
 
       {/* Studio Footer */}
       <Footer onOpenPortal={() => setIsPortalOpen(true)} />
-
-      {/* Case Study Deep-Dive Modal */}
-      <CaseStudyModal
-        study={selectedCaseStudy}
-        onClose={() => setSelectedCaseStudy(null)}
-        onStartProject={scrollToContact}
-      />
 
       {/* Floating Scroll Navigation & Quick Action Indicator */}
       <ScrollNavigationControl />

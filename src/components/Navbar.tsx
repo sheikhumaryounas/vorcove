@@ -18,12 +18,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
   const scrollProgress = useScrollProgress();
   const activeSection = useScrollSpy([
     'services',
-    'revenue',
     'approach',
     'demos',
     'comparison',
     'architecture',
-    'work',
     'calculator',
     'faq',
     'contact'
@@ -76,11 +74,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
           left: 0,
           right: 0,
           zIndex: 90,
-          background: isScrolled ? 'rgba(247, 245, 239, 0.94)' : 'rgba(247, 245, 239, 0.88)',
+          background: isScrolled ? 'rgba(243, 246, 249, 0.94)' : 'rgba(243, 246, 249, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: '1px solid var(--border-light)',
-          boxShadow: isScrolled ? '0 4px 16px rgba(30, 37, 48, 0.05)' : 'none',
+          boxShadow: isScrolled ? '0 4px 16px rgba(15, 23, 42, 0.05)' : 'none',
           transition: 'all 0.25s ease'
         }}
       >
@@ -211,7 +209,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
         {mobileMenuOpen && (
           <div
             style={{
-              background: 'rgba(247, 245, 239, 0.98)',
+              background: 'rgba(243, 246, 249, 0.98)',
               backdropFilter: 'blur(20px)',
               borderBottom: '1px solid var(--border-light)',
               padding: '16px 24px 24px',

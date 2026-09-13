@@ -58,6 +58,25 @@ export const Approach: React.FC = () => {
           className={`obsidian-band reveal-item ${isRevealed ? 'revealed' : ''}`}
           style={{ position: 'relative', overflow: 'hidden' }}
         >
+          {/* Real Architectural Studio Backdrop (Dark Atmosphere Texture) */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              backgroundImage: `radial-gradient(ellipse at 80% 20%, rgba(30, 37, 48, 0.4) 0%, rgba(30, 37, 48, 0.94) 80%), url('/assets/studio-bg.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.08,
+              filter: 'grayscale(100%) contrast(140%)',
+              mixBlendMode: 'luminosity',
+              pointerEvents: 'none',
+              zIndex: 0
+            }}
+          />
+
           {/* Watermark Vorcove Logo */}
           <div
             style={{

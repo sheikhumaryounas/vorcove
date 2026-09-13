@@ -109,7 +109,7 @@ export const RoiCalculator: React.FC = () => {
         >
           {/* Controls Input Card */}
           <div
-            className="glass-card"
+            className={`glass-card reveal-left stagger-1 ${isRevealed ? 'revealed' : ''}`}
             style={{
               padding: '36px',
               background: '#FFFFFF',
@@ -301,6 +301,7 @@ export const RoiCalculator: React.FC = () => {
 
           {/* Results Output Band */}
           <div
+            className={`reveal-right stagger-2 ${isRevealed ? 'revealed' : ''}`}
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',

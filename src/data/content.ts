@@ -12,9 +12,7 @@ import {
 
 export const NAV_LINKS: NavItem[] = [
   { label: "Solutions", href: "#services" },
-  { label: "Business ROI", href: "#revenue" },
   { label: "How We Work", href: "#approach" },
-  { label: "Case Studies", href: "#work" },
   { label: "Live Demos", href: "#demos", badge: "Interactive" },
   { label: "ROI Estimator", href: "#calculator" },
   { label: "FAQ", href: "#faq" },

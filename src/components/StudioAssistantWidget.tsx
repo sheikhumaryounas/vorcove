@@ -151,7 +151,7 @@ export const ASSISTANT_MENU_CATEGORIES: AssistantCategory[] = [
           'Traditional: Vendor lock-in vs Vorcove: 100% Client IP ownership'
         ],
         ctaLabel: 'Compare the Difference →',
-        ctaTargetId: 'revenue',
+        ctaTargetId: 'comparison',
         relatedTopicIds: ['fixed-price-model', 'code-ownership']
       }
     ]

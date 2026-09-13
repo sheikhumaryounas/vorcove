@@ -131,14 +131,14 @@ export const ArchitectureFlow: React.FC = () => {
           }}
           className={`reveal-item ${isRevealed ? 'revealed' : ''}`}
         >
-          {NODES.map((node) => {
+          {NODES.map((node, idx) => {
             const isSelected = activeNodeId === node.id;
             const Icon = node.icon;
             return (
               <div
                 key={node.id}
                 onClick={() => handleSelectNode(node.id)}
-                className={`architecture-node-card ${isSelected ? 'is-selected' : ''}`}
+                className={`architecture-node-card reveal-item ${isSelected ? 'is-selected' : ''} ${isRevealed ? 'revealed' : ''}`}
                 style={{
                   background: isSelected ? 'var(--bg-dark)' : '#FFFFFF',
                   color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
@@ -149,7 +149,8 @@ export const ArchitectureFlow: React.FC = () => {
                   boxShadow: isSelected ? 'var(--shadow-dark)' : 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '12px'
+                  gap: '12px',
+                  transitionDelay: `${idx * 80}ms`
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

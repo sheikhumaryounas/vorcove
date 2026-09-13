@@ -3,34 +3,34 @@
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  /* Color Palette - Logo Slate Obsidian & Warm Editorial Canvas */
-  --bg-page: #F7F5EF;
-  --bg-surface: #EFEDE5;
-  --bg-surface-elevated: #E7E4DA;
+  /* Color Palette - Modern Tech Slate & Infrastructure (Zero Skin/Beige Tones) */
+  --bg-page: #F3F6F9;
+  --bg-surface: #E8EEF4;
+  --bg-surface-elevated: #DCE5EE;
   --bg-card: #FFFFFF;
-  --bg-card-hover: #FCFBF7;
-  --bg-dark: #1E2530;
-  --bg-dark-surface: #262F3D;
-  --bg-dark-card: #303B4C;
+  --bg-card-hover: #F8FAFC;
+  --bg-dark: #101726;
+  --bg-dark-surface: #1A2336;
+  --bg-dark-card: #242F46;
 
-  /* Typography & Ink (Exact Vorcove Logo Palette) */
-  --ink-primary: #1E2530;
-  --ink-secondary: #4A5464;
-  --ink-muted: #8A8F99;
-  --ink-faint: #C9C5B8;
-  --ink-inverse: #F7F5EF;
-  --ink-inverse-muted: #A3AAB5;
+  /* Typography & Ink */
+  --ink-primary: #0F172A;
+  --ink-secondary: #475569;
+  --ink-muted: #64748B;
+  --ink-faint: #CBD5E1;
+  --ink-inverse: #F8FAFC;
+  --ink-inverse-muted: #94A3B8;
 
   /* Brand Accents */
-  --accent-ink: #1E2530;
-  --accent-slate: #4A5464;
-  --accent-highlight: #1E2530;
+  --accent-ink: #0F172A;
+  --accent-slate: #334155;
+  --accent-highlight: #0284C7;
 
   /* Borders & Clean Structural Lines */
-  --border-light: #E2DFD5;
-  --border-subtle: #EBE8DE;
-  --border-bold: #1E2530;
-  --border-dark: rgba(255, 255, 255, 0.14);
+  --border-light: #E2E8F0;
+  --border-subtle: #EDF2F7;
+  --border-bold: #0F172A;
+  --border-dark: rgba(255, 255, 255, 0.12);
 
   /* Shadows - Smooth & Consistent Elevation */
   --shadow-neo-sm: 0 1px 3px rgba(30, 37, 48, 0.05);
@@ -1118,6 +1118,121 @@ input[type=range]::-moz-range-thumb {
     font-size: 12px !important;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   2026 REAL TECH NETWORK BACKDROP & LIGHTWEIGHT BIDIRECTIONAL SCROLL ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+/* Global Real Tech Infrastructure Background Layer (Zero Skin/Beige Color) */
+.bg-atmosphere-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.5) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(243, 246, 249, 0.86) 0%, rgba(235, 240, 246, 0.90) 50%, rgba(243, 246, 249, 0.94) 100%),
+    url('/assets/network-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 1;
+}
+
+/* Clean & Simple Subtle Scroll Fade-In */
+.reveal-item,
+.scroll-reveal,
+.reveal-up,
+.reveal-scale,
+.reveal-left,
+.reveal-right,
+.reveal-3d,
+.reveal-card,
+.reveal-heading {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.38s ease-out, transform 0.38s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-item.revealed,
+.reveal-item.is-visible,
+.scroll-reveal.revealed,
+.scroll-reveal.is-visible,
+.reveal-up.revealed,
+.reveal-up.is-visible,
+.reveal-scale.revealed,
+.reveal-scale.is-visible,
+.reveal-left.revealed,
+.reveal-left.is-visible,
+.reveal-right.revealed,
+.reveal-right.is-visible,
+.reveal-3d.revealed,
+.reveal-3d.is-visible,
+.reveal-card.revealed,
+.reveal-card.is-visible,
+.reveal-heading.revealed,
+.reveal-heading.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Subtle gentle stagger */
+.stagger-1 { transition-delay: 30ms !important; }
+.stagger-2 { transition-delay: 60ms !important; }
+.stagger-3 { transition-delay: 90ms !important; }
+.stagger-4 { transition-delay: 120ms !important; }
+.stagger-5 { transition-delay: 150ms !important; }
+.stagger-6 { transition-delay: 180ms !important; }
+.stagger-7 { transition-delay: 210ms !important; }
+.stagger-8 { transition-delay: 240ms !important; }
+
+/* Subtle floating and breathing micro-animations */
+@keyframes vc-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes subtle-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Smooth spring hover effects on interactive cards */
+.glass-card-hover {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease !important;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-neo-hover) !important;
+  border-color: rgba(30, 37, 48, 0.22) !important;
+}
+
 
 
 

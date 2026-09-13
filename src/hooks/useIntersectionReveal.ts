@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
-export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(threshold = 0.15) {
+export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(
+  threshold = 0.05
+) {
   const elementRef = useRef<T | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
 
@@ -8,9 +10,9 @@ export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(th
     const el = elementRef.current;
     if (!el) return;
 
-    // Check if prefers reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setIsRevealed(true);
+      el.classList.add('revealed', 'is-visible');
       return;
     }
 
@@ -18,10 +20,13 @@ export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(th
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsRevealed(true);
-          observer.unobserve(entry.target);
+          el.classList.add('revealed', 'is-visible');
+        } else {
+          setIsRevealed(false);
+          el.classList.remove('revealed', 'is-visible');
         }
       },
-      { threshold, rootMargin: '0px 0px -40px 0px' }
+      { threshold: Math.min(threshold, 0.05), rootMargin: '0px 0px 0px 0px' }
     );
 
     observer.observe(el);

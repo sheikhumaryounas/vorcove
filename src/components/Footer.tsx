@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Globe, Clock, Mail, ShieldCheck } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { VorcoveLogo } from './VorcoveLogo';
 
 interface FooterProps {
@@ -36,21 +36,36 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer
       style={{
-        background: 'var(--bg-dark)',
-        color: '#FFFFFF',
+        background: 'linear-gradient(180deg, #0F172A 0%, #090D16 100%)',
+        color: '#F8FAFC',
         padding: '80px 0 40px',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)'
       }}
     >
-      <div className="container">
+      {/* Real Tech Infrastructure Atmospheric Glow */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(2, 132, 199, 0.08) 0%, transparent 65%), url('/assets/network-bg.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          opacity: 0.06,
+          mixBlendMode: 'luminosity',
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+      />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Top Grid */}
         <div
           style={{
@@ -58,24 +73,24 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
             gap: '40px',
             paddingBottom: '64px',
-            borderBottom: '1px solid var(--border-dark)'
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
           {/* Brand Col */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <VorcoveLogo inverted={true} markSize={26} fontSize="17px" />
 
-            <p style={{ fontSize: '14px', color: '#9DA7B5', lineHeight: 1.6, maxWidth: '28ch', margin: 0 }}>
+            <p style={{ fontSize: '14px', color: '#94A3B8', lineHeight: 1.6, maxWidth: '28ch', margin: 0 }}>
               A specialized software studio engineering custom automated software products, intelligent operational systems, and tailored business applications.
             </p>
 
             {/* Live Global Timezone Clocks */}
-            <div style={{ marginTop: '8px', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-dark)' }}>
-              <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#8F99A8', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Clock size={12} color="#10B981" />
+            <div style={{ marginTop: '8px', padding: '12px 14px', borderRadius: '10px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94A3B8', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Clock size={12} color="#38BDF8" />
                 <span>Live Studio Coverage</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#FFFFFF' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}>
                 <span>New York: {usTime || '10:00 AM ET'}</span>
                 <span>London: {euTime || '03:00 PM GMT'}</span>
               </div>
@@ -87,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             <div style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '18px' }}>
               Capabilities
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#9DA7B5' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#94A3B8' }}>
               <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Workflow Automation & Triage</a>
               <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Custom Business Portals</a>
               <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engines</a>
@@ -101,11 +116,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             <div style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '18px' }}>
               Selected Work
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#9DA7B5' }}>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Logistics Triage Platform (9h → 11m)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engine (+7.4% Margin)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Client Onboarding Hub (2.1x Conversion)</a>
-              <a href="#work" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Operational Retention Radar (82% Early)</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#94A3B8' }}>
+              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Logistics Triage Platform (9h → 11m)</a>
+              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engine (+7.4% Margin)</a>
+              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Client Onboarding Hub (2.1x Conversion)</a>
+              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Operational Retention Radar (82% Early)</a>
               <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Live Interactive Simulators</a>
             </div>
           </div>
@@ -115,12 +130,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             <div style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '18px' }}>
               Direct Contact
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#9DA7B5' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#94A3B8' }}>
               <a href="mailto:hello@vorcove.com" className="hover-underline-link" style={{ color: '#FFFFFF', fontWeight: 500, alignSelf: 'flex-start' }}>
                 hello@vorcove.com
               </a>
               <span>US & EU Operational Coverage</span>
-              <span style={{ fontSize: '12.5px', color: '#7E8794' }}>
+              <span style={{ fontSize: '12.5px', color: '#64748B' }}>
                 Senior partner response within 24h
               </span>
               <div style={{ marginTop: '8px' }}>
@@ -133,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
                     gap: '6px',
                     fontSize: '13px',
                     fontWeight: 600,
-                    color: '#6EE7B7'
+                    color: '#38BDF8'
                   }}
                 >
                   <span>Book Phase 1 Sprint →</span>
@@ -153,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
             alignItems: 'center',
             justifyContent: 'space-between',
             fontSize: '13px',
-            color: '#767D8A'
+            color: '#64748B'
           }}
         >
           <div>
@@ -166,8 +181,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
                 onClick={onOpenPortal}
                 style={{
                   background: 'transparent',
-                  border: '1px solid rgba(255, 87, 34, 0.4)',
-                  color: '#FF7043',
+                  border: '1px solid rgba(2, 132, 199, 0.4)',
+                  color: '#38BDF8',
                   padding: '5px 12px',
                   borderRadius: '999px',
                   cursor: 'pointer',
@@ -182,27 +197,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               </button>
             )}
             <span>SOC 2 Type II Compliant Architectures</span>
-            <span>•</span>
-            <button
-              onClick={scrollToTop}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                background: 'rgba(255,255,255,0.08)',
-                border: '1px solid var(--border-dark)',
-                color: '#FFFFFF',
-                padding: '6px 14px',
-                borderRadius: '999px',
-                cursor: 'pointer',
-                fontSize: '12px',
-                fontWeight: 600,
-                transition: 'background 0.2s ease'
-              }}
-            >
-              <span>Back to top</span>
-              <ArrowUp size={13} />
-            </button>
           </div>
         </div>
       </div>

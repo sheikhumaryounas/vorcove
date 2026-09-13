@@ -88,6 +88,7 @@ export const BeforeAfterSlider: React.FC = () => {
         >
           {/* Column A: Legacy Approach */}
           <div
+            className={`reveal-left stagger-1 ${isRevealed ? 'revealed' : ''}`}
             style={{
               background: '#FFFFFF',
               borderRadius: '22px',
@@ -146,6 +147,7 @@ export const BeforeAfterSlider: React.FC = () => {
 
           {/* Column B: The Vorcove Way */}
           <div
+            className={`reveal-right stagger-2 ${isRevealed ? 'revealed' : ''}`}
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',

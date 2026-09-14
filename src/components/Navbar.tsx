@@ -29,10 +29,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
   ], 120);
 
   useEffect(() => {
+    let prevScrolled = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 24);
+      const scrolled = window.scrollY > 24;
+      if (scrolled !== prevScrolled) {
+        prevScrolled = scrolled;
+        setIsScrolled(scrolled);
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

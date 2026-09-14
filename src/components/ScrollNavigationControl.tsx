@@ -9,10 +9,16 @@ export const ScrollNavigationControl: React.FC = () => {
   const scrollProgress = useScrollProgress();
 
   useEffect(() => {
+    let prevVisible = false;
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 350);
+      const visible = window.scrollY > 350;
+      if (visible !== prevVisible) {
+        prevVisible = visible;
+        setIsVisible(visible);
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

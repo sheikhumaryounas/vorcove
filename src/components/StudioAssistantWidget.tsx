@@ -23,6 +23,7 @@ import {
   Sparkle
 } from 'lucide-react';
 import { playTactileClick, playSuccessChime } from '../utils/audio';
+import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 import { sendAssistantMessage } from '../services/api';
 
 export interface AssistantMenuTopic {
@@ -358,10 +359,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
   const handleCtaClick = (targetId: string) => {
     playTactileClick();
     handleClose();
-    const target = document.getElementById(targetId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToTarget(`#${targetId}`, { offset: -76 });
   };
 
   // Find active category and topic
@@ -698,6 +696,7 @@ export const StudioAssistantWidget: React.FC<StudioAssistantWidgetProps> = ({
           {/* Main Body Content */}
           <div
             className="assistant-scroll"
+            data-lenis-prevent
             style={{
               flex: 1,
               overflowY: 'auto',

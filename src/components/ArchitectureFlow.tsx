@@ -201,6 +201,7 @@ export const ArchitectureFlow: React.FC = () => {
 
         {/* Selected Stage Deep-Dive Card */}
         <div
+          className="reveal-scale stagger-3"
           style={{
             marginTop: '28px',
             background: 'var(--bg-dark)',

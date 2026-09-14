@@ -290,7 +290,7 @@ export const LiveDemos: React.FC = () => {
         </div>
 
         {/* Demo Content Canvas */}
-        <div style={{ marginTop: '48px' }}>
+        <div className="reveal-scale stagger-2" style={{ marginTop: '48px' }}>
           {/* TAB 1: COPILOT SIMULATOR */}
           {activeTab === 'copilot' && (
             <div

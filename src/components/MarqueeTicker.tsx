@@ -4,6 +4,7 @@ import { MARQUEE_ITEMS } from '../data/content';
 export const MarqueeTicker: React.FC = () => {
   return (
     <div
+      className="reveal-item"
       style={{
         overflow: 'hidden',
         borderTop: '1px solid var(--border-light)',

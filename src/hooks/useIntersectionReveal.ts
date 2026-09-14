@@ -19,9 +19,11 @@ export function useIntersectionReveal<T extends HTMLElement = HTMLDivElement>(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsRevealed(true);
+        } else {
+          setIsRevealed(false);
         }
       },
-      { threshold, rootMargin: '0px 0px 50px 0px' }
+      { threshold, rootMargin: '100px 0px -40px 0px' }
     );
 
     observer.observe(el);

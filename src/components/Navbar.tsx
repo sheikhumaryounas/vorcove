@@ -5,6 +5,7 @@ import { useScrollSpy } from '../hooks/useScrollSpy';
 import { useScrollProgress } from '../hooks/useScrollProgress';
 import { playTactileClick } from '../utils/audio';
 import { VorcoveLogo } from './VorcoveLogo';
+import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 
 interface NavbarProps {
   onOpenConsultation?: () => void;
@@ -39,10 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
     e.preventDefault();
     playTactileClick();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToTarget(href, { offset: -76 });
   };
 
   return (
@@ -88,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
             href="#top"
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
+              scrollToTarget(0, { offset: 0 });
             }}
             style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
             aria-label="Vorcove Home"

@@ -16,7 +16,7 @@ import { Footer } from './components/Footer';
 import { StudioAssistantWidget } from './components/StudioAssistantWidget';
 import { AdminPortal } from './components/AdminPortal';
 import { ScrollNavigationControl } from './components/ScrollNavigationControl';
-import { useGlobalScrollAnimations } from './hooks/useGlobalScrollAnimations';
+import { useGlobalScrollAnimations, scrollToTarget } from './hooks/useGlobalScrollAnimations';
 
 export function App() {
   useGlobalScrollAnimations();
@@ -24,17 +24,11 @@ export function App() {
   const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
 
   const scrollToContact = () => {
-    const contactEl = document.getElementById('contact');
-    if (contactEl) {
-      contactEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToTarget('#contact', { offset: -80 });
   };
 
   const scrollToDemos = () => {
-    const demosEl = document.getElementById('demos');
-    if (demosEl) {
-      demosEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToTarget('#demos', { offset: -80 });
   };
 
   return (

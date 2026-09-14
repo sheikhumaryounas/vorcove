@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Clock } from 'lucide-react';
 import { VorcoveLogo } from './VorcoveLogo';
+import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
+import { playTactileClick } from '../utils/audio';
 
 interface FooterProps {
   onOpenPortal?: () => void;
@@ -9,6 +11,12 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
   const [usTime, setUsTime] = useState<string>('');
   const [euTime, setEuTime] = useState<string>('');
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    playTactileClick();
+    scrollToTarget(href, { offset: -76 });
+  };
 
   useEffect(() => {
     const updateClocks = () => {
@@ -68,6 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Top Grid */}
         <div
+          className="reveal-item"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
@@ -103,11 +112,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               Capabilities
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#94A3B8' }}>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Workflow Automation & Triage</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Custom Business Portals</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engines</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Full-Stack Web Engineering</a>
-              <a href="#services" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Deterministic Validation & Sync</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Workflow Automation & Triage</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Custom Business Portals</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engines</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Full-Stack Web Engineering</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Deterministic Validation & Sync</a>
             </div>
           </div>
 
@@ -117,11 +126,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               Selected Work
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '14px', color: '#94A3B8' }}>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Logistics Triage Platform (9h → 11m)</a>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engine (+7.4% Margin)</a>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Client Onboarding Hub (2.1x Conversion)</a>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Operational Retention Radar (82% Early)</a>
-              <a href="#demos" className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Live Interactive Simulators</a>
+              <a href="#demos" onClick={(e) => handleLinkClick(e, '#demos')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Logistics Triage Platform (9h → 11m)</a>
+              <a href="#demos" onClick={(e) => handleLinkClick(e, '#demos')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Dynamic Quoting Engine (+7.4% Margin)</a>
+              <a href="#demos" onClick={(e) => handleLinkClick(e, '#demos')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Client Onboarding Hub (2.1x Conversion)</a>
+              <a href="#demos" onClick={(e) => handleLinkClick(e, '#demos')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Operational Retention Radar (82% Early)</a>
+              <a href="#demos" onClick={(e) => handleLinkClick(e, '#demos')} className="hover-underline-link" style={{ alignSelf: 'flex-start' }}>Live Interactive Simulators</a>
             </div>
           </div>
 
@@ -141,6 +150,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
               <div style={{ marginTop: '8px' }}>
                 <a
                   href="#contact"
+                  onClick={(e) => handleLinkClick(e, '#contact')}
                   className="hover-underline-link"
                   style={{
                     display: 'inline-flex',

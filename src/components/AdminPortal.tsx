@@ -728,6 +728,7 @@ export const AdminPortal: React.FC<AdminPortalProps> = ({ isOpen, onClose }) => 
 
             {/* Main Tab Content Area */}
             <div
+              data-lenis-prevent
               style={{
                 flex: 1,
                 padding: '28px 32px',

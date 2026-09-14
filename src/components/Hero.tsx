@@ -3,6 +3,7 @@ import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 import { HERO_HIGHLIGHTS } from '../data/content';
 import { HeroAgentTerminal } from './HeroAgentTerminal';
 import { playTactileClick } from '../utils/audio';
+import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 
 interface HeroProps {
   onExploreDemos?: () => void;
@@ -195,7 +196,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '28px', maxWidth: '100%' }}>
               <a
                 href="#contact"
-                onClick={() => playTactileClick()}
+                onClick={(e) => {
+                  e.preventDefault();
+                  playTactileClick();
+                  scrollToTarget('#contact', { offset: -80 });
+                }}
                 className="btn-neo-primary"
                 style={{ padding: '14px 28px', fontSize: '14.5px' }}
               >

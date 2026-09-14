@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowUp, Sparkles } from 'lucide-react';
 import { playTactileClick } from '../utils/audio';
 import { useScrollProgress } from '../hooks/useScrollProgress';
+import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 
 export const ScrollNavigationControl: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,7 +18,7 @@ export const ScrollNavigationControl: React.FC = () => {
 
   const scrollToTop = () => {
     playTactileClick();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTarget(0, { offset: 0 });
   };
 
   if (!isVisible) return null;

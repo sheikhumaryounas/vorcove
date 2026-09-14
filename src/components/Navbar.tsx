@@ -58,15 +58,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
           top: 0,
           left: 0,
           right: 0,
-          height: '2.5px',
-          background: 'linear-gradient(90deg, #1E2530 0%, #4A5464 50%, #10B981 100%)',
+          height: '3.5px',
+          background: 'linear-gradient(90deg, #1E2530 0%, #334155 40%, #10B981 100%)',
           transform: `scaleX(${scrollProgress / 100})`,
           transformOrigin: '0 50%',
-          zIndex: 100,
+          zIndex: 99999,
+          pointerEvents: 'none',
           willChange: 'transform',
-          transition: 'transform 0.08s linear, opacity 0.2s ease',
-          opacity: scrollProgress > 1 ? 1 : 0,
-          boxShadow: scrollProgress > 2 ? '0 0 10px rgba(16, 185, 129, 0.4)' : 'none'
+          transition: 'transform 0.05s linear, opacity 0.15s ease',
+          opacity: scrollProgress > 0.5 ? 1 : 0,
+          boxShadow: scrollProgress > 1 ? '0 0 12px rgba(16, 185, 129, 0.75), 0 1px 4px rgba(0,0,0,0.2)' : 'none'
         }}
       />
 

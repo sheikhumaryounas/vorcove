@@ -3,6 +3,10 @@ import Lenis from 'lenis';
 
 let globalLenis: Lenis | null = null;
 
+export function getGlobalLenis(): Lenis | null {
+  return globalLenis;
+}
+
 /**
  * Universal helper to smoothly scroll to any element target, selector, or numeric offset.
  * Integrates with Lenis when active, falling back to window scroll.

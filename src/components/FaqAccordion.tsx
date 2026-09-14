@@ -4,17 +4,20 @@ import { FAQS } from '../data/content';
 import { playTactileClick } from '../utils/audio';
 
 export const FaqAccordion: React.FC = () => {
-  const [openId, setOpenId] = useState<string>('faq-1');
+  // Allow multiple or single open tabs smoothly
+  const [openIds, setOpenIds] = useState<string[]>(['faq-1']);
   const [filter, setFilter] = useState<'all' | 'engagements' | 'engineering' | 'pricing'>('all');
 
   const toggleOpen = (id: string) => {
     playTactileClick();
-    setOpenId(openId === id ? '' : id);
+    setOpenIds((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
   };
 
   const filteredFaqs = filter === 'all'
     ? FAQS
-    : FAQS.filter(f => f.category === filter);
+    : FAQS.filter((f) => f.category === filter);
 
   return (
     <section
@@ -22,7 +25,8 @@ export const FaqAccordion: React.FC = () => {
       style={{
         padding: '120px 0',
         background: 'var(--bg-surface)',
-        borderBottom: '1px solid var(--border-light)'
+        borderBottom: '1px solid var(--border-light)',
+        position: 'relative'
       }}
     >
       <div className="container">
@@ -72,7 +76,7 @@ export const FaqAccordion: React.FC = () => {
               { id: 'engagements', label: 'Engagements' },
               { id: 'engineering', label: 'Engineering & Evals' },
               { id: 'pricing', label: 'Pricing & IP' }
-            ].map(tab => {
+            ].map((tab) => {
               const isSelected = filter === tab.id;
               return (
                 <button
@@ -92,7 +96,8 @@ export const FaqAccordion: React.FC = () => {
                     fontSize: '13px',
                     fontWeight: 600,
                     cursor: 'pointer',
-                    boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
+                    boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none',
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   {tab.label}
@@ -102,25 +107,40 @@ export const FaqAccordion: React.FC = () => {
           </div>
         </div>
 
-        {/* FAQ Accordion List */}
-        <div style={{ marginTop: '52px', display: 'flex', flexDirection: 'column', gap: '14px', maxWidth: '900px', margin: '52px auto 0' }}>
-          {filteredFaqs.map((faq, idx) => {
-            const isOpen = openId === faq.id;
+        {/* FAQ Accordion List Container */}
+        <div
+          className="reveal-scale stagger-1"
+          style={{
+            marginTop: '52px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '14px',
+            maxWidth: '900px',
+            margin: '52px auto 0'
+          }}
+        >
+          {filteredFaqs.map((faq) => {
+            const isOpen = openIds.includes(faq.id);
             return (
               <div
                 key={faq.id}
-                className={`glass-card faq-accordion-item reveal-item ${isOpen ? 'is-open' : ''}`}
+                className={`glass-card faq-accordion-item ${isOpen ? 'is-open' : ''}`}
                 style={{
                   borderRadius: '16px',
                   border: isOpen ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                   background: isOpen ? 'linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 100%)' : '#FFFFFF',
                   overflow: 'hidden',
-                  boxShadow: isOpen ? '0 8px 24px -4px rgba(30, 37, 48, 0.12)' : '0 1px 3px rgba(30, 37, 48, 0.04)',
-                  transitionDelay: `${idx * 40}ms`
+                  boxShadow: isOpen
+                    ? '0 8px 24px -4px rgba(30, 37, 48, 0.12)'
+                    : '0 1px 3px rgba(30, 37, 48, 0.04)',
+                  transition: 'border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease'
                 }}
               >
+                {/* Question Trigger Button */}
                 <button
+                  type="button"
                   onClick={() => toggleOpen(faq.id)}
+                  aria-expanded={isOpen}
                   style={{
                     width: '100%',
                     padding: '22px 28px',
@@ -131,7 +151,9 @@ export const FaqAccordion: React.FC = () => {
                     border: 'none',
                     background: 'none',
                     cursor: 'pointer',
-                    textAlign: 'left'
+                    textAlign: 'left',
+                    outline: 'none',
+                    userSelect: 'none'
                   }}
                 >
                   <span
@@ -157,27 +179,41 @@ export const FaqAccordion: React.FC = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: isOpen ? '#FFFFFF' : 'var(--ink-primary)',
-                      flexShrink: 0
+                      flexShrink: 0,
+                      transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+                      transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)'
                     }}
                   >
-                    {isOpen ? <Minus size={15} /> : <Plus size={15} />}
+                    {isOpen ? <Minus size={15} strokeWidth={2.5} /> : <Plus size={15} strokeWidth={2.5} />}
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div
-                    style={{
-                      padding: '0 28px 24px',
-                      fontSize: '15.5px',
-                      color: 'var(--ink-secondary)',
-                      lineHeight: 1.65,
-                      borderTop: '1px solid var(--border-subtle)',
-                      paddingTop: '16px'
-                    }}
-                  >
-                    {faq.answer}
+                {/* Animated Answer Body via Smooth Grid Height Transition */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateRows: isOpen ? '1fr' : '0fr',
+                    transition: 'grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1)'
+                  }}
+                >
+                  <div style={{ overflow: 'hidden' }}>
+                    <div
+                      style={{
+                        padding: '0 28px 24px',
+                        fontSize: '15.5px',
+                        color: 'var(--ink-secondary)',
+                        lineHeight: 1.65,
+                        borderTop: '1px solid var(--border-subtle)',
+                        paddingTop: '16px',
+                        opacity: isOpen ? 1 : 0,
+                        transform: isOpen ? 'translateY(0)' : 'translateY(-6px)',
+                        transition: 'opacity 0.28s ease, transform 0.28s ease'
+                      }}
+                    >
+                      {faq.answer}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}
@@ -186,7 +222,6 @@ export const FaqAccordion: React.FC = () => {
 
       <style>{`
         .faq-filter-btn {
-          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease !important;
           user-select: none;
         }
 
@@ -207,29 +242,16 @@ export const FaqAccordion: React.FC = () => {
           transform: translateY(0) scale(0.97);
         }
 
-        .faq-accordion-item {
-          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease !important;
-        }
-
         .faq-accordion-item:not(.is-open):hover {
-          transform: translateY(-2.5px);
+          transform: translateY(-2px);
           border-color: var(--ink-primary) !important;
           box-shadow: 0 10px 26px -4px rgba(30, 37, 48, 0.12), 0 2px 6px rgba(30, 37, 48, 0.04) !important;
         }
 
-        .faq-accordion-item.is-open:hover {
-          box-shadow: 0 12px 28px -4px rgba(30, 37, 48, 0.16) !important;
-        }
-
         .faq-accordion-item:hover .faq-toggle-icon {
-          transform: scale(1.1);
           background: var(--ink-primary) !important;
           color: #FFFFFF !important;
           border-color: var(--ink-primary) !important;
-        }
-
-        .faq-toggle-icon {
-          transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
         }
       `}</style>
     </section>

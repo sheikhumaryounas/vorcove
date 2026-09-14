@@ -35,10 +35,10 @@ export function scrollToTarget(
 /**
  * Universal High-Performance Repeatable Scroll & Reveal Animation Controller
  * - Silky smooth momentum scrolling with Lenis (60-120fps).
- * - Repeatable Bidirectional Animations: Triggers smoothly EVERY time an element
- *   enters the viewport, whether scrolling down or scrolling up, on any reload or continuous session.
- * - Generous top/bottom hysteresis buffer to prevent flickering while reading in-viewport content.
- * - Instant above-the-fold visibility on initial load.
+ * - Repeatable Bidirectional Animations: Triggers smoothly every time an element
+ *   enters the viewport, whether scrolling down or up.
+ * - Mutation-Resilient: React state changes and re-renders NEVER cause elements
+ *   to get stuck in hidden opacity: 0 state.
  */
 export function useGlobalScrollAnimations() {
   useEffect(() => {
@@ -89,51 +89,68 @@ export function useGlobalScrollAnimations() {
     }
 
     // 3. Repeatable IntersectionObserver
-    // rootMargin: '120px 0px -40px 0px' provides a 120px top buffer (keeps items solid
-    // while scrolling past them) and triggers 40px before bottom edge.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed', 'is-visible');
           } else {
-            // Re-triggerable: remove classes when completely out of viewport margins
-            // so when the user scrolls back into view, the animation plays again!
+            // Only reset when truly scrolled away outside margins
             entry.target.classList.remove('revealed', 'is-visible');
           }
         });
       },
       {
-        threshold: 0.04,
-        rootMargin: '120px 0px -30px 0px',
+        threshold: 0.03,
+        rootMargin: '140px 0px -20px 0px',
       }
     );
 
-    const observeAllTargets = () => {
+    const checkAndObserveAll = () => {
       const windowHeight = window.innerHeight || document.documentElement.clientHeight;
       const targets = document.querySelectorAll(targetSelector);
 
       targets.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        // If element is currently inside or above the viewport on initial pass, show immediately
-        if (rect.top <= windowHeight * 0.92 && rect.bottom >= -100) {
-          el.classList.add('revealed', 'is-visible');
+        // If element is currently within the visible viewport bounds, ensure it is revealed
+        if (rect.top <= windowHeight * 0.95 && rect.bottom >= -80) {
+          if (!el.classList.contains('revealed')) {
+            el.classList.add('revealed', 'is-visible');
+          }
         }
         observer.observe(el);
       });
     };
 
-    // Initial pass for immediately visible elements
-    observeAllTargets();
+    // Initial scan
+    checkAndObserveAll();
 
-    // Short delayed check to attach observer to any dynamically mounted components
-    const timer1 = setTimeout(observeAllTargets, 150);
-    const timer2 = setTimeout(observeAllTargets, 500);
+    // 4. MutationObserver to catch React re-renders or dynamic tab/accordion content
+    const mutationObserver = new MutationObserver(() => {
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const targets = document.querySelectorAll(targetSelector);
+
+      targets.forEach((el) => {
+        if (!el.classList.contains('revealed')) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= windowHeight * 0.95 && rect.bottom >= -80) {
+            el.classList.add('revealed', 'is-visible');
+          }
+        }
+        observer.observe(el);
+      });
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class'],
+    });
 
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
       observer.disconnect();
+      mutationObserver.disconnect();
       if (rafId) cancelAnimationFrame(rafId);
       if (lenis) {
         lenis.destroy();

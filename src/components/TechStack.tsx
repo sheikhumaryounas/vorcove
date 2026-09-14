@@ -106,6 +106,7 @@ export const TechStack: React.FC = () => {
 
         {/* Tech Grid */}
         <div
+          className="reveal-scale stagger-1"
           style={{
             marginTop: '52px',
             display: 'grid',
@@ -116,7 +117,7 @@ export const TechStack: React.FC = () => {
           {filtered.map((tech, idx) => (
             <div
               key={tech.name}
-              className="glass-card tech-stack-card reveal-item"
+              className="glass-card tech-stack-card"
               style={{
                 padding: '24px',
                 background: '#FFFFFF',

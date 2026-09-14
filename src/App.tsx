@@ -16,6 +16,7 @@ import { Footer } from './components/Footer';
 import { StudioAssistantWidget } from './components/StudioAssistantWidget';
 import { AdminPortal } from './components/AdminPortal';
 import { ScrollNavigationControl } from './components/ScrollNavigationControl';
+import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { useGlobalScrollAnimations, scrollToTarget } from './hooks/useGlobalScrollAnimations';
 
 export function App() {
@@ -33,6 +34,9 @@ export function App() {
 
   return (
     <div className="page-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Precision Top Reading Scroll Progress Indicator */}
+      <ScrollProgressBar />
+
       {/* Real Architectural Studio Atmospheric Background Layer */}
       <div className="bg-atmosphere-layer" aria-hidden="true" />
 

@@ -5,7 +5,10 @@ export function useScrollProgress(): number {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
+    let active = true;
+
     const calculateProgress = () => {
+      if (!active) return;
       const scrollY =
         window.scrollY ||
         window.pageYOffset ||
@@ -31,24 +34,35 @@ export function useScrollProgress(): number {
     window.addEventListener('resize', calculateProgress, { passive: true });
     calculateProgress();
 
-    // Direct binding with Lenis for real-time smoothness
+    // Check lenis immediately and after a short mount delay to bind smooth scroll event
     let unsubscribeLenis: (() => void) | null = null;
-    const lenis = getGlobalLenis();
-    if (lenis) {
-      const onLenisScroll = (e: any) => {
-        if (typeof e.progress === 'number') {
-          setProgress(Math.min(100, Math.max(0, e.progress * 100)));
-        } else {
-          calculateProgress();
-        }
-      };
-      lenis.on('scroll', onLenisScroll);
-      unsubscribeLenis = () => {
-        lenis.off('scroll', onLenisScroll);
-      };
-    }
+    const bindLenis = () => {
+      if (!active) return;
+      const lenis = getGlobalLenis();
+      if (lenis && !unsubscribeLenis) {
+        const onLenisScroll = (e: any) => {
+          if (!active) return;
+          if (typeof e?.progress === 'number') {
+            setProgress(Math.min(100, Math.max(0, e.progress * 100)));
+          } else {
+            calculateProgress();
+          }
+        };
+        lenis.on('scroll', onLenisScroll);
+        unsubscribeLenis = () => {
+          lenis.off('scroll', onLenisScroll);
+        };
+      }
+    };
+
+    bindLenis();
+    const timer1 = setTimeout(bindLenis, 100);
+    const timer2 = setTimeout(bindLenis, 400);
 
     return () => {
+      active = false;
+      clearTimeout(timer1);
+      clearTimeout(timer2);
       window.removeEventListener('scroll', calculateProgress);
       window.removeEventListener('resize', calculateProgress);
       if (unsubscribeLenis) unsubscribeLenis();

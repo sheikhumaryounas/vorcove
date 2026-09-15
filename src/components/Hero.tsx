@@ -101,18 +101,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
 
             {/* High-Impact Headline with Text Shimmer */}
             <h1
-              className="heading-editorial hero-headline-text"
+              className="heading-editorial hero-headline-text text-shimmer"
               style={{
                 fontSize: 'clamp(1.9rem, 3.5vw, 3.1rem)',
                 marginTop: '18px',
                 marginBottom: '0',
-                lineHeight: 1.1,
-                maxWidth: '22ch',
-                wordBreak: 'break-word',
+                lineHeight: 1.12,
+                maxWidth: '24ch',
+                textWrap: 'balance',
+                wordBreak: 'normal',
                 overflowWrap: 'break-word'
               }}
             >
-              We turn your real-time business bottlenecks into <span className="text-shimmer">custom automated software</span>.
+              We turn your real-time business bottlenecks into custom automated software.
             </h1>
 
             {/* Subtitle */}

@@ -1309,20 +1309,32 @@ input[type=range]::-moz-range-thumb {
 
 /* Editorial Text Shimmer Glint */
 .text-shimmer {
-  background: linear-gradient(110deg, var(--ink-primary) 20%, #10B981 50%, var(--ink-primary) 80%);
-  background-size: 220% 100%;
+  background: linear-gradient(
+    115deg,
+    var(--ink-primary) 0%,
+    var(--ink-primary) 38%,
+    #059669 47%,
+    #10B981 50%,
+    #34D399 53%,
+    var(--ink-primary) 62%,
+    var(--ink-primary) 100%
+  );
+  background-size: 260% 100%;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: text-shimmer-pan 7s ease-in-out infinite;
-  display: inline-block;
+  animation: text-shimmer-pan 16s ease-in-out infinite;
 }
 
 @keyframes text-shimmer-pan {
-  0%, 20% {
-    background-position: 200% 0;
+  0% {
+    background-position: 130% center;
   }
-  80%, 100% {
-    background-position: -200% 0;
+  50% {
+    background-position: -130% center;
+  }
+  100% {
+    background-position: -130% center;
   }
 }
 

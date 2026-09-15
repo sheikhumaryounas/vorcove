@@ -114,7 +114,7 @@ export const TechStack: React.FC = () => {
             gap: '14px'
           }}
         >
-          {filtered.map((tech, idx) => (
+          {filtered.map((tech) => (
             <div
               key={tech.name}
               className="glass-card tech-stack-card"
@@ -125,8 +125,7 @@ export const TechStack: React.FC = () => {
                 border: '1px solid var(--border-light)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '10px',
-                transitionDelay: `${idx * 30}ms`
+                gap: '10px'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

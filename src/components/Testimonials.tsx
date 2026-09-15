@@ -50,14 +50,13 @@ export const Testimonials: React.FC = () => {
           {TESTIMONIALS.map((t, idx) => (
             <div
               key={t.id}
-              className="glass-card glass-card-hover reveal-item"
+              className={`glass-card glass-card-hover reveal-up stagger-${idx + 1}`}
               style={{
                 padding: '24px 22px',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                gap: '20px',
-                transitionDelay: `${idx * 100}ms`
+                gap: '20px'
               }}
             >
               <div>

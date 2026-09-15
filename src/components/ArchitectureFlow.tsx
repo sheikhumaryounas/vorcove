@@ -120,6 +120,7 @@ export const ArchitectureFlow: React.FC = () => {
 
         {/* Pipeline Node Selector Grid */}
         <div
+          className="reveal-scale stagger-1"
           style={{
             marginTop: '40px',
             display: 'grid',
@@ -127,14 +128,14 @@ export const ArchitectureFlow: React.FC = () => {
             gap: '14px'
           }}
         >
-          {NODES.map((node, idx) => {
+          {NODES.map((node) => {
             const isSelected = activeNodeId === node.id;
             const Icon = node.icon;
             return (
               <div
                 key={node.id}
                 onClick={() => handleSelectNode(node.id)}
-                className={`architecture-node-card reveal-item ${isSelected ? 'is-selected' : ''}`}
+                className={`architecture-node-card ${isSelected ? 'is-selected' : ''}`}
                 style={{
                   background: isSelected ? 'var(--bg-dark)' : '#FFFFFF',
                   color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
@@ -146,7 +147,7 @@ export const ArchitectureFlow: React.FC = () => {
                   display: 'flex',
                   flexDirection: 'column',
                   gap: '10px',
-                  transitionDelay: `${idx * 60}ms`
+                  transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

@@ -43,7 +43,7 @@ export const BeforeAfterSlider: React.FC = () => {
       id="comparison"
       style={{
         padding: '80px 0',
-        background: 'var(--bg-page)',
+        background: 'transparent',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
       }}

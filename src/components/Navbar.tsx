@@ -10,10 +10,9 @@ import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 interface NavbarProps {
   onOpenConsultation?: () => void;
   onOpenAssistant?: () => void;
-  onOpenPortal?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const scrollProgress = useScrollProgress();
@@ -133,39 +132,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
 
           {/* Right Controls */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            {/* Studio Portal Button */}
-            {onOpenPortal && (
-              <button
-                onClick={() => {
-                  playTactileClick();
-                  onOpenPortal();
-                }}
-                className="nav-underline-link studio-portal-btn"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  background: 'rgba(0, 0, 0, 0.035)',
-                  border: '1px solid var(--border-light)',
-                  padding: '5px 11px',
-                  borderRadius: '999px',
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  cursor: 'pointer'
-                }}
-              >
-                <span>Studio Portal</span>
-                <span
-                  style={{
-                    width: '6px',
-                    height: '6px',
-                    borderRadius: '50%',
-                    background: '#10B981'
-                  }}
-                />
-              </button>
-            )}
-
             {/* Quick Action Start Project */}
             <a
               href="#contact"
@@ -259,46 +225,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
                 )}
               </a>
             ))}
-            {/* Studio Portal link in Mobile Dropdown */}
-            {onOpenPortal && (
-              <button
-                onClick={() => {
-                  playTactileClick();
-                  setMobileMenuOpen(false);
-                  onOpenPortal();
-                }}
-                style={{
-                  padding: '10px 14px',
-                  borderRadius: '10px',
-                  fontSize: '15px',
-                  fontWeight: 600,
-                  color: 'var(--ink-primary)',
-                  background: 'rgba(0, 0, 0, 0.03)',
-                  border: '1px solid var(--border-light)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  cursor: 'pointer',
-                  width: '100%',
-                  textAlign: 'left',
-                  marginTop: '4px'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span>Studio Portal</span>
-                  <span
-                    style={{
-                      width: '6px',
-                      height: '6px',
-                      borderRadius: '50%',
-                      background: '#10B981'
-                    }}
-                  />
-                </div>
-                <ArrowUpRight size={16} color="var(--ink-muted)" />
-              </button>
-            )}
-
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid var(--border-light)' }}>
               <a
                 href="#contact"
@@ -314,11 +240,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultation, onOpenPortal
       </header>
 
       <style>{`
-        @media (max-width: 768px) {
-          .studio-portal-btn {
-            display: none !important;
-          }
-        }
         @media (min-width: 960px) {
           .desktop-nav {
             display: flex !important;

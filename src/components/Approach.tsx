@@ -1,16 +1,12 @@
 import React from 'react';
 import { APPROACH_STEPS, STUDIO_STATS } from '../data/content';
-import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { KineticCounter } from './KineticCounter';
 
 export const Approach: React.FC = () => {
-  const { elementRef } = useIntersectionReveal(0.15);
-
   return (
     <section
       id="approach"
-      ref={elementRef}
       style={{
         padding: '80px 0',
         background: 'var(--bg-page)',
@@ -21,7 +17,7 @@ export const Approach: React.FC = () => {
       <div className="container">
         {/* Dark Obsidian Container Band */}
         <div
-          className="obsidian-band reveal-item"
+          className="obsidian-band reveal-scale"
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           {/* Real Architectural Studio Backdrop (Dark Atmosphere Texture) */}
@@ -74,7 +70,7 @@ export const Approach: React.FC = () => {
             }}
           >
             {/* Left Column Overview */}
-            <div>
+            <div className="reveal-left stagger-1">
               <div
                 style={{
                   display: 'inline-flex',
@@ -163,6 +159,7 @@ export const Approach: React.FC = () => {
               {APPROACH_STEPS.map((step, idx) => (
                 <div
                   key={step.number}
+                  className={`reveal-right stagger-${idx + 1}`}
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '40px 1fr',
@@ -209,6 +206,7 @@ export const Approach: React.FC = () => {
 
           {/* Bottom Live Animated KPI Row with Kinetic Counter */}
           <div
+            className="reveal-up stagger-2"
             style={{
               position: 'relative',
               zIndex: 1,
@@ -221,7 +219,7 @@ export const Approach: React.FC = () => {
             }}
           >
             {STUDIO_STATS.map((stat, sIdx) => (
-              <div key={sIdx}>
+              <div key={sIdx} className={`reveal-scale stagger-${sIdx + 1}`}>
                 <div
                   style={{
                     fontFamily: 'var(--font-display)',
@@ -255,3 +253,4 @@ export const Approach: React.FC = () => {
     </section>
   );
 };
+

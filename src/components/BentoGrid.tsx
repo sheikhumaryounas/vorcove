@@ -76,7 +76,7 @@ export const BentoGrid: React.FC = () => {
           {/* Card 1: Large Operational Workflow Automation Banner (Span 8 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className="spotlight-card reveal-item stagger-1"
+            className="spotlight-card reveal-scale stagger-1"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
@@ -212,7 +212,7 @@ export const BentoGrid: React.FC = () => {
           {/* Card 2: Dynamic Quoting & Pricing Engine (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className="spotlight-card reveal-item stagger-2"
+            className="spotlight-card reveal-left stagger-2"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
@@ -258,7 +258,7 @@ export const BentoGrid: React.FC = () => {
           {/* Card 3: Custom Business Applications & Portals (Span 6 cols) */}
           <div
             onMouseMove={handleMouseMove}
-            className="spotlight-card reveal-item stagger-3"
+            className="spotlight-card reveal-right stagger-3"
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',

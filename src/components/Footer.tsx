@@ -4,11 +4,9 @@ import { VorcoveLogo } from './VorcoveLogo';
 import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
 import { playTactileClick } from '../utils/audio';
 
-interface FooterProps {
-  onOpenPortal?: () => void;
-}
+interface FooterProps {}
 
-export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
+export const Footer: React.FC<FooterProps> = () => {
   const [usTime, setUsTime] = useState<string>('');
   const [euTime, setEuTime] = useState<string>('');
 
@@ -76,7 +74,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Top Grid */}
         <div
-          className="reveal-item"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
@@ -86,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
           }}
         >
           {/* Brand Col */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div className="reveal-left stagger-1" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <VorcoveLogo inverted={true} markSize={24} fontSize="16px" />
 
             <p style={{ fontSize: '13px', color: '#94A3B8', lineHeight: 1.55, maxWidth: '28ch', margin: 0 }}>
@@ -107,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
           </div>
 
           {/* Col 2 Capabilities */}
-          <div>
+          <div className="reveal-up stagger-2">
             <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '14px' }}>
               Capabilities
             </div>
@@ -121,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
           </div>
 
           {/* Col 3 Selected Work */}
-          <div>
+          <div className="reveal-up stagger-3">
             <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '14px' }}>
               Selected Work
             </div>
@@ -135,7 +132,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
           </div>
 
           {/* Col 4 Direct Contact */}
-          <div>
+          <div className="reveal-right stagger-4">
             <div style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#FFFFFF', marginBottom: '14px' }}>
               Direct Contact
             </div>
@@ -170,6 +167,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
 
         {/* Bottom Bar */}
         <div
+          className="reveal-scale stagger-2"
           style={{
             marginTop: '28px',
             display: 'flex',
@@ -186,26 +184,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPortal }) => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-            {onOpenPortal && (
-              <button
-                onClick={onOpenPortal}
-                style={{
-                  background: 'transparent',
-                  border: '1px solid rgba(2, 132, 199, 0.4)',
-                  color: '#38BDF8',
-                  padding: '4px 10px',
-                  borderRadius: '999px',
-                  cursor: 'pointer',
-                  fontSize: '11.5px',
-                  fontWeight: 600,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '5px'
-                }}
-              >
-                <span>⚙ Studio Portal</span>
-              </button>
-            )}
             <span>SOC 2 Type II Compliant Architectures</span>
           </div>
         </div>

@@ -17,8 +17,8 @@ export function scrollToTarget(
 ) {
   if (globalLenis) {
     globalLenis.scrollTo(target, {
-      offset: options?.offset ?? (typeof target === 'number' ? 0 : -80),
-      duration: options?.duration ?? 0.9,
+      offset: options?.offset ?? (typeof target === 'number' ? 0 : -76),
+      duration: options?.duration ?? 1.1,
       immediate: options?.immediate ?? false,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
@@ -36,11 +36,14 @@ export function scrollToTarget(
   }
 }
 
+const TARGET_SELECTOR =
+  '.reveal-item, .reveal-left, .reveal-right, .reveal-scale, .reveal-up, .reveal-card, .reveal-heading, .scroll-reveal';
+
 /**
  * Universal High-Speed 60-120fps Scroll & Reveal Animation Controller
  * - Silky smooth, low-latency Lenis momentum scrolling.
- * - Pure, non-blocking IntersectionObserver running on compositor thread.
- * - Zero forced reflows / zero layout thrashing during scroll.
+ * - Compositor-optimized IntersectionObserver + MutationObserver for zero missed elements.
+ * - Instant above-the-fold viewport scanning so Hero/top content cascades in without blank screens.
  */
 export function useGlobalScrollAnimations() {
   useEffect(() => {
@@ -57,8 +60,8 @@ export function useGlobalScrollAnimations() {
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
-        wheelMultiplier: 0.92,
-        touchMultiplier: 1.3,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.2,
         infinite: false,
       });
 
@@ -72,13 +75,9 @@ export function useGlobalScrollAnimations() {
       rafId = requestAnimationFrame(raf);
     }
 
-    // 2. Target Selector for Animated Elements across the Website
-    const targetSelector =
-      '.reveal-item, .reveal-left, .reveal-right, .reveal-scale, .reveal-up, .reveal-card, .reveal-heading, .scroll-reveal';
-
     // If user prefers reduced motion, reveal everything immediately
     if (prefersReducedMotion) {
-      document.querySelectorAll(targetSelector).forEach((el) => {
+      document.querySelectorAll(TARGET_SELECTOR).forEach((el) => {
         el.classList.add('revealed', 'is-visible');
       });
       return () => {
@@ -90,25 +89,81 @@ export function useGlobalScrollAnimations() {
       };
     }
 
-    // 3. Ultra-Lightweight Repeatable IntersectionObserver (Compositor Thread)
+    // 2. High-Performance IntersectionObserver (Compositor Thread)
+    const observedElements = new WeakSet<Element>();
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.setAttribute('data-revealed', 'true');
             entry.target.classList.add('revealed', 'is-visible');
+            // Unobserve after revealing to save CPU/GPU cycles
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.05,
-        rootMargin: '100px 0px -40px 0px',
+        threshold: 0.04,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
-    // Observe all targets
-    const targets = document.querySelectorAll(targetSelector);
-    targets.forEach((el) => {
+    const observeElement = (el: Element) => {
+      if (el.getAttribute('data-revealed') === 'true') {
+        el.classList.add('revealed', 'is-visible');
+        return;
+      }
+      if (observedElements.has(el)) return;
+      observedElements.add(el);
       observer.observe(el);
+    };
+
+    const scanAndObserve = () => {
+      const elements = document.querySelectorAll(TARGET_SELECTOR);
+      elements.forEach((el) => {
+        if (el.getAttribute('data-revealed') === 'true') {
+          el.classList.add('revealed', 'is-visible');
+          return;
+        }
+        // If element is already in the viewport on load/render, reveal immediately
+        const rect = el.getBoundingClientRect();
+        const isInViewport =
+          rect.top < window.innerHeight + 50 && rect.bottom > -50 && rect.height > 0;
+
+        if (isInViewport) {
+          el.setAttribute('data-revealed', 'true');
+          el.classList.add('revealed', 'is-visible');
+        } else {
+          observeElement(el);
+        }
+      });
+    };
+
+    // Initial scan with requestAnimationFrame to ensure DOM layout is painted
+    requestAnimationFrame(() => {
+      scanAndObserve();
+      setTimeout(scanAndObserve, 80);
+      setTimeout(scanAndObserve, 250);
+    });
+
+    // 3. Dynamic MutationObserver: automatically detect newly rendered tabs, modals, or components
+    const mutationObserver = new MutationObserver((mutations) => {
+      let shouldScan = false;
+      for (const mutation of mutations) {
+        if (mutation.addedNodes.length > 0) {
+          shouldScan = true;
+          break;
+        }
+      }
+      if (shouldScan) {
+        scanAndObserve();
+      }
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
     });
 
     // 4. Magnetic Buttons Engine (Cursor Attraction on Desktop)
@@ -117,7 +172,7 @@ export function useGlobalScrollAnimations() {
 
     if (isPointerFine && !prefersReducedMotion) {
       const magneticButtons = document.querySelectorAll<HTMLElement>(
-        '.magnetic-btn, .btn-primary, .btn-secondary, .nav-start-btn, .contact-copy-btn'
+        '.magnetic-btn, .btn-primary, .btn-secondary, .btn-neo-primary, .btn-neo-secondary, .nav-start-btn, .contact-copy-btn'
       );
 
       magneticButtons.forEach((btn) => {
@@ -132,8 +187,8 @@ export function useGlobalScrollAnimations() {
           if (!bounds) bounds = btn.getBoundingClientRect();
           const centerX = bounds.left + bounds.width / 2;
           const centerY = bounds.top + bounds.height / 2;
-          const deltaX = (e.clientX - centerX) * 0.28;
-          const deltaY = (e.clientY - centerY) * 0.28;
+          const deltaX = (e.clientX - centerX) * 0.25;
+          const deltaY = (e.clientY - centerY) * 0.25;
 
           btn.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0)`;
         };
@@ -175,8 +230,8 @@ export function useGlobalScrollAnimations() {
           card.style.setProperty('--mouse-y', `${yPercent}%`);
 
           // Micro 3D Tilt (Max 2.5 degrees for buttery subtle feel)
-          const rotateX = ((y / cardBounds.height) - 0.5) * -4;
-          const rotateY = ((x / cardBounds.width) - 0.5) * 4;
+          const rotateX = ((y / cardBounds.height) - 0.5) * -3.5;
+          const rotateY = ((x / cardBounds.width) - 0.5) * 3.5;
           card.style.setProperty('--tilt-rx', `${rotateX}deg`);
           card.style.setProperty('--tilt-ry', `${rotateY}deg`);
         };
@@ -201,6 +256,7 @@ export function useGlobalScrollAnimations() {
 
     return () => {
       observer.disconnect();
+      mutationObserver.disconnect();
       magneticCleanups.forEach((cleanup) => cleanup());
       if (rafId) cancelAnimationFrame(rafId);
       if (lenis) {
@@ -210,3 +266,4 @@ export function useGlobalScrollAnimations() {
     };
   }, []);
 }
+

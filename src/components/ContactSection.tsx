@@ -76,7 +76,7 @@ export const ContactSection: React.FC = () => {
     >
       <div className="container">
         <div
-          className="glass-card reveal-item"
+          className="glass-card reveal-scale"
           style={{
             padding: '38px 32px',
             background: 'linear-gradient(180deg, #FFFFFF 0%, #F9F8F4 100%)',
@@ -89,7 +89,7 @@ export const ContactSection: React.FC = () => {
           }}
         >
           {/* Left Column Studio Info */}
-          <div>
+          <div className="reveal-left stagger-1">
             <div className="kicker">
               <span className="kicker-dot" />
               <span>Start a Project</span>
@@ -184,7 +184,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Right Column Form */}
-          <div>
+          <div className="reveal-right stagger-2">
             {isSubmitted ? (
               <div
                 style={{

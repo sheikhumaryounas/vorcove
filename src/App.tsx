@@ -14,7 +14,6 @@ import { FaqAccordion } from './components/FaqAccordion';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { StudioAssistantWidget } from './components/StudioAssistantWidget';
-import { AdminPortal } from './components/AdminPortal';
 import { ScrollNavigationControl } from './components/ScrollNavigationControl';
 import { ScrollProgressBar } from './components/ScrollProgressBar';
 import { useGlobalScrollAnimations, scrollToTarget } from './hooks/useGlobalScrollAnimations';
@@ -22,7 +21,6 @@ import { useGlobalScrollAnimations, scrollToTarget } from './hooks/useGlobalScro
 export function App() {
   useGlobalScrollAnimations();
   const [isAssistantOpen, setIsAssistantOpen] = useState<boolean>(false);
-  const [isPortalOpen, setIsPortalOpen] = useState<boolean>(false);
 
   const scrollToContact = () => {
     scrollToTarget('#contact', { offset: -80 });
@@ -43,7 +41,6 @@ export function App() {
       {/* Fixed Sticky Navbar */}
       <Navbar
         onOpenConsultation={scrollToContact}
-        onOpenPortal={() => setIsPortalOpen(true)}
       />
 
       {/* Main Sections Stack */}
@@ -86,7 +83,7 @@ export function App() {
       </main>
 
       {/* Studio Footer */}
-      <Footer onOpenPortal={() => setIsPortalOpen(true)} />
+      <Footer />
 
       {/* Floating Scroll Navigation & Quick Action Indicator */}
       <ScrollNavigationControl />
@@ -95,12 +92,6 @@ export function App() {
       <StudioAssistantWidget
         isOpenExternal={isAssistantOpen}
         onCloseExternal={() => setIsAssistantOpen(false)}
-      />
-
-      {/* Studio Executive Admin Portal & Telemetry */}
-      <AdminPortal
-        isOpen={isPortalOpen}
-        onClose={() => setIsPortalOpen(false)}
       />
     </div>
   );

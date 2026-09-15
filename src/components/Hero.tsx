@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Sparkles, CheckCircle2, Zap } from 'lucide-react';
 import { HERO_HIGHLIGHTS } from '../data/content';
 import { HeroAgentTerminal } from './HeroAgentTerminal';
 import { playTactileClick } from '../utils/audio';
@@ -22,23 +22,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
         borderBottom: '1px solid var(--border-light)'
       }}
     >
-      {/* Real High-Tech Engineering & Software Network Backdrop */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          width: 'min(65vw, 920px)',
-          height: '100%',
-          backgroundImage: `radial-gradient(ellipse at 70% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(243, 246, 249, 0.75) 60%, var(--bg-page) 98%), url('/assets/network-bg.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-          opacity: 0.18,
-          pointerEvents: 'none',
-          zIndex: 0
-        }}
-      />
-
       {/* Ambient Fluid Aurora Light Sphere (Floating Glow) */}
       <div
         className="aurora-ambient-sphere"
@@ -100,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   background: '#FFFFFF'
                 }}
               >
-                <span>⚡</span>
+                <Zap size={11} strokeWidth={2.5} />
                 <span>14-Day Working Software</span>
               </div>
 
@@ -111,7 +94,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   background: '#FFFFFF'
                 }}
               >
-                <span>⚡</span>
+                <Zap size={11} strokeWidth={2.5} />
                 <span>100% IP Ownership</span>
               </div>
             </div>

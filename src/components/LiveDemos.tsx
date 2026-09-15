@@ -672,8 +672,9 @@ export const LiveDemos: React.FC = () => {
                 </div>
 
                 <div style={{ marginTop: '30px', padding: '16px', borderRadius: '12px', background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '12px', color: 'var(--ink-secondary)', lineHeight: 1.5 }}>
-                    💡 <strong>Real Production Result:</strong> For MetalsDirect Group, our dynamic pricing engine achieved a <strong>+7.4% gross margin expansion</strong> on the exact same traffic catalog.
+                  <div style={{ fontSize: '12px', color: 'var(--ink-secondary)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <Sparkles size={14} color="#0284C7" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span><strong>Real Production Result:</strong> For MetalsDirect Group, our dynamic pricing engine achieved a <strong>+7.4% gross margin expansion</strong> on the exact same traffic catalog.</span>
                   </div>
                 </div>
               </div>
@@ -866,8 +867,9 @@ export const LiveDemos: React.FC = () => {
                 </div>
 
                 <div style={{ marginTop: '24px', padding: '16px', borderRadius: '12px', background: 'var(--bg-surface)', border: '1px solid var(--border-light)' }}>
-                  <div style={{ fontSize: '12px', color: 'var(--ink-secondary)' }}>
-                    🎯 <strong>Model Prediction Lead Time:</strong> Identifies at-risk ARR <strong>60 days before contract renewal</strong>, allowing Customer Success teams to trigger proactive retention plays.
+                  <div style={{ fontSize: '12px', color: 'var(--ink-secondary)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ShieldCheck size={14} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span><strong>Model Prediction Lead Time:</strong> Identifies at-risk ARR <strong>60 days before contract renewal</strong>, allowing Customer Success teams to trigger proactive retention plays.</span>
                   </div>
                 </div>
               </div>

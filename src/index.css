@@ -1100,7 +1100,7 @@ input[type=range]::-moz-range-thumb {
    2026 REAL TECH NETWORK BACKDROP & LIGHTWEIGHT BIDIRECTIONAL SCROLL ANIMATIONS
    ───────────────────────────────────────────────────────────── */
 
-/* Global Real Tech Infrastructure Background Layer (Zero Skin/Beige Color) */
+/* Global Real Tech Infrastructure Background Layer (Clean High-End Light Theme) */
 .bg-atmosphere-layer {
   position: fixed;
   top: 0;
@@ -1110,11 +1110,10 @@ input[type=range]::-moz-range-thumb {
   pointer-events: none;
   z-index: 0;
   background-image: 
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.5) 0%, transparent 70%),
-    linear-gradient(180deg, rgba(243, 246, 249, 0.86) 0%, rgba(235, 240, 246, 0.90) 50%, rgba(243, 246, 249, 0.94) 100%),
-    url('/assets/network-bg.jpg');
-  background-size: cover;
-  background-position: center;
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.7) 0%, transparent 65%),
+    radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.035) 0%, transparent 45%),
+    radial-gradient(circle at 15% 65%, rgba(56, 189, 248, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(243, 246, 249, 0.98) 0%, rgba(235, 240, 246, 0.96) 50%, rgba(243, 246, 249, 0.98) 100%);
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   opacity: 1;
@@ -1130,32 +1129,32 @@ input[type=range]::-moz-range-thumb {
 .reveal-card,
 .reveal-heading {
   opacity: 0;
-  transform: translate3d(0, 14px, 0);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 26px, 0);
+  transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1), transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
 
 .reveal-left {
   opacity: 0;
-  transform: translate3d(-16px, 0, 0);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(-30px, 0, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
 
 .reveal-right {
   opacity: 0;
-  transform: translate3d(16px, 0, 0);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(30px, 0, 0);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
 
 .reveal-scale {
   opacity: 0;
-  transform: translate3d(0, 10px, 0) scale(0.98);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 18px, 0) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   will-change: transform, opacity;
 }
@@ -1163,52 +1162,68 @@ input[type=range]::-moz-range-thumb {
 /* Luxury entry transition when element enters viewport */
 .reveal-item.revealed,
 .reveal-item.is-visible,
+.reveal-item[data-revealed="true"],
 .scroll-reveal.revealed,
 .scroll-reveal.is-visible,
+.scroll-reveal[data-revealed="true"],
 .reveal-up.revealed,
 .reveal-up.is-visible,
+.reveal-up[data-revealed="true"],
 .reveal-card.revealed,
 .reveal-card.is-visible,
+.reveal-card[data-revealed="true"],
 .reveal-heading.revealed,
 .reveal-heading.is-visible,
+.reveal-heading[data-revealed="true"],
 .reveal-left.revealed,
 .reveal-left.is-visible,
+.reveal-left[data-revealed="true"],
 .reveal-right.revealed,
 .reveal-right.is-visible,
+.reveal-right[data-revealed="true"],
 .reveal-scale.revealed,
-.reveal-scale.is-visible {
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
+.reveal-scale.is-visible,
+.reveal-scale[data-revealed="true"] {
+  transition: opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.72s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .reveal-item.revealed,
 .reveal-item.is-visible,
+.reveal-item[data-revealed="true"],
 .scroll-reveal.revealed,
 .scroll-reveal.is-visible,
+.scroll-reveal[data-revealed="true"],
 .reveal-up.revealed,
 .reveal-up.is-visible,
+.reveal-up[data-revealed="true"],
 .reveal-card.revealed,
 .reveal-card.is-visible,
+.reveal-card[data-revealed="true"],
 .reveal-heading.revealed,
-.reveal-heading.is-visible {
+.reveal-heading.is-visible,
+.reveal-heading[data-revealed="true"] {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) !important;
 }
 
 .reveal-left.revealed,
-.reveal-left.is-visible {
+.reveal-left.is-visible,
+.reveal-left[data-revealed="true"] {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) !important;
 }
 
 .reveal-right.revealed,
-.reveal-right.is-visible {
+.reveal-right.is-visible,
+.reveal-right[data-revealed="true"] {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) !important;
 }
 
 .reveal-scale.revealed,
-.reveal-scale.is-visible {
+.reveal-scale.is-visible,
+.reveal-scale[data-revealed="true"] {
   opacity: 1 !important;
   transform: scale(1) translate3d(0, 0, 0) !important;
 }
@@ -1229,15 +1244,15 @@ input[type=range]::-moz-range-thumb {
   }
 }
 
-/* Subtle gentle stagger utilities */
-.stagger-1 { transition-delay: 35ms !important; }
-.stagger-2 { transition-delay: 75ms !important; }
-.stagger-3 { transition-delay: 115ms !important; }
-.stagger-4 { transition-delay: 155ms !important; }
-.stagger-5 { transition-delay: 195ms !important; }
-.stagger-6 { transition-delay: 235ms !important; }
-.stagger-7 { transition-delay: 275ms !important; }
-.stagger-8 { transition-delay: 315ms !important; }
+/* Fluid gentle stagger utilities */
+.stagger-1 { transition-delay: 60ms !important; }
+.stagger-2 { transition-delay: 120ms !important; }
+.stagger-3 { transition-delay: 180ms !important; }
+.stagger-4 { transition-delay: 240ms !important; }
+.stagger-5 { transition-delay: 300ms !important; }
+.stagger-6 { transition-delay: 360ms !important; }
+.stagger-7 { transition-delay: 420ms !important; }
+.stagger-8 { transition-delay: 480ms !important; }
 
 /* Subtle floating and breathing micro-animations */
 @keyframes vc-float {

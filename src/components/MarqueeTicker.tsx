@@ -1,4 +1,5 @@
 import React from 'react';
+import { Zap } from 'lucide-react';
 import { MARQUEE_ITEMS } from '../data/content';
 
 export const MarqueeTicker: React.FC = () => {
@@ -45,7 +46,7 @@ export const MarqueeTicker: React.FC = () => {
                   borderRadius: '999px'
                 }}
               >
-                <span>⚡</span>
+                <Zap size={11} strokeWidth={2.5} color="var(--ink-primary)" />
                 <span>{item}</span>
               </span>
               <span style={{ color: 'var(--ink-muted)', fontSize: '11px', fontWeight: 600 }}>•</span>
@@ -84,7 +85,7 @@ export const MarqueeTicker: React.FC = () => {
                   borderRadius: '999px'
                 }}
               >
-                <span>⚡</span>
+                <Zap size={11} strokeWidth={2.5} color="var(--ink-primary)" />
                 <span>{item}</span>
               </span>
               <span style={{ color: 'var(--ink-muted)', fontSize: '11px', fontWeight: 600 }}>•</span>

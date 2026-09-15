@@ -39,6 +39,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
         }}
       />
 
+      {/* Ambient Fluid Aurora Light Sphere (Floating Glow) */}
+      <div
+        className="aurora-ambient-sphere"
+        style={{
+          top: '10%',
+          left: '15%',
+          width: '420px',
+          height: '420px',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, rgba(56, 189, 248, 0.18) 50%, transparent 70%)',
+          zIndex: 0
+        }}
+      />
+
       {/* Background Ambient Floating V-Mark */}
       <div
         style={{
@@ -103,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               </div>
             </div>
 
-            {/* High-Impact Headline */}
+            {/* High-Impact Headline with Text Shimmer */}
             <h1
               className="heading-editorial hero-headline-text"
               style={{
@@ -116,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                 overflowWrap: 'break-word'
               }}
             >
-              We turn your real-time business bottlenecks into custom automated software.
+              We turn your real-time business bottlenecks into <span className="text-shimmer">custom automated software</span>.
             </h1>
 
             {/* Subtitle */}

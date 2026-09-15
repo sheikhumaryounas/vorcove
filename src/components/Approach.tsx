@@ -1,45 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { APPROACH_STEPS, STUDIO_STATS } from '../data/content';
 import { useIntersectionReveal } from '../hooks/useIntersectionReveal';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { KineticCounter } from './KineticCounter';
 
 export const Approach: React.FC = () => {
-  const { elementRef, isRevealed } = useIntersectionReveal(0.15);
-  const [counts, setCounts] = useState<{ [key: number]: number }>({
-    0: 0,
-    1: 0,
-    2: 0,
-    3: 0
-  });
-
-  useEffect(() => {
-    if (!isRevealed) return;
-
-    STUDIO_STATS.forEach((stat, idx) => {
-      const duration = 1200;
-      const start = performance.now();
-      const target = stat.value;
-
-      const animate = (time: number) => {
-        const elapsed = time - start;
-        const progress = Math.min(1, elapsed / duration);
-        // easeOutCubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = target * eased;
-
-        setCounts(prev => ({
-          ...prev,
-          [idx]: stat.suffix.includes('.') ? parseFloat(current.toFixed(1)) : Math.round(current)
-        }));
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-
-      requestAnimationFrame(animate);
-    });
-  }, [isRevealed]);
+  const { elementRef } = useIntersectionReveal(0.15);
 
   return (
     <section
@@ -241,7 +207,7 @@ export const Approach: React.FC = () => {
             </div>
           </div>
 
-          {/* Bottom Live Animated KPI Row */}
+          {/* Bottom Live Animated KPI Row with Kinetic Counter */}
           <div
             style={{
               position: 'relative',
@@ -266,8 +232,7 @@ export const Approach: React.FC = () => {
                     color: '#FFFFFF'
                   }}
                 >
-                  {counts[sIdx] ?? 0}
-                  {stat.suffix}
+                  <KineticCounter end={stat.value} suffix={stat.suffix} duration={1.6} />
                 </div>
                 <div
                   style={{

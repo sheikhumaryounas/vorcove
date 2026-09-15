@@ -1270,18 +1270,66 @@ input[type=range]::-moz-range-thumb {
 }
 
 /* Smooth spring hover effects on interactive cards */
-.glass-card-hover {
+.glass-card-hover,
+.spotlight-card,
+.tilt-card {
+  --tilt-rx: 0deg;
+  --tilt-ry: 0deg;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.28s ease !important;
+  transform: perspective(1000px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry));
+  will-change: transform;
 }
 
-.glass-card-hover:hover {
-  transform: translateY(-4px);
+.glass-card-hover:hover,
+.spotlight-card:hover,
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(var(--tilt-rx)) rotateY(var(--tilt-ry)) translateY(-3px);
   box-shadow: var(--shadow-neo-hover) !important;
   border-color: rgba(30, 37, 48, 0.22) !important;
 }
 
+/* Editorial Text Shimmer Glint */
+.text-shimmer {
+  background: linear-gradient(110deg, var(--ink-primary) 20%, #10B981 50%, var(--ink-primary) 80%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer-pan 7s ease-in-out infinite;
+  display: inline-block;
+}
 
+@keyframes text-shimmer-pan {
+  0%, 20% {
+    background-position: 200% 0;
+  }
+  80%, 100% {
+    background-position: -200% 0;
+  }
+}
 
+/* Ambient Floating Aurora Mesh Sphere */
+.aurora-ambient-sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  pointer-events: none;
+  animation: aurora-mesh-drift 14s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
 
+@keyframes aurora-mesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(30px, -20px, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-20px, 25px, 0) scale(0.95);
+  }
+}

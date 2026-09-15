@@ -87,7 +87,7 @@ export const ArchitectureFlow: React.FC = () => {
     <section
       id="architecture"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-surface)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -96,7 +96,7 @@ export const ArchitectureFlow: React.FC = () => {
       <div className="container">
         {/* Header */}
         <div
-          style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}
+          style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
           className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
@@ -106,14 +106,14 @@ export const ArchitectureFlow: React.FC = () => {
           <h2
             className="heading-editorial"
             style={{
-              fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-              marginTop: '14px',
-              marginBottom: '16px'
+              fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+              marginTop: '12px',
+              marginBottom: '14px'
             }}
           >
             Deterministic, Zero-Error Automation Pipeline
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-secondary)', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '14.5px', color: 'var(--ink-secondary)', lineHeight: 1.58 }}>
             Click through our 4-stage pipeline to inspect how raw business data and operational requests are ingested, sanitized, automatically routed, and validated with zero error drift.
           </p>
         </div>
@@ -121,10 +121,10 @@ export const ArchitectureFlow: React.FC = () => {
         {/* Pipeline Node Selector Grid */}
         <div
           style={{
-            marginTop: '52px',
+            marginTop: '40px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
-            gap: '16px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+            gap: '14px'
           }}
         >
           {NODES.map((node, idx) => {
@@ -138,22 +138,22 @@ export const ArchitectureFlow: React.FC = () => {
                 style={{
                   background: isSelected ? 'var(--bg-dark)' : '#FFFFFF',
                   color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
-                  borderRadius: '16px',
-                  padding: '24px 20px',
+                  borderRadius: '14px',
+                  padding: '18px 16px',
                   border: isSelected ? '1px solid rgba(52, 211, 153, 0.4)' : '1px solid var(--border-light)',
                   cursor: 'pointer',
                   boxShadow: isSelected ? 'var(--shadow-dark)' : 'var(--shadow-sm)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '12px',
-                  transitionDelay: `${idx * 80}ms`
+                  gap: '10px',
+                  transitionDelay: `${idx * 60}ms`
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '18px',
+                      fontSize: '15px',
                       fontWeight: 700,
                       color: isSelected ? '#6EE7B7' : 'var(--ink-muted)'
                     }}
@@ -162,10 +162,10 @@ export const ArchitectureFlow: React.FC = () => {
                   </span>
                   <span
                     style={{
-                      fontSize: '11px',
+                      fontSize: '10.5px',
                       fontFamily: 'var(--font-mono)',
                       background: isSelected ? 'rgba(255,255,255,0.1)' : 'var(--bg-surface)',
-                      padding: '2px 8px',
+                      padding: '2px 7px',
                       borderRadius: '999px',
                       color: isSelected ? '#34D399' : 'var(--ink-secondary)'
                     }}
@@ -174,18 +174,18 @@ export const ArchitectureFlow: React.FC = () => {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
                   <div className="card-icon-wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon size={18} color={isSelected ? '#34D399' : '#181E26'} />
+                    <Icon size={16} color={isSelected ? '#34D399' : '#181E26'} />
                   </div>
-                  <h3 style={{ fontSize: '15px', fontWeight: 600, margin: 0, color: isSelected ? '#FFFFFF' : 'var(--ink-primary)' }}>
+                  <h3 style={{ fontSize: '13.5px', fontWeight: 600, margin: 0, color: isSelected ? '#FFFFFF' : 'var(--ink-primary)' }}>
                     {node.name}
                   </h3>
                 </div>
 
                 <span
                   style={{
-                    fontSize: '11.5px',
+                    fontSize: '10.5px',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.08em',
@@ -203,27 +203,27 @@ export const ArchitectureFlow: React.FC = () => {
         <div
           className="reveal-scale stagger-3"
           style={{
-            marginTop: '28px',
+            marginTop: '24px',
             background: 'var(--bg-dark)',
             color: '#FFFFFF',
-            borderRadius: '24px',
-            padding: '36px',
+            borderRadius: '18px',
+            padding: '26px 24px',
             border: '1px solid var(--border-dark)',
             boxShadow: 'var(--shadow-dark)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '36px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '28px',
             alignItems: 'center'
           }}
         >
           {/* Details & Explanation */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#34D399' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+              <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#34D399' }}>
                 Stage {activeNode.stepNumber} Deep Dive
               </span>
               <span style={{ color: '#64748B' }}>•</span>
-              <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#9DA7B5' }}>
+              <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#9DA7B5' }}>
                 Target SLA: {activeNode.latency}
               </span>
             </div>
@@ -231,23 +231,23 @@ export const ArchitectureFlow: React.FC = () => {
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '28px',
+                fontSize: '20px',
                 fontWeight: 700,
                 letterSpacing: '-0.025em',
-                marginTop: '10px',
-                marginBottom: '14px',
+                marginTop: '8px',
+                marginBottom: '10px',
                 color: '#FFFFFF'
               }}
             >
               {activeNode.name}
             </h3>
 
-            <p style={{ fontSize: '15.5px', color: '#B0B7C3', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '13.5px', color: '#B0B7C3', lineHeight: 1.55, margin: 0 }}>
               {activeNode.summary}
             </p>
 
             {/* Stage KPIs */}
-            <div style={{ marginTop: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+            <div style={{ marginTop: '18px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               {activeNode.kpis.map((kpi, idx) => (
                 <div key={idx} style={{ background: 'rgba(255,255,255,0.06)', padding: '14px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <div style={{ fontSize: '11px', color: '#9DA7B5', textTransform: 'uppercase' }}>

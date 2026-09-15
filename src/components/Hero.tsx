@@ -16,8 +16,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
       style={{
         position: 'relative',
         overflow: 'hidden',
-        paddingTop: '140px',
-        paddingBottom: '88px',
+        paddingTop: '104px',
+        paddingBottom: '60px',
         background: 'radial-gradient(1400px 700px at 75% -10%, rgba(255, 255, 255, 0.6) 0%, rgba(243, 246, 249, 0) 70%), var(--bg-page)',
         borderBottom: '1px solid var(--border-light)'
       }}
@@ -74,7 +74,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           {/* Left Column: Editorial Value Proposition */}
           <div className="reveal-item stagger-1" style={{ maxWidth: '100%', minWidth: 0 }}>
             {/* Top Status & Sticker Cluster (TapTile Touch) */}
-            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '7px', maxWidth: '100%' }}>
               <div className="badge-neo-pill">
                 <span className="pulse-dot" />
                 <span>Custom Software & Workflow Automation</span>
@@ -107,10 +107,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             <h1
               className="heading-editorial hero-headline-text"
               style={{
-                fontSize: 'clamp(2.2rem, 4.4vw, 4.4rem)',
-                marginTop: '22px',
+                fontSize: 'clamp(1.9rem, 3.5vw, 3.1rem)',
+                marginTop: '18px',
                 marginBottom: '0',
-                lineHeight: 1.08,
+                lineHeight: 1.1,
                 maxWidth: '22ch',
                 wordBreak: 'break-word',
                 overflowWrap: 'break-word'
@@ -122,12 +122,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             {/* Subtitle */}
             <p
               style={{
-                fontSize: 'clamp(1rem, 1.5vw, 1.22rem)',
-                lineHeight: 1.6,
+                fontSize: 'clamp(0.92rem, 1.2vw, 1.05rem)',
+                lineHeight: 1.58,
                 color: 'var(--ink-secondary)',
-                marginTop: '20px',
+                marginTop: '16px',
                 marginBottom: '0',
-                maxWidth: '48ch',
+                maxWidth: '52ch',
                 wordBreak: 'break-word',
                 overflowWrap: 'break-word'
               }}
@@ -138,19 +138,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             {/* TapTile Quick Stat Neo-Pills Strip */}
             <div
               style={{
-                marginTop: '22px',
+                marginTop: '18px',
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '8px',
+                gap: '7px',
                 maxWidth: '100%'
               }}
             >
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '6px 12px',
-                  borderRadius: '9px',
-                  fontSize: '11.5px'
+                  padding: '4px 10px',
+                  borderRadius: '7px',
+                  fontSize: '10.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>0</span> MANUAL TOIL
@@ -159,9 +159,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '6px 12px',
-                  borderRadius: '9px',
-                  fontSize: '11.5px'
+                  padding: '4px 10px',
+                  borderRadius: '7px',
+                  fontSize: '10.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>100%</span> SENIOR ENGINEERS
@@ -170,9 +170,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               <div
                 className="sticker-tag"
                 style={{
-                  padding: '6px 12px',
-                  borderRadius: '9px',
-                  fontSize: '11.5px'
+                  padding: '4px 10px',
+                  borderRadius: '7px',
+                  fontSize: '10.5px'
                 }}
               >
                 <span style={{ fontWeight: 800 }}>&lt;14 DAYS</span> TO WORKING BUILD
@@ -180,19 +180,19 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
             </div>
 
             {/* Tactile Neo-Brutalist CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', marginTop: '28px', maxWidth: '100%' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '24px', maxWidth: '100%' }}>
               <a
                 href="#contact"
                 onClick={(e) => {
                   e.preventDefault();
                   playTactileClick();
-                  scrollToTarget('#contact', { offset: -80 });
+                  scrollToTarget('#contact', { offset: -72 });
                 }}
                 className="btn-neo-primary"
-                style={{ padding: '14px 28px', fontSize: '14.5px' }}
+                style={{ padding: '11px 22px', fontSize: '13.5px' }}
               >
                 <span>Start a project</span>
-                <ArrowRight size={17} strokeWidth={2.5} />
+                <ArrowRight size={15} strokeWidth={2.5} />
               </a>
 
               <a
@@ -205,9 +205,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
                   }
                 }}
                 className="btn-neo-secondary"
-                style={{ padding: '14px 24px', fontSize: '14.5px', gap: '8px' }}
+                style={{ padding: '11px 20px', fontSize: '13.5px', gap: '7px' }}
               >
-                <Sparkles size={16} strokeWidth={2} />
+                <Sparkles size={15} strokeWidth={2} />
                 <span>Explore live demos</span>
               </a>
             </div>
@@ -222,12 +222,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
         {/* Bottom Feature Value Strip */}
         <div
           style={{
-            marginTop: '64px',
-            paddingTop: '24px',
+            marginTop: '44px',
+            paddingTop: '18px',
             borderTop: '1px solid var(--border-light)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '16px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gap: '14px'
           }}
           className="reveal-item stagger-3"
         >
@@ -237,16 +237,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '10px',
-                fontSize: '13.5px',
+                gap: '8px',
+                fontSize: '12.5px',
                 fontWeight: 600,
                 color: 'var(--ink-secondary)'
               }}
             >
               <div
                 style={{
-                  width: '6px',
-                  height: '6px',
+                  width: '5px',
+                  height: '5px',
                   borderRadius: '50%',
                   background: 'var(--ink-primary)',
                   border: '1px solid var(--ink-primary)'

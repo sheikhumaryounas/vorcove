@@ -17,7 +17,7 @@ export const BentoGrid: React.FC = () => {
     <section
       id="services"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)'
       }}
@@ -28,7 +28,7 @@ export const BentoGrid: React.FC = () => {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '24px',
+            gap: '20px',
             alignItems: 'flex-end',
             justifyContent: 'space-between'
           }}
@@ -42,8 +42,8 @@ export const BentoGrid: React.FC = () => {
             <h2
               className="heading-editorial"
               style={{
-                fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-                marginTop: '14px',
+                fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+                marginTop: '12px',
                 marginBottom: 0
               }}
             >
@@ -53,10 +53,10 @@ export const BentoGrid: React.FC = () => {
 
           <p
             style={{
-              fontSize: '17px',
+              fontSize: '14.5px',
               color: 'var(--ink-secondary)',
-              maxWidth: '42ch',
-              lineHeight: 1.6,
+              maxWidth: '44ch',
+              lineHeight: 1.58,
               margin: 0
             }}
           >
@@ -67,10 +67,10 @@ export const BentoGrid: React.FC = () => {
         {/* 2026 Bento Grid Layout */}
         <div
           style={{
-            marginTop: '56px',
+            marginTop: '40px',
             display: 'grid',
             gridTemplateColumns: 'repeat(12, 1fr)',
-            gap: '24px'
+            gap: '18px'
           }}
         >
           {/* Card 1: Large Operational Workflow Automation Banner (Span 8 cols) */}
@@ -80,12 +80,12 @@ export const BentoGrid: React.FC = () => {
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
-              borderRadius: '24px',
-              padding: '40px',
+              borderRadius: '18px',
+              padding: '28px 30px',
               border: '1px solid var(--border-light)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '36px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '28px',
               alignItems: 'center',
               boxShadow: 'var(--shadow-sm)',
               position: 'relative',
@@ -93,12 +93,12 @@ export const BentoGrid: React.FC = () => {
             }}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
                 <span
                   style={{
-                    fontSize: '11.5px',
+                    fontSize: '10.5px',
                     fontWeight: 700,
-                    letterSpacing: '0.14em',
+                    letterSpacing: '0.12em',
                     textTransform: 'uppercase',
                     color: 'var(--ink-muted)'
                   }}
@@ -107,11 +107,11 @@ export const BentoGrid: React.FC = () => {
                 </span>
                 <span
                   style={{
-                    fontSize: '11px',
+                    fontSize: '10.5px',
                     fontFamily: 'var(--font-mono)',
                     background: '#ECFDF5',
                     color: '#10B981',
-                    padding: '2px 8px',
+                    padding: '2px 7px',
                     borderRadius: '999px',
                     fontWeight: 600
                   }}
@@ -123,31 +123,31 @@ export const BentoGrid: React.FC = () => {
               <h3
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.8rem, 3vw, 2.5rem)',
+                  fontSize: 'clamp(1.35rem, 2vw, 1.75rem)',
                   fontWeight: 700,
                   letterSpacing: '-0.025em',
-                  marginTop: '12px',
-                  marginBottom: '12px',
+                  marginTop: '10px',
+                  marginBottom: '10px',
                   color: 'var(--ink-primary)',
-                  lineHeight: 1.15
+                  lineHeight: 1.18
                 }}
               >
                 Intelligent Workflow Automation
               </h3>
 
-              <p style={{ fontSize: '15.5px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: '0 0 20px' }}>
+              <p style={{ fontSize: '14px', color: 'var(--ink-secondary)', lineHeight: 1.55, margin: '0 0 16px' }}>
                 Automated document intake, invoice parsing, and multi-system data routing wired directly into your existing ERP, CRM, and databases with zero error drift.
               </p>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                 {['Document Processing', 'Automated Triage', 'ERP & Database Sync', 'Human-in-the-Loop'].map((tag) => (
                   <span
                     key={tag}
                     className="sticker-tag"
                     style={{
-                      padding: '4px 10px',
-                      fontSize: '11px',
-                      boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)'
+                      padding: '3px 8px',
+                      fontSize: '10.5px',
+                      boxShadow: '0 1px 2px rgba(30, 37, 48, 0.04)'
                     }}
                   >
                     {tag}
@@ -160,49 +160,49 @@ export const BentoGrid: React.FC = () => {
             <div
               style={{
                 background: 'var(--ink-primary)',
-                borderRadius: '16px',
-                padding: '24px',
+                borderRadius: '14px',
+                padding: '20px',
                 color: '#FFFFFF',
                 border: '1px solid rgba(255, 255, 255, 0.12)',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.18)'
+                boxShadow: '0 6px 20px rgba(0,0,0,0.16)'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Bot size={16} color="#FFFFFF" />
-                  <span style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+                  <Bot size={15} color="#FFFFFF" />
+                  <span style={{ fontSize: '12.5px', fontWeight: 600, color: '#FFFFFF' }}>
                     Automated Processing Stream
                   </span>
                 </div>
-                <span className="sticker-tag" style={{ fontSize: '10px', padding: '2px 7px', background: '#FFFFFF', color: 'var(--ink-primary)', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
+                <span className="sticker-tag" style={{ fontSize: '9.5px', padding: '2px 6px', background: '#FFFFFF', color: 'var(--ink-primary)', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
                   Latency: 280ms
                 </span>
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '7px', fontSize: '11.5px', fontFamily: 'var(--font-mono)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
-                  <Check size={13} strokeWidth={3} />
+                  <Check size={12} strokeWidth={3} />
                   <span>Verified JWT auth & data sanitized</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
-                  <Check size={13} strokeWidth={3} />
+                  <Check size={12} strokeWidth={3} />
                   <span>Document parser matched 3 customs manifests</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#FFFFFF' }}>
-                  <Check size={13} strokeWidth={3} />
+                  <Check size={12} strokeWidth={3} />
                   <span>Automated sync executed on internal ERP</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#E2E8F0' }}>
-                  <Activity size={13} />
+                  <Activity size={12} />
                   <span>Verification test: 100% data integrity</span>
                 </div>
               </div>
 
-              <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.15)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: '12px', color: '#CBD5E1' }}>
+              <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,0.15)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '11.5px', color: '#CBD5E1' }}>
                   Processing Time: <strong style={{ color: '#FFFFFF' }}>11m (was 9h)</strong>
                 </span>
-                <a href="#demos" style={{ fontSize: '12px', fontWeight: 700, color: '#FFFFFF', textDecoration: 'underline' }}>
+                <a href="#demos" style={{ fontSize: '11.5px', fontWeight: 700, color: '#FFFFFF', textDecoration: 'underline' }}>
                   Test Live Demo →
                 </a>
               </div>
@@ -216,41 +216,41 @@ export const BentoGrid: React.FC = () => {
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '36px',
+              borderRadius: '18px',
+              padding: '26px 24px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              gap: '24px'
+              gap: '20px'
             }}
           >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
                   02 • Revenue & Quoting
                 </span>
-                <span className="sticker-tag" style={{ fontSize: '11px' }}>
+                <span className="sticker-tag" style={{ fontSize: '10.5px' }}>
                   +7.4% Margin Lift
                 </span>
               </div>
 
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '10px', marginBottom: '6px', color: 'var(--ink-primary)' }}>
                 Real-Time Quoting & Calculation Engines
               </h3>
 
-              <p style={{ fontSize: '15px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-secondary)', lineHeight: 1.55, margin: 0 }}>
                 High-speed custom calculation engines recalculating 180,000+ catalog SKU prices in 45ms based on live supplier costs, purchase tiers, and margin protection rules.
               </p>
             </div>
 
-            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'var(--bg-surface)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Calculation SLA</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>45 Milliseconds</div>
+                <div style={{ fontSize: '10.5px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Calculation SLA</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14.5px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>45 Milliseconds</div>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Quarterly Margin Gain</div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 800 }}>+$640,000</div>
+                <div style={{ fontSize: '10.5px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Quarterly Margin Gain</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--ink-primary)', fontWeight: 800 }}>+$640,000</div>
               </div>
             </div>
           </div>
@@ -262,41 +262,41 @@ export const BentoGrid: React.FC = () => {
             style={{
               gridColumn: 'span 12',
               background: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '36px',
+              borderRadius: '18px',
+              padding: '26px 24px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              gap: '24px'
+              gap: '20px'
             }}
           >
             <div>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: 'var(--ink-muted)' }}>
                   03 • Custom Software
                 </span>
-                <span className="sticker-tag" style={{ fontSize: '11px' }}>
+                <span className="sticker-tag" style={{ fontSize: '10.5px' }}>
                   14-Day Delivery
                 </span>
               </div>
 
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '12px', marginBottom: '8px', color: 'var(--ink-primary)' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, letterSpacing: '-0.025em', marginTop: '10px', marginBottom: '6px', color: 'var(--ink-primary)' }}>
                 Custom Software & Operations Portals
               </h3>
 
-              <p style={{ fontSize: '15px', color: 'var(--ink-secondary)', lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: '13.5px', color: 'var(--ink-secondary)', lineHeight: 1.55, margin: 0 }}>
                 Tailored web platforms, client onboarding hubs, and internal management systems built by staff-level engineers to replace spreadsheet chaos with bulletproof software.
               </p>
             </div>
 
-            <div style={{ background: 'var(--bg-surface)', padding: '16px', borderRadius: '14px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ background: 'var(--bg-surface)', padding: '14px', borderRadius: '12px', border: '1px solid var(--border-light)', boxShadow: 'var(--shadow-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div>
-                <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Time to First Build</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>14 Days</div>
+                <div style={{ fontSize: '10.5px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Time to First Build</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '14.5px', fontWeight: 700, color: 'var(--ink-primary)', marginTop: '2px' }}>14 Days</div>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '11px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Activation Boost</div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '22px', color: 'var(--ink-primary)', fontWeight: 800 }}>2.1x Conversion</div>
+                <div style={{ fontSize: '10.5px', color: 'var(--ink-muted)', textTransform: 'uppercase', fontWeight: 700 }}>Activation Boost</div>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '19px', color: 'var(--ink-primary)', fontWeight: 800 }}>2.1x Conversion</div>
               </div>
             </div>
           </div>

@@ -68,7 +68,7 @@ export const ContactSection: React.FC = () => {
     <section
       id="contact"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -78,13 +78,13 @@ export const ContactSection: React.FC = () => {
         <div
           className="glass-card reveal-item"
           style={{
-            padding: '56px 44px',
+            padding: '38px 32px',
             background: 'linear-gradient(180deg, #FFFFFF 0%, #F9F8F4 100%)',
-            borderRadius: '28px',
+            borderRadius: '20px',
             boxShadow: 'var(--shadow-lg)',
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '48px',
+            gap: '36px',
             alignItems: 'start'
           }}
         >
@@ -98,10 +98,10 @@ export const ContactSection: React.FC = () => {
             <h2
               className="heading-editorial"
               style={{
-                fontSize: 'clamp(2.3rem, 4.4vw, 3.5rem)',
-                marginTop: '16px',
-                marginBottom: '18px',
-                maxWidth: '18ch'
+                fontSize: 'clamp(1.55rem, 2.7vw, 2.2rem)',
+                marginTop: '12px',
+                marginBottom: '14px',
+                maxWidth: '22ch'
               }}
             >
               Tell us what's stuck in your operations. We'll show you what we'd build.
@@ -109,29 +109,29 @@ export const ContactSection: React.FC = () => {
 
             <p
               style={{
-                fontSize: '16.5px',
+                fontSize: '14px',
                 color: 'var(--ink-secondary)',
-                lineHeight: 1.6,
-                maxWidth: '42ch'
+                lineHeight: 1.55,
+                maxWidth: '46ch'
               }}
             >
               One direct conversation to pinpoint your manual bottleneck or software requirement. Within one business day, our senior engineering squad will reply with a preliminary technical architecture and fixed-price scope.
             </p>
 
             {/* Studio Commitments */}
-            <div style={{ marginTop: '36px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px', color: 'var(--ink-primary)' }}>
-                <Clock size={18} color="#10B981" />
+            <div style={{ marginTop: '28px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: 'var(--ink-primary)' }}>
+                <Clock size={16} color="#10B981" />
                 <span>Replies within <strong>one business day</strong> with technical feasibility notes</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px', color: 'var(--ink-primary)' }}>
-                <Globe size={18} color="#10B981" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: 'var(--ink-primary)' }}>
+                <Globe size={16} color="#10B981" />
                 <span>Operating across <strong>US (ET/PT) and EU (CET/GMT)</strong> business hours</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '14.5px', color: 'var(--ink-primary)' }}>
-                <Shield size={18} color="#10B981" />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '13.5px', color: 'var(--ink-primary)' }}>
+                <Shield size={16} color="#10B981" />
                 <span>Standard NDA signed automatically prior to code review</span>
               </div>
             </div>
@@ -139,9 +139,9 @@ export const ContactSection: React.FC = () => {
             {/* Email Copy Card */}
             <div
               style={{
-                marginTop: '36px',
-                padding: '16px 20px',
-                borderRadius: '14px',
+                marginTop: '28px',
+                padding: '12px 16px',
+                borderRadius: '12px',
                 background: 'var(--bg-surface)',
                 border: '1px solid var(--border-light)',
                 display: 'flex',
@@ -149,9 +149,9 @@ export const ContactSection: React.FC = () => {
                 justifyContent: 'space-between'
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Mail size={18} color="var(--ink-secondary)" />
-                <span style={{ fontSize: '14.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Mail size={16} color="var(--ink-secondary)" />
+                <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                   hello@vorcove.com
                 </span>
               </div>
@@ -164,21 +164,21 @@ export const ContactSection: React.FC = () => {
                 }}
                 className="contact-copy-btn"
                 style={{
-                  padding: '7px 14px',
+                  padding: '6px 12px',
                   borderRadius: '999px',
                   border: '1px solid var(--border-light)',
                   background: copiedEmail ? '#10B981' : '#FFFFFF',
                   color: copiedEmail ? '#FFFFFF' : 'var(--ink-primary)',
-                  fontSize: '12.5px',
+                  fontSize: '12px',
                   fontWeight: 600,
                   cursor: 'pointer',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px'
+                  gap: '5px'
                 }}
               >
-                {copiedEmail ? <Check size={14} /> : <Copy size={14} />}
-                <span>{copiedEmail ? 'Copied to Clipboard' : 'Copy'}</span>
+                {copiedEmail ? <Check size={13} /> : <Copy size={13} />}
+                <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
               </button>
             </div>
           </div>
@@ -189,21 +189,21 @@ export const ContactSection: React.FC = () => {
               <div
                 style={{
                   background: '#FFFFFF',
-                  borderRadius: '20px',
+                  borderRadius: '16px',
                   border: '1px solid var(--border-light)',
-                  padding: '48px 36px',
+                  padding: '36px 28px',
                   textAlign: 'center',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '16px',
+                  gap: '14px',
                   boxShadow: 'var(--shadow-sm)'
                 }}
               >
                 <div
                   style={{
-                    width: '64px',
-                    height: '64px',
+                    width: '52px',
+                    height: '52px',
                     borderRadius: '50%',
                     background: '#ECFDF5',
                     border: '1px solid #A7F3D0',
@@ -213,13 +213,13 @@ export const ContactSection: React.FC = () => {
                     color: '#10B981'
                   }}
                 >
-                  <Check size={32} />
+                  <Check size={26} />
                 </div>
 
                 <h3
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '28px',
+                    fontSize: '22px',
                     fontWeight: 700,
                     letterSpacing: '-0.025em',
                     color: 'var(--ink-primary)',
@@ -229,7 +229,7 @@ export const ContactSection: React.FC = () => {
                   Brief Received. Thank You.
                 </h3>
 
-                <p style={{ fontSize: '15.5px', color: 'var(--ink-secondary)', maxWidth: '42ch', lineHeight: 1.6, margin: 0 }}>
+                <p style={{ fontSize: '14px', color: 'var(--ink-secondary)', maxWidth: '42ch', lineHeight: 1.55, margin: 0 }}>
                   A senior engineering partner will review your system requirements and reply within one business day with a preliminary technical take and fixed sprint scope.
                 </p>
 
@@ -237,22 +237,22 @@ export const ContactSection: React.FC = () => {
                   type="button"
                   onClick={() => setIsSubmitted(false)}
                   className="btn-secondary"
-                  style={{ marginTop: '12px' }}
+                  style={{ marginTop: '8px', padding: '8px 18px', fontSize: '13px' }}
                 >
                   Submit another brief
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {submissionError && (
                   <div
                     style={{
-                      padding: '12px 16px',
-                      borderRadius: '10px',
+                      padding: '10px 14px',
+                      borderRadius: '8px',
                       background: 'rgba(239, 68, 68, 0.1)',
                       border: '1px solid rgba(239, 68, 68, 0.3)',
                       color: '#DC2626',
-                      fontSize: '13.5px'
+                      fontSize: '13px'
                     }}
                   >
                     {submissionError}
@@ -260,10 +260,10 @@ export const ContactSection: React.FC = () => {
                 )}
                 {/* Services Tags */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
+                  <label style={{ display: 'block', fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
                     What are you looking to build?
                   </label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {CONTACT_PRESETS.services.map((svc) => {
                       const isSelected = selectedServices.includes(svc);
                       return (
@@ -276,23 +276,23 @@ export const ContactSection: React.FC = () => {
                           }}
                           className={`contact-chip-btn ${isSelected ? 'is-selected' : ''}`}
                           style={{
-                            padding: '8px 16px',
+                            padding: '6px 13px',
                             borderRadius: '999px',
                             border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                             background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
                             color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
-                            fontSize: '12.5px',
+                            fontSize: '12px',
                             fontWeight: isSelected ? 600 : 500,
                             cursor: 'pointer',
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '6px',
+                            gap: '5px',
                             boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
                           }}
                         >
                           <span>{svc}</span>
                           {isSelected && (
-                            <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
+                            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
                           )}
                         </button>
                       );
@@ -302,10 +302,10 @@ export const ContactSection: React.FC = () => {
 
                 {/* Estimated Budget Range */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
+                  <label style={{ display: 'block', fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
                     Estimated Project Budget
                   </label>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
                     {CONTACT_PRESETS.budgets.map((b) => {
                       const isSelected = selectedBudget === b;
                       return (
@@ -318,27 +318,27 @@ export const ContactSection: React.FC = () => {
                           }}
                           className={`contact-budget-btn ${isSelected ? 'is-selected' : ''}`}
                           style={{
-                            padding: '10px 14px',
-                            borderRadius: '12px',
+                            padding: '8px 12px',
+                            borderRadius: '10px',
                             border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                             background: isSelected ? 'var(--bg-surface)' : '#FFFFFF',
                             color: 'var(--ink-primary)',
-                            fontSize: '12px',
+                            fontSize: '11.5px',
                             fontWeight: 600,
                             cursor: 'pointer',
                             textAlign: 'left',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'space-between',
-                            gap: '8px',
+                            gap: '6px',
                             boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.12)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
                           }}
                         >
                           <span>{b}</span>
                           <div
                             style={{
-                              width: '6px',
-                              height: '6px',
+                              width: '5px',
+                              height: '5px',
                               borderRadius: '50%',
                               background: isSelected ? '#10B981' : 'transparent',
                               border: isSelected ? 'none' : '1.5px solid var(--border-light)',
@@ -353,10 +353,10 @@ export const ContactSection: React.FC = () => {
 
                 {/* Target Timeline */}
                 <div>
-                  <label style={{ display: 'block', fontSize: '12.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '10px' }}>
+                  <label style={{ display: 'block', fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--ink-muted)', marginBottom: '8px' }}>
                     Target Start Timeline
                   </label>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                     {CONTACT_PRESETS.timelines.map((tl) => {
                       const isSelected = selectedTimeline === tl;
                       return (
@@ -369,17 +369,17 @@ export const ContactSection: React.FC = () => {
                           }}
                           className={`contact-timeline-btn ${isSelected ? 'is-selected' : ''}`}
                           style={{
-                            padding: '8px 14px',
-                            borderRadius: '10px',
+                            padding: '6px 12px',
+                            borderRadius: '8px',
                             border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                             background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
                             color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
-                            fontSize: '12px',
+                            fontSize: '11.5px',
                             fontWeight: 600,
                             cursor: 'pointer',
                             display: 'inline-flex',
                             alignItems: 'center',
-                            gap: '6px',
+                            gap: '5px',
                             boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
                           }}
                         >
@@ -391,9 +391,9 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 {/* Name & Company Input */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-                  <label style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                  <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                    <span style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
                       Your Name *
                     </span>
                     <input
@@ -403,11 +403,11 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       style={{
-                        padding: '13px 16px',
-                        borderRadius: '12px',
+                        padding: '10px 13px',
+                        borderRadius: '10px',
                         border: '1px solid var(--border-light)',
                         background: '#FFFFFF',
-                        fontSize: '14.5px',
+                        fontSize: '13.5px',
                         color: 'var(--ink-primary)',
                         outline: 'none',
                         transition: 'border-color 0.2s'
@@ -417,8 +417,8 @@ export const ContactSection: React.FC = () => {
                     />
                   </label>
 
-                  <label style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
+                  <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                    <span style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
                       Company Name *
                     </span>
                     <input
@@ -428,11 +428,11 @@ export const ContactSection: React.FC = () => {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       style={{
-                        padding: '13px 16px',
-                        borderRadius: '12px',
+                        padding: '10px 13px',
+                        borderRadius: '10px',
                         border: '1px solid var(--border-light)',
                         background: '#FFFFFF',
-                        fontSize: '14.5px',
+                        fontSize: '13.5px',
                         color: 'var(--ink-primary)',
                         outline: 'none',
                         transition: 'border-color 0.2s'
@@ -444,8 +444,8 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 {/* Email */}
-                <label style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
+                <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
                     Work Email *
                   </span>
                   <input
@@ -455,11 +455,11 @@ export const ContactSection: React.FC = () => {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     style={{
-                      padding: '13px 16px',
-                      borderRadius: '12px',
+                      padding: '10px 13px',
+                      borderRadius: '10px',
                       border: '1px solid var(--border-light)',
                       background: '#FFFFFF',
-                      fontSize: '14.5px',
+                      fontSize: '13.5px',
                       color: 'var(--ink-primary)',
                       outline: 'none',
                       transition: 'border-color 0.2s'
@@ -470,22 +470,22 @@ export const ContactSection: React.FC = () => {
                 </label>
 
                 {/* Brief */}
-                <label style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
+                <label style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                  <span style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--ink-muted)' }}>
                     How can we help? (The bottleneck & target metric) *
                   </span>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
                     placeholder="Describe the manual operational bottleneck, workflow delay, or custom software application you need built..."
                     value={formData.brief}
                     onChange={(e) => setFormData({ ...formData, brief: e.target.value })}
                     style={{
-                      padding: '13px 16px',
-                      borderRadius: '12px',
+                      padding: '10px 13px',
+                      borderRadius: '10px',
                       border: '1px solid var(--border-light)',
                       background: '#FFFFFF',
-                      fontSize: '14.5px',
+                      fontSize: '13.5px',
                       lineHeight: 1.5,
                       color: 'var(--ink-primary)',
                       outline: 'none',
@@ -503,10 +503,10 @@ export const ContactSection: React.FC = () => {
                   disabled={isSubmitting}
                   className="btn-primary"
                   style={{
-                    padding: '16px 32px',
-                    fontSize: '15px',
+                    padding: '13px 26px',
+                    fontSize: '14px',
                     justifyContent: 'center',
-                    marginTop: '8px'
+                    marginTop: '4px'
                   }}
                 >
                   {isSubmitting ? (
@@ -514,7 +514,7 @@ export const ContactSection: React.FC = () => {
                   ) : (
                     <>
                       <span>Send Project Brief</span>
-                      <ArrowRight size={17} />
+                      <ArrowRight size={16} />
                     </>
                   )}
                 </button>

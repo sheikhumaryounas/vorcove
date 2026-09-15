@@ -23,7 +23,7 @@ export const FaqAccordion: React.FC = () => {
     <section
       id="faq"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-surface)',
         borderBottom: '1px solid var(--border-light)',
         position: 'relative'
@@ -35,7 +35,7 @@ export const FaqAccordion: React.FC = () => {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            gap: '24px',
+            gap: '20px',
             alignItems: 'flex-end',
             justifyContent: 'space-between'
           }}
@@ -49,8 +49,8 @@ export const FaqAccordion: React.FC = () => {
             <h2
               className="heading-editorial"
               style={{
-                fontSize: 'clamp(2.2rem, 4.6vw, 3.5rem)',
-                marginTop: '14px',
+                fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+                marginTop: '12px',
                 marginBottom: 0
               }}
             >
@@ -63,9 +63,9 @@ export const FaqAccordion: React.FC = () => {
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '6px',
+              gap: '4px',
               background: '#FFFFFF',
-              padding: '6px',
+              padding: '4px',
               borderRadius: '999px',
               border: '1px solid var(--border-light)',
               boxShadow: 'var(--shadow-sm)'
@@ -87,13 +87,13 @@ export const FaqAccordion: React.FC = () => {
                   }}
                   className={`faq-filter-btn ${isSelected ? 'is-selected' : ''}`}
                   style={{
-                    padding: '8px 18px',
+                    padding: '6px 14px',
                     borderRadius: '999px',
                     border: 'none',
                     background: isSelected ? 'var(--ink-primary)' : 'transparent',
                     color: isSelected ? '#FFFFFF' : 'var(--ink-secondary)',
                     fontFamily: 'var(--font-display)',
-                    fontSize: '13px',
+                    fontSize: '12px',
                     fontWeight: 600,
                     cursor: 'pointer',
                     boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none',
@@ -111,12 +111,11 @@ export const FaqAccordion: React.FC = () => {
         <div
           className="reveal-scale stagger-1"
           style={{
-            marginTop: '52px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px',
-            maxWidth: '900px',
-            margin: '52px auto 0'
+            gap: '10px',
+            maxWidth: '820px',
+            margin: '40px auto 0'
           }}
         >
           {filteredFaqs.map((faq) => {
@@ -126,7 +125,7 @@ export const FaqAccordion: React.FC = () => {
                 key={faq.id}
                 className={`glass-card faq-accordion-item ${isOpen ? 'is-open' : ''}`}
                 style={{
-                  borderRadius: '16px',
+                  borderRadius: '12px',
                   border: isOpen ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
                   background: isOpen ? 'linear-gradient(180deg, #FFFFFF 0%, #FAF9F5 100%)' : '#FFFFFF',
                   overflow: 'hidden',
@@ -143,11 +142,11 @@ export const FaqAccordion: React.FC = () => {
                   aria-expanded={isOpen}
                   style={{
                     width: '100%',
-                    padding: '22px 28px',
+                    padding: '16px 20px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: '16px',
+                    gap: '14px',
                     border: 'none',
                     background: 'none',
                     cursor: 'pointer',
@@ -158,10 +157,10 @@ export const FaqAccordion: React.FC = () => {
                 >
                   <span
                     style={{
-                      fontSize: '16.5px',
+                      fontSize: '14.5px',
                       fontWeight: 600,
                       color: 'var(--ink-primary)',
-                      lineHeight: 1.35
+                      lineHeight: 1.4
                     }}
                   >
                     {faq.question}
@@ -170,8 +169,8 @@ export const FaqAccordion: React.FC = () => {
                   <div
                     className="faq-toggle-icon"
                     style={{
-                      width: '32px',
-                      height: '32px',
+                      width: '28px',
+                      height: '28px',
                       borderRadius: '50%',
                       background: isOpen ? 'var(--ink-primary)' : '#EFECE3',
                       border: isOpen ? '1px solid var(--ink-primary)' : '1px solid var(--border-light)',
@@ -184,7 +183,7 @@ export const FaqAccordion: React.FC = () => {
                       transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)'
                     }}
                   >
-                    {isOpen ? <Minus size={15} strokeWidth={2.5} /> : <Plus size={15} strokeWidth={2.5} />}
+                    {isOpen ? <Minus size={14} strokeWidth={2.5} /> : <Plus size={14} strokeWidth={2.5} />}
                   </div>
                 </button>
 
@@ -199,12 +198,12 @@ export const FaqAccordion: React.FC = () => {
                   <div style={{ overflow: 'hidden' }}>
                     <div
                       style={{
-                        padding: '0 28px 24px',
-                        fontSize: '15.5px',
+                        padding: '0 20px 18px',
+                        fontSize: '13.5px',
                         color: 'var(--ink-secondary)',
-                        lineHeight: 1.65,
+                        lineHeight: 1.6,
                         borderTop: '1px solid var(--border-subtle)',
-                        paddingTop: '16px',
+                        paddingTop: '12px',
                         opacity: isOpen ? 1 : 0,
                         transform: isOpen ? 'translateY(0)' : 'translateY(-6px)',
                         transition: 'opacity 0.28s ease, transform 0.28s ease'

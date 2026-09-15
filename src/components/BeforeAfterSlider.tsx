@@ -42,7 +42,7 @@ export const BeforeAfterSlider: React.FC = () => {
     <section
       id="comparison"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -51,7 +51,7 @@ export const BeforeAfterSlider: React.FC = () => {
       <div className="container">
         {/* Header */}
         <div
-          style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}
+          style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
           className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
@@ -61,14 +61,14 @@ export const BeforeAfterSlider: React.FC = () => {
           <h2
             className="heading-editorial"
             style={{
-              fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-              marginTop: '14px',
-              marginBottom: '16px'
+              fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+              marginTop: '12px',
+              marginBottom: '14px'
             }}
           >
             Generic Software vs. Vorcove Custom Automation
           </h2>
-          <p style={{ fontSize: '17px', color: 'var(--ink-secondary)', lineHeight: 1.6 }}>
+          <p style={{ fontSize: '14.5px', color: 'var(--ink-secondary)', lineHeight: 1.58 }}>
             Most agencies sell billable hours, and off-the-shelf software never fits your workflow. We engineer custom automated software built specifically around your operational bottlenecks.
           </p>
         </div>
@@ -76,10 +76,10 @@ export const BeforeAfterSlider: React.FC = () => {
         {/* Comparison Grid */}
         <div
           style={{
-            marginTop: '56px',
+            marginTop: '40px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '24px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '20px'
           }}
         >
           {/* Column A: Legacy Approach */}
@@ -87,53 +87,53 @@ export const BeforeAfterSlider: React.FC = () => {
             className="reveal-left stagger-1"
             style={{
               background: '#FFFFFF',
-              borderRadius: '22px',
+              borderRadius: '18px',
               border: '1px solid #FCA5A5',
-              padding: '36px 32px',
+              padding: '26px 24px',
               boxShadow: 'var(--shadow-sm)',
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px'
+              gap: '16px'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span
                 style={{
-                  fontSize: '12px',
+                  fontSize: '11px',
                   fontWeight: 700,
-                  letterSpacing: '0.12em',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   color: '#DC2626',
                   background: '#FEF2F2',
-                  padding: '4px 10px',
+                  padding: '3px 9px',
                   borderRadius: '999px'
                 }}
               >
                 Traditional Software & Generic IT
               </span>
-              <XCircle size={22} color="#DC2626" />
+              <XCircle size={18} color="#DC2626" />
             </div>
 
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '24px',
+                fontSize: '19px',
                 color: 'var(--ink-primary)',
                 fontWeight: 700,
-                letterSpacing: '-0.025em',
+                letterSpacing: '-0.02em',
                 margin: 0
               }}
             >
               The Generic & Rigid Trap
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {comparisonRows.map((row, idx) => (
-                <div key={idx} style={{ padding: '12px 14px', borderRadius: '10px', background: '#FFF5F5', border: '1px solid #FEE2E2' }}>
-                  <div style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', color: '#991B1B' }}>
+                <div key={idx} style={{ padding: '10px 12px', borderRadius: '8px', background: '#FFF5F5', border: '1px solid #FEE2E2' }}>
+                  <div style={{ fontSize: '10.5px', fontWeight: 700, textTransform: 'uppercase', color: '#991B1B' }}>
                     {row.metric}
                   </div>
-                  <div style={{ fontSize: '14px', color: '#7F1D1D', marginTop: '3px', lineHeight: 1.4 }}>
+                  <div style={{ fontSize: '13px', color: '#7F1D1D', marginTop: '2px', lineHeight: 1.4 }}>
                     {row.before}
                   </div>
                 </div>
@@ -147,13 +147,13 @@ export const BeforeAfterSlider: React.FC = () => {
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',
-              borderRadius: '22px',
+              borderRadius: '18px',
               border: '1px solid rgba(16, 185, 129, 0.3)',
-              padding: '36px 32px',
+              padding: '26px 24px',
               boxShadow: 'var(--shadow-dark)',
               display: 'flex',
               flexDirection: 'column',
-              gap: '20px',
+              gap: '16px',
               position: 'relative',
               overflow: 'hidden'
             }}
@@ -173,54 +173,54 @@ export const BeforeAfterSlider: React.FC = () => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span
                 style={{
-                  fontSize: '12px',
+                  fontSize: '11px',
                   fontWeight: 700,
-                  letterSpacing: '0.12em',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   color: '#34D399',
                   background: 'rgba(16, 185, 129, 0.15)',
-                  padding: '4px 10px',
+                  padding: '3px 9px',
                   borderRadius: '999px',
                   border: '1px solid rgba(16, 185, 129, 0.3)'
                 }}
               >
                 The Vorcove Custom Automation Model
               </span>
-              <CheckCircle2 size={22} color="#34D399" />
+              <CheckCircle2 size={18} color="#34D399" />
             </div>
 
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '24px',
+                fontSize: '19px',
                 color: '#FFFFFF',
                 fontWeight: 700,
-                letterSpacing: '-0.025em',
+                letterSpacing: '-0.02em',
                 margin: 0
               }}
             >
               Tailored Software • 14-Day Delivery • Full IP Ownership
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {comparisonRows.map((row, idx) => (
-                <div key={idx} style={{ padding: '12px 14px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <div key={idx} style={{ padding: '10px 12px', borderRadius: '8px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{ fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', color: '#9DA7B5' }}>
+                    <span style={{ fontSize: '10.5px', fontWeight: 700, textTransform: 'uppercase', color: '#9DA7B5' }}>
                       {row.metric}
                     </span>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#34D399', fontWeight: 700, background: 'rgba(16, 185, 129, 0.2)', padding: '1px 6px', borderRadius: '4px' }}>
+                    <span style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: '#34D399', fontWeight: 700, background: 'rgba(16, 185, 129, 0.2)', padding: '1px 5px', borderRadius: '4px' }}>
                       {row.delta}
                     </span>
                   </div>
-                  <div style={{ fontSize: '14px', color: '#FFFFFF', marginTop: '3px', lineHeight: 1.4, fontWeight: 500 }}>
+                  <div style={{ fontSize: '13px', color: '#FFFFFF', marginTop: '2px', lineHeight: 1.4, fontWeight: 500 }}>
                     {row.after}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
+            <div style={{ marginTop: 'auto', paddingTop: '8px' }}>
               <a
                 href="#contact"
                 className="btn-secondary"
@@ -230,12 +230,12 @@ export const BeforeAfterSlider: React.FC = () => {
                   background: '#FFFFFF',
                   color: '#1E2530',
                   fontWeight: 600,
-                  fontSize: '14.5px',
+                  fontSize: '13.5px',
                   boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
                 }}
               >
                 <span>Experience the difference</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </a>
             </div>
           </div>

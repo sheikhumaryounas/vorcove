@@ -154,7 +154,7 @@ export const LiveDemos: React.FC = () => {
     <section
       id="demos"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-surface)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -163,7 +163,7 @@ export const LiveDemos: React.FC = () => {
       <div className="container">
         {/* Section Header */}
         <div
-          style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}
+          style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}
           className="reveal-item"
         >
           <div className="kicker" style={{ justifyContent: 'center' }}>
@@ -173,18 +173,18 @@ export const LiveDemos: React.FC = () => {
           <h2
             className="heading-editorial"
             style={{
-              fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-              marginTop: '14px',
-              marginBottom: '18px'
+              fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+              marginTop: '12px',
+              marginBottom: '14px'
             }}
           >
             Experience our automated solutions before you commit.
           </h2>
           <p
             style={{
-              fontSize: '17px',
+              fontSize: '14.5px',
               color: 'var(--ink-secondary)',
-              lineHeight: 1.6
+              lineHeight: 1.58
             }}
           >
             Test interactive simulations of our custom automation systems, dynamic quoting engines, and operational monitoring tools. Select scenarios or tweak business parameters to see real-time performance.
@@ -195,15 +195,16 @@ export const LiveDemos: React.FC = () => {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '5px',
               background: '#FFFFFF',
-              padding: '6px',
+              padding: '5px',
               borderRadius: '999px',
               border: '1px solid var(--border-light)',
               boxShadow: 'var(--shadow-sm)',
               maxWidth: '100%',
               overflowX: 'auto',
-              WebkitOverflowScrolling: 'touch'
+              WebkitOverflowScrolling: 'touch',
+              marginTop: '18px'
             }}
           >
             <button
@@ -215,21 +216,22 @@ export const LiveDemos: React.FC = () => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
+                gap: '7px',
+                padding: '8px 16px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'copilot' ? 'var(--ink-primary)' : 'transparent',
                 color: activeTab === 'copilot' ? '#FFFFFF' : 'var(--ink-secondary)',
                 fontFamily: 'var(--font-display)',
-                fontSize: '13.5px',
+                fontSize: '12.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'copilot' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
+                boxShadow: activeTab === 'copilot' ? '0 3px 12px rgba(30, 37, 48, 0.2)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <Bot size={16} />
+              <Bot size={15} />
               <span>Automated Ops Triage</span>
             </button>
 
@@ -242,22 +244,23 @@ export const LiveDemos: React.FC = () => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
+                gap: '7px',
+                padding: '8px 16px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'pricing' ? 'var(--ink-primary)' : 'transparent',
                 color: activeTab === 'pricing' ? '#FFFFFF' : 'var(--ink-secondary)',
                 fontFamily: 'var(--font-display)',
-                fontSize: '13.5px',
+                fontSize: '12.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'pricing' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
+                boxShadow: activeTab === 'pricing' ? '0 3px 12px rgba(30, 37, 48, 0.2)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <Sliders size={16} />
-              <span>Dynamic Quoting Engine</span>
+              <Sliders size={15} />
+              <span>Dynamic Quoting ML</span>
             </button>
 
             <button
@@ -269,37 +272,39 @@ export const LiveDemos: React.FC = () => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '10px 20px',
+                gap: '7px',
+                padding: '8px 16px',
                 borderRadius: '999px',
                 border: 'none',
                 background: activeTab === 'churn' ? 'var(--ink-primary)' : 'transparent',
                 color: activeTab === 'churn' ? '#FFFFFF' : 'var(--ink-secondary)',
                 fontFamily: 'var(--font-display)',
-                fontSize: '13.5px',
+                fontSize: '12.5px',
                 fontWeight: 600,
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',
-                boxShadow: activeTab === 'churn' ? '0 4px 14px rgba(30, 37, 48, 0.22)' : 'none'
+                boxShadow: activeTab === 'churn' ? '0 3px 12px rgba(30, 37, 48, 0.2)' : 'none',
+                transition: 'all 0.2s ease'
               }}
             >
-              <Activity size={16} />
-              <span>Operational Retention Radar</span>
+              <Activity size={15} />
+              <span>Retention Early Radar</span>
             </button>
           </div>
         </div>
 
         {/* Demo Content Canvas */}
-        <div className="reveal-scale stagger-2" style={{ marginTop: '48px' }}>
+        <div className="reveal-scale stagger-2" style={{ marginTop: '36px' }}>
           {/* TAB 1: COPILOT SIMULATOR */}
           {activeTab === 'copilot' && (
             <div
               className="glass-card"
               style={{
-                padding: '36px',
+                padding: '24px 22px',
+                borderRadius: '16px',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-                gap: '36px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                gap: '24px',
                 background: '#FFFFFF',
                 boxShadow: 'var(--shadow-md)'
               }}
@@ -553,10 +558,11 @@ export const LiveDemos: React.FC = () => {
             <div
               className="glass-card"
               style={{
-                padding: '36px',
+                padding: '24px 22px',
+                borderRadius: '16px',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-                gap: '40px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                gap: '28px',
                 background: '#FFFFFF',
                 boxShadow: 'var(--shadow-md)'
               }}
@@ -764,10 +770,11 @@ export const LiveDemos: React.FC = () => {
             <div
               className="glass-card"
               style={{
-                padding: '36px',
+                padding: '24px 22px',
+                borderRadius: '16px',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-                gap: '36px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                gap: '24px',
                 background: '#FFFFFF',
                 boxShadow: 'var(--shadow-md)'
               }}

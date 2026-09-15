@@ -52,13 +52,13 @@ export function useGlobalScrollAnimations() {
 
     if (!prefersReducedMotion) {
       lenis = new Lenis({
-        duration: 0.9,
+        duration: 1.15,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
-        wheelMultiplier: 1.0,
-        touchMultiplier: 1.5,
+        wheelMultiplier: 0.92,
+        touchMultiplier: 1.3,
         infinite: false,
       });
 
@@ -96,14 +96,12 @@ export function useGlobalScrollAnimations() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed', 'is-visible');
-          } else {
-            entry.target.classList.remove('revealed', 'is-visible');
           }
         });
       },
       {
-        threshold: 0.02,
-        rootMargin: '120px 0px -20px 0px',
+        threshold: 0.05,
+        rootMargin: '100px 0px -40px 0px',
       }
     );
 

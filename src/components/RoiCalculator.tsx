@@ -57,7 +57,7 @@ export const RoiCalculator: React.FC = () => {
     <section
       id="calculator"
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -76,18 +76,18 @@ export const RoiCalculator: React.FC = () => {
           <h2
             className="heading-editorial"
             style={{
-              fontSize: 'clamp(2.3rem, 4.8vw, 3.8rem)',
-              marginTop: '14px',
-              marginBottom: '16px'
+              fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)',
+              marginTop: '12px',
+              marginBottom: '14px'
             }}
           >
             Compute your operational payback timeline.
           </h2>
           <p
             style={{
-              fontSize: '16.5px',
+              fontSize: '14.5px',
               color: 'var(--ink-secondary)',
-              lineHeight: 1.6
+              lineHeight: 1.58
             }}
           >
             Estimate your team's manual hours recovered, operational cost savings, and investment payback period through custom automated software.
@@ -97,97 +97,87 @@ export const RoiCalculator: React.FC = () => {
         {/* Interactive Grid */}
         <div
           style={{
-            marginTop: '52px',
+            marginTop: '40px',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-            gap: '36px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: '24px'
           }}
         >
           {/* Controls Input Card */}
           <div
             className="glass-card reveal-left stagger-1"
             style={{
-              padding: '36px',
+              padding: '24px 22px',
               background: '#FFFFFF',
               boxShadow: 'var(--shadow-md)',
-              borderRadius: '24px'
+              borderRadius: '18px'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '22px' }}>
-              <span className="pulse-dot" style={{ width: '6px', height: '6px' }} />
-              <h3 style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-muted)', margin: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '7px', marginBottom: '18px' }}>
+              <span className="pulse-dot" style={{ width: '5px', height: '5px' }} />
+              <h3 style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--ink-muted)', margin: 0 }}>
                 Your Team & Operational Scope
               </h3>
             </div>
 
             {/* Scope Type Selector */}
-            <div style={{ marginBottom: '28px' }}>
-              <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)', marginBottom: '12px' }}>
+            <div style={{ marginBottom: '22px' }}>
+              <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'var(--ink-primary)', marginBottom: '10px' }}>
                 Primary Automation Objective
               </label>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px' }}>
                 {[
                   { id: 'ai-ops', label: 'Workflow Automation & Triage' },
-                  { id: 'pricing', label: 'Dynamic Quoting Engine' },
-                  { id: 'product', label: 'Custom Software / Portal' },
-                  { id: 'data', label: 'Operational Telemetry' }
-                ].map((item) => {
-                  const isSelected = projectType === item.id;
+                  { id: 'pricing', label: 'Dynamic Quoting ML Engine' },
+                  { id: 'data', label: 'Data Extraction & ERP Pipeline' },
+                  { id: 'product', label: 'Custom Operations Platform' }
+                ].map((type) => {
+                  const isSelected = projectType === type.id;
                   return (
                     <button
-                      key={item.id}
+                      key={type.id}
                       type="button"
                       onClick={() => {
                         playTactileClick();
-                        setProjectType(item.id as any);
+                        setProjectType(type.id as any);
                       }}
-                      className={`roi-objective-btn ${isSelected ? 'is-selected' : ''}`}
                       style={{
-                        padding: '12px 14px',
-                        borderRadius: '12px',
+                        padding: '9px 12px',
+                        borderRadius: '10px',
                         border: isSelected ? '1.5px solid var(--ink-primary)' : '1px solid var(--border-light)',
-                        background: isSelected ? 'var(--ink-primary)' : '#FFFFFF',
-                        color: isSelected ? '#FFFFFF' : 'var(--ink-primary)',
-                        fontSize: '12.5px',
-                        fontWeight: 600,
-                        cursor: 'pointer',
+                        background: isSelected ? 'var(--bg-surface-elevated)' : '#FFFFFF',
+                        color: 'var(--ink-primary)',
+                        fontSize: '12px',
+                        fontWeight: isSelected ? 700 : 500,
                         textAlign: 'left',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        gap: '8px',
-                        boxShadow: isSelected ? '0 4px 14px rgba(30, 37, 48, 0.18)' : '0 1px 3px rgba(30, 37, 48, 0.04)'
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease'
                       }}
                     >
-                      <span>{item.label}</span>
-                      {isSelected ? (
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34D399', flexShrink: 0 }} />
-                      ) : (
-                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--border-light)', flexShrink: 0 }} />
-                      )}
+                      {type.label}
                     </button>
                   );
                 })}
               </div>
             </div>
 
-            {/* Sliders */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {/* Sliders Container */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
               {/* Team Size */}
               <div className="roi-slider-group">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
-                    Impacted Team Size
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-primary)' }}>
+                    Operations & Knowledge Workers
                   </span>
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '13px',
+                      fontSize: '12.5px',
                       fontWeight: 700,
                       background: 'var(--bg-surface)',
                       border: '1px solid var(--border-light)',
-                      padding: '3px 10px',
-                      borderRadius: '8px',
+                      padding: '2px 8px',
+                      borderRadius: '6px',
                       color: 'var(--ink-primary)'
                     }}
                   >
@@ -215,19 +205,19 @@ export const RoiCalculator: React.FC = () => {
 
               {/* Hours Wasted */}
               <div className="roi-slider-group">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                     Manual Toil per Person / Week
                   </span>
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '13px',
+                      fontSize: '12.5px',
                       fontWeight: 700,
                       background: 'var(--bg-surface)',
                       border: '1px solid var(--border-light)',
-                      padding: '3px 10px',
-                      borderRadius: '8px',
+                      padding: '2px 8px',
+                      borderRadius: '6px',
                       color: 'var(--ink-primary)'
                     }}
                   >
@@ -255,19 +245,19 @@ export const RoiCalculator: React.FC = () => {
 
               {/* Hourly Rate */}
               <div className="roi-slider-group">
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                  <span style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--ink-primary)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--ink-primary)' }}>
                     Average Loaded Hourly Cost
                   </span>
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '13px',
+                      fontSize: '12.5px',
                       fontWeight: 700,
                       background: 'var(--bg-surface)',
                       border: '1px solid var(--border-light)',
-                      padding: '3px 10px',
-                      borderRadius: '8px',
+                      padding: '2px 8px',
+                      borderRadius: '6px',
                       color: 'var(--ink-primary)'
                     }}
                   >
@@ -301,28 +291,28 @@ export const RoiCalculator: React.FC = () => {
             style={{
               background: 'var(--bg-dark)',
               color: '#FFFFFF',
-              borderRadius: '22px',
-              padding: '36px',
+              borderRadius: '18px',
+              padding: '24px 22px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
               boxShadow: 'var(--shadow-dark)',
-              gap: '24px'
+              gap: '20px'
             }}
           >
             <div>
-              <span style={{ fontSize: '12px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.14em', color: '#9DA7B5' }}>
+              <span style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#9DA7B5' }}>
                 Estimated Economic Return
               </span>
 
-              <div style={{ marginTop: '20px' }}>
-                <div style={{ fontSize: '13px', color: '#9DA7B5' }}>
+              <div style={{ marginTop: '16px' }}>
+                <div style={{ fontSize: '12.5px', color: '#9DA7B5' }}>
                   Projected Annual Cost Recovery
                 </div>
                 <div
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(2.8rem, 4.5vw, 3.8rem)',
+                    fontSize: 'clamp(2.1rem, 3.4vw, 2.7rem)',
                     fontWeight: 800,
                     letterSpacing: '-0.03em',
                     color: '#34D399',
@@ -331,40 +321,40 @@ export const RoiCalculator: React.FC = () => {
                   }}
                 >
                   ${Math.round(estimatedAnnualSavings).toLocaleString()}
-                  <span style={{ fontSize: '18px', color: '#9DA7B5', marginLeft: '6px' }}>/ year</span>
+                  <span style={{ fontSize: '15px', color: '#9DA7B5', marginLeft: '6px' }}>/ year</span>
                 </div>
               </div>
             </div>
 
             {/* Sub-Metrics Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.06)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div style={{ fontSize: '11.5px', color: '#9DA7B5', textTransform: 'uppercase' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ background: 'rgba(255,255,255,0.06)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div style={{ fontSize: '11px', color: '#9DA7B5', textTransform: 'uppercase' }}>
                   Payback Period
                 </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 800, color: '#FFFFFF', marginTop: '3px' }}>
                   {paybackMonths} Months
                 </div>
-                <div style={{ fontSize: '11.5px', color: '#6EE7B7', marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#6EE7B7', marginTop: '2px' }}>
                   Fast capital recovery
                 </div>
               </div>
 
-              <div style={{ background: 'rgba(255,255,255,0.06)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <div style={{ fontSize: '11.5px', color: '#9DA7B5', textTransform: 'uppercase' }}>
+              <div style={{ background: 'rgba(255,255,255,0.06)', padding: '12px 14px', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div style={{ fontSize: '11px', color: '#9DA7B5', textTransform: 'uppercase' }}>
                   Hours Returned
                 </div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '26px', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>
+                <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 800, color: '#FFFFFF', marginTop: '3px' }}>
                   {estimatedHoursSavedPerMonth.toLocaleString()} hrs
                 </div>
-                <div style={{ fontSize: '11.5px', color: '#9DA7B5', marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#9DA7B5', marginTop: '2px' }}>
                   per month to team
                 </div>
               </div>
             </div>
 
             {/* CTA */}
-            <div style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ paddingTop: '14px', borderTop: '1px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <a
                 href="#contact"
                 className="btn-secondary"
@@ -374,12 +364,12 @@ export const RoiCalculator: React.FC = () => {
                   background: '#FFFFFF',
                   color: '#1E2530',
                   fontWeight: 600,
-                  fontSize: '14.5px',
+                  fontSize: '13.5px',
                   boxShadow: '0 4px 14px rgba(0,0,0,0.2)'
                 }}
               >
                 <span>Lock in this scope for Phase 1</span>
-                <ArrowRight size={16} />
+                <ArrowRight size={15} />
               </a>
 
               {isSaved ? (

@@ -46,7 +46,7 @@ export const Approach: React.FC = () => {
       id="approach"
       ref={elementRef}
       style={{
-        padding: '120px 0',
+        padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)',
         overflow: 'hidden'
@@ -102,8 +102,8 @@ export const Approach: React.FC = () => {
               position: 'relative',
               zIndex: 1,
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: '48px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+              gap: '36px',
               alignItems: 'start'
             }}
           >
@@ -113,19 +113,19 @@ export const Approach: React.FC = () => {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   fontFamily: 'var(--font-display)',
-                  fontSize: '11.5px',
+                  fontSize: '10.5px',
                   fontWeight: 600,
-                  letterSpacing: '0.18em',
+                  letterSpacing: '0.14em',
                   textTransform: 'uppercase',
                   color: 'var(--ink-inverse-muted)'
                 }}
               >
                 <span
                   style={{
-                    width: '6px',
-                    height: '6px',
+                    width: '5px',
+                    height: '5px',
                     borderRadius: '50%',
                     background: '#10B981'
                   }}
@@ -136,13 +136,13 @@ export const Approach: React.FC = () => {
               <h2
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(2.3rem, 4.5vw, 3.6rem)',
+                  fontSize: 'clamp(1.6rem, 2.8vw, 2.25rem)',
                   fontWeight: 800,
-                  letterSpacing: '-0.035em',
-                  lineHeight: 1.08,
+                  letterSpacing: '-0.03em',
+                  lineHeight: 1.12,
                   color: '#FFFFFF',
-                  marginTop: '18px',
-                  maxWidth: '16ch'
+                  marginTop: '12px',
+                  maxWidth: '18ch'
                 }}
               >
                 From business bottleneck to custom software in 14 days.
@@ -150,29 +150,29 @@ export const Approach: React.FC = () => {
 
               <p
                 style={{
-                  marginTop: '22px',
-                  fontSize: '16.5px',
+                  marginTop: '14px',
+                  fontSize: '14px',
                   color: '#B0B7C3',
-                  lineHeight: 1.65,
-                  maxWidth: '44ch'
+                  lineHeight: 1.58,
+                  maxWidth: '46ch'
                 }}
               >
                 Every engagement follows a disciplined, transparent rhythm: diagnose the operational bottleneck in week one, test a working custom software build within two weeks, then ship weekly releases directly to your team.
               </p>
 
-              <div style={{ marginTop: '36px' }}>
+              <div style={{ marginTop: '24px' }}>
                 <a
                   href="#contact"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '10px',
-                    padding: '14px 26px',
+                    gap: '8px',
+                    padding: '11px 22px',
                     borderRadius: '999px',
                     background: '#FFFFFF',
                     color: '#181E26',
                     fontFamily: 'var(--font-display)',
-                    fontSize: '14px',
+                    fontSize: '13.5px',
                     fontWeight: 600,
                     boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
                     transition: 'all 0.25s ease'
@@ -187,7 +187,7 @@ export const Approach: React.FC = () => {
                   }}
                 >
                   <span>Book Phase 1 Sprint</span>
-                  <ArrowRight size={16} />
+                  <ArrowRight size={15} />
                 </a>
               </div>
             </div>
@@ -199,9 +199,9 @@ export const Approach: React.FC = () => {
                   key={step.number}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '48px 1fr',
-                    gap: '20px',
-                    padding: '24px 0',
+                    gridTemplateColumns: '40px 1fr',
+                    gap: '16px',
+                    padding: '16px 0',
                     borderTop: '1px solid var(--border-dark)',
                     borderBottom: idx === APPROACH_STEPS.length - 1 ? '1px solid var(--border-dark)' : 'none'
                   }}
@@ -209,7 +209,7 @@ export const Approach: React.FC = () => {
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
-                      fontSize: '20px',
+                      fontSize: '16px',
                       fontWeight: 700,
                       color: '#656F80'
                     }}
@@ -219,20 +219,20 @@ export const Approach: React.FC = () => {
 
                   <div>
                     <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-                      <h3 style={{ fontSize: '17px', fontWeight: 600, color: '#FFFFFF', margin: 0 }}>
+                      <h3 style={{ fontSize: '15px', fontWeight: 600, color: '#FFFFFF', margin: 0 }}>
                         {step.title}
                       </h3>
-                      <span style={{ fontSize: '12px', fontFamily: 'var(--font-mono)', color: '#8F99A8', background: 'rgba(255,255,255,0.08)', padding: '2px 8px', borderRadius: '6px' }}>
+                      <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#8F99A8', background: 'rgba(255,255,255,0.08)', padding: '2px 7px', borderRadius: '5px' }}>
                         {step.timing}
                       </span>
                     </div>
 
-                    <p style={{ marginTop: '6px', fontSize: '14.5px', color: '#9DA7B5', lineHeight: 1.55 }}>
+                    <p style={{ marginTop: '5px', fontSize: '13px', color: '#9DA7B5', lineHeight: 1.5 }}>
                       {step.description}
                     </p>
 
-                    <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12.5px', color: '#6EE7B7' }}>
-                      <CheckCircle size={13} />
+                    <div style={{ marginTop: '6px', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11.5px', color: '#6EE7B7' }}>
+                      <CheckCircle size={12} />
                       <span>{step.deliverable}</span>
                     </div>
                   </div>
@@ -246,12 +246,12 @@ export const Approach: React.FC = () => {
             style={{
               position: 'relative',
               zIndex: 1,
-              marginTop: '64px',
-              paddingTop: '32px',
+              marginTop: '40px',
+              paddingTop: '24px',
               borderTop: '1px solid var(--border-dark)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))',
-              gap: '24px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+              gap: '20px'
             }}
           >
             {STUDIO_STATS.map((stat, sIdx) => (
@@ -259,7 +259,7 @@ export const Approach: React.FC = () => {
                 <div
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: '3.4rem',
+                    fontSize: 'clamp(2.1rem, 3.5vw, 2.7rem)',
                     fontWeight: 800,
                     letterSpacing: '-0.03em',
                     lineHeight: 1,
@@ -271,15 +271,15 @@ export const Approach: React.FC = () => {
                 </div>
                 <div
                   style={{
-                    marginTop: '10px',
-                    fontSize: '14.5px',
+                    marginTop: '8px',
+                    fontSize: '13px',
                     fontWeight: 600,
                     color: '#E0E4EC'
                   }}
                 >
                   {stat.label}
                 </div>
-                <div style={{ marginTop: '4px', fontSize: '12.5px', color: '#8F99A8' }}>
+                <div style={{ marginTop: '3px', fontSize: '11.5px', color: '#8F99A8' }}>
                   {stat.sublabel}
                 </div>
               </div>

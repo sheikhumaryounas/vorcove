@@ -20,8 +20,8 @@ export const MarqueeTicker: React.FC = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '24px',
-            paddingRight: '24px',
+            gap: '16px',
+            paddingRight: '16px',
             whiteSpace: 'nowrap'
           }}
         >
@@ -30,25 +30,25 @@ export const MarqueeTicker: React.FC = () => {
               <span
                 style={{
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '13px',
+                  fontSize: '11.5px',
                   fontWeight: 600,
                   color: 'var(--ink-primary)',
                   letterSpacing: '0.03em',
                   textTransform: 'uppercase',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   background: '#FFFFFF',
                   border: '1px solid var(--border-light)',
                   boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)',
-                  padding: '5px 14px',
+                  padding: '4px 11px',
                   borderRadius: '999px'
                 }}
               >
                 <span>⚡</span>
                 <span>{item}</span>
               </span>
-              <span style={{ color: 'var(--ink-muted)', fontSize: '12px', fontWeight: 600 }}>•</span>
+              <span style={{ color: 'var(--ink-muted)', fontSize: '11px', fontWeight: 600 }}>•</span>
             </React.Fragment>
           ))}
         </div>
@@ -58,8 +58,8 @@ export const MarqueeTicker: React.FC = () => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '24px',
-            paddingRight: '24px',
+            gap: '16px',
+            paddingRight: '16px',
             whiteSpace: 'nowrap'
           }}
           aria-hidden="true"
@@ -69,25 +69,25 @@ export const MarqueeTicker: React.FC = () => {
               <span
                 style={{
                   fontFamily: 'var(--font-sans)',
-                  fontSize: '13px',
+                  fontSize: '11.5px',
                   fontWeight: 600,
                   color: 'var(--ink-primary)',
                   letterSpacing: '0.03em',
                   textTransform: 'uppercase',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   background: '#FFFFFF',
                   border: '1px solid var(--border-light)',
                   boxShadow: '0 1px 3px rgba(30, 37, 48, 0.05)',
-                  padding: '5px 14px',
+                  padding: '4px 11px',
                   borderRadius: '999px'
                 }}
               >
                 <span>⚡</span>
                 <span>{item}</span>
               </span>
-              <span style={{ color: 'var(--ink-muted)', fontSize: '12px', fontWeight: 600 }}>•</span>
+              <span style={{ color: 'var(--ink-muted)', fontSize: '11px', fontWeight: 600 }}>•</span>
             </React.Fragment>
           ))}
         </div>

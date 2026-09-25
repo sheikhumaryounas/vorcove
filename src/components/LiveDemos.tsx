@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Bot, Sliders, Activity, Sparkles, Check, ArrowRight, ShieldCheck, Clock, Zap, AlertCircle, RefreshCw } from 'lucide-react';
 import { playTactileClick } from '../utils/audio';
-
 import { executeCopilotTriage, executePricingSimulation, executeChurnAnalysis } from '../services/api';
+import { HaikeiCircuitStream, HaikeiOrganicMesh } from './HaikeiBackgrounds';
 
 export const LiveDemos: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'copilot' | 'pricing' | 'churn'>('copilot');
@@ -157,10 +157,14 @@ export const LiveDemos: React.FC = () => {
         padding: '80px 0',
         background: 'var(--bg-surface)',
         borderBottom: '1px solid var(--border-light)',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
-      <div className="container">
+      {/* Haikei Generative Circuit Stream Vector */}
+      <HaikeiCircuitStream opacity={0.16} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         {/* Section Header */}
         <div
           style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}

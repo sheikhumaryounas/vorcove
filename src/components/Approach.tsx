@@ -2,8 +2,16 @@ import React from 'react';
 import { APPROACH_STEPS, STUDIO_STATS } from '../data/content';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { KineticCounter } from './KineticCounter';
+import { HaikeiIsometricMatrix } from './HaikeiBackgrounds';
 
 export const Approach: React.FC = () => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const band = e.currentTarget;
+    const rect = band.getBoundingClientRect();
+    band.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    band.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  };
+
   return (
     <section
       id="approach"
@@ -17,9 +25,13 @@ export const Approach: React.FC = () => {
       <div className="container">
         {/* Dark Obsidian Container Band */}
         <div
-          className="obsidian-band reveal-scale"
+          onMouseMove={handleMouseMove}
+          className="obsidian-band spotlight-card-dark reveal-scale"
           style={{ position: 'relative', overflow: 'hidden' }}
         >
+          {/* Haikei Generative Isometric Grid Vector */}
+          <HaikeiIsometricMatrix opacity={0.15} />
+
           {/* Real Architectural Studio Backdrop (Dark Atmosphere Texture) */}
           <div
             style={{
@@ -28,7 +40,7 @@ export const Approach: React.FC = () => {
               right: 0,
               bottom: 0,
               left: 0,
-              backgroundImage: `radial-gradient(ellipse at 80% 20%, rgba(30, 37, 48, 0.4) 0%, rgba(30, 37, 48, 0.94) 80%), url('/assets/studio-bg.jpg')`,
+              backgroundImage: `radial-gradient(ellipse at 80% 20%, rgba(11, 18, 32, 0.4) 0%, rgba(11, 18, 32, 0.96) 80%), url('/assets/studio-bg.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               opacity: 0.08,

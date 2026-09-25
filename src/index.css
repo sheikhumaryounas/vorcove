@@ -3,45 +3,57 @@
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  /* Color Palette - Modern Tech Slate & Infrastructure (Zero Skin/Beige Tones) */
-  --bg-page: #F3F6F9;
-  --bg-surface: #E8EEF4;
-  --bg-surface-elevated: #DCE5EE;
+  /* Realtime Colors Harmonious System - Luxury Tech Slate & Electric Accents */
+  --bg-page: #F4F7FA;
+  --bg-surface: #E9EFF5;
+  --bg-surface-elevated: #DFE8F2;
   --bg-card: #FFFFFF;
   --bg-card-hover: #F8FAFC;
-  --bg-dark: #101726;
-  --bg-dark-surface: #1A2336;
-  --bg-dark-card: #242F46;
+  --bg-dark: #0A0E17;
+  --bg-dark-surface: #111726;
+  --bg-dark-card: #182238;
+  --bg-dark-card-hover: #1F2C47;
 
-  /* Typography & Ink */
-  --ink-primary: #0F172A;
+  /* Typography & Ink (High-Contrast WCAG Compliant) */
+  --ink-primary: #0B1220;
   --ink-secondary: #475569;
   --ink-muted: #64748B;
   --ink-faint: #CBD5E1;
-  --ink-inverse: #F8FAFC;
+  --ink-inverse: #FFFFFF;
+  --ink-inverse-secondary: #E2E8F0;
   --ink-inverse-muted: #94A3B8;
 
-  /* Brand Accents */
-  --accent-ink: #0F172A;
+  /* Brand Electric Accents (Realtime Colors 10% Accent Rule) */
+  --accent-ink: #0B1220;
   --accent-slate: #334155;
   --accent-highlight: #0284C7;
+  --accent-cyan: #00C8F8;
+  --accent-emerald: #10B981;
+  --accent-violet: #6366F1;
+  --accent-amber: #F59E0B;
+  --accent-glow: rgba(2, 132, 199, 0.18);
+  --accent-emerald-glow: rgba(16, 185, 129, 0.22);
+  --accent-cyan-glow: rgba(0, 200, 248, 0.25);
 
   /* Borders & Clean Structural Lines */
   --border-light: #E2E8F0;
   --border-subtle: #EDF2F7;
-  --border-bold: #0F172A;
+  --border-bold: #0B1220;
   --border-dark: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(0, 200, 248, 0.35);
 
   /* Shadows - Smooth & Consistent Elevation */
-  --shadow-neo-sm: 0 1px 3px rgba(30, 37, 48, 0.05);
-  --shadow-neo: 0 4px 14px -3px rgba(30, 37, 48, 0.08);
-  --shadow-neo-lg: 0 14px 32px -6px rgba(30, 37, 48, 0.12);
-  --shadow-neo-hover: 0 18px 40px -8px rgba(30, 37, 48, 0.16);
-  --shadow-sm: 0 1px 3px rgba(30, 37, 48, 0.05);
-  --shadow-md: 0 4px 16px -4px rgba(30, 37, 48, 0.08);
-  --shadow-lg: 0 18px 40px -12px rgba(30, 37, 48, 0.12);
-  --shadow-lift: 0 20px 45px -14px rgba(30, 37, 48, 0.14);
-  --shadow-dark: 0 24px 60px -15px rgba(0, 0, 0, 0.5);
+  --shadow-neo-sm: 0 1px 3px rgba(11, 18, 32, 0.05);
+  --shadow-neo: 0 4px 14px -3px rgba(11, 18, 32, 0.08);
+  --shadow-neo-lg: 0 14px 32px -6px rgba(11, 18, 32, 0.12);
+  --shadow-neo-hover: 0 18px 40px -8px rgba(11, 18, 32, 0.16);
+  --shadow-sm: 0 1px 3px rgba(11, 18, 32, 0.05);
+  --shadow-md: 0 4px 16px -4px rgba(11, 18, 32, 0.08);
+  --shadow-lg: 0 18px 40px -12px rgba(11, 18, 32, 0.12);
+  --shadow-lift: 0 20px 45px -14px rgba(11, 18, 32, 0.14);
+  --shadow-dark: 0 24px 60px -15px rgba(0, 0, 0, 0.65);
+  --shadow-glow-cyan: 0 0 25px rgba(0, 200, 248, 0.2);
+  --shadow-glow-emerald: 0 0 25px rgba(16, 185, 129, 0.2);
 
   /* Radii */
   --radius-sm: 8px;
@@ -57,9 +69,10 @@
   --font-accent: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Menlo, monospace;
 
-  /* Transitions */
+  /* Motion Primitives Spring Transitions */
   --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 0.15s;
   --duration-normal: 0.3s;
 }
@@ -654,33 +667,91 @@ h4 {
   box-shadow: var(--shadow-md);
 }
 
-/* Spotlight Hover Cards */
+/* ─────────────────────────────────────────────────────────────
+   MOTION PRIMITIVES: Dynamic Cursor Spotlight Cards
+   ───────────────────────────────────────────────────────────── */
 .spotlight-card {
   position: relative;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  background: var(--bg-card);
+  transition: transform 0.28s var(--ease-spring), 
+              box-shadow 0.28s var(--ease-spring), 
+              border-color 0.2s ease;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 .spotlight-card:hover {
-  transform: translateY(-2.5px);
-  border-color: #D0CCC0;
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: rgba(11, 18, 32, 0.25);
+  box-shadow: 0 16px 36px -8px rgba(11, 18, 32, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.08);
 }
 
+/* Subtle Cursor-Following Radial Beam */
 .spotlight-card::before {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: inherit;
   background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(30, 37, 48, 0.04),
-    transparent 40%
+    480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(2, 132, 199, 0.075) 0%,
+    rgba(16, 185, 129, 0.04) 35%,
+    transparent 70%
   );
   pointer-events: none;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Dark Spotlight Card (For Dark Sections) */
+.spotlight-card-dark {
+  position: relative;
+  background: var(--bg-dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-dark);
+  transition: transform 0.28s var(--ease-spring), 
+              box-shadow 0.28s var(--ease-spring), 
+              border-color 0.2s ease;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+.spotlight-card-dark:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+.spotlight-card-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(56, 189, 248, 0.16) 0%,
+    rgba(16, 185, 129, 0.08) 35%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.spotlight-card-dark:hover::before {
+  opacity: 1;
 }
 
 /* Floating Brand Mark */
@@ -974,7 +1045,99 @@ input[type=range]::-moz-range-thumb {
 
 .card-magnetic:hover {
   transform: translateY(-4px) scale(1.006);
-  box-shadow: 0 20px 40px -15px rgba(30, 37, 48, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(11, 18, 32, 0.12);
+}
+
+/* Motion Primitives: Glowing Border Beam */
+.motion-glow-beam {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.motion-glow-beam::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0 340deg,
+    rgba(0, 200, 248, 0.7) 360deg
+  );
+  animation: motion-rotate-beam 5s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes motion-rotate-beam {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Motion Primitives: Shimmer Badge */
+.motion-shimmer-badge {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.motion-shimmer-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: motion-badge-glint 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes motion-badge-glint {
+  0%, 80% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Motion Primitives: Radar Pulse Ring */
+.pulse-glow-dot {
+  animation: pulse-radar 2.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes pulse-radar {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.6); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* Haikei Generative Blob Morphing Animation */
+@keyframes haikei-blob-morph {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform: translate3d(20px, -15px, 0) rotate(45deg) scale(1.06);
+  }
+  66% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    transform: translate3d(-15px, 20px, 0) rotate(90deg) scale(0.96);
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: translate3d(0, 0, 0) rotate(135deg) scale(1);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────

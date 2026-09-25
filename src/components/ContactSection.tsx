@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { ArrowRight, Check, Copy, Mail, Clock, Globe, Shield } from 'lucide-react';
 import { CONTACT_PRESETS } from '../data/content';
 import { playTactileClick } from '../utils/audio';
-
 import { submitContactInquiry } from '../services/api';
+import { HaikeiWaveMesh } from './HaikeiBackgrounds';
 
 export const ContactSection: React.FC = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(['Workflow Automation System']);
@@ -71,15 +71,19 @@ export const ContactSection: React.FC = () => {
         padding: '80px 0',
         background: 'var(--bg-page)',
         borderBottom: '1px solid var(--border-light)',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
-      <div className="container">
+      {/* Haikei Generative Vector Wave */}
+      <HaikeiWaveMesh opacity={0.05} />
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div
           className="glass-card reveal-scale"
           style={{
             padding: '38px 32px',
-            background: 'linear-gradient(180deg, #FFFFFF 0%, #F9F8F4 100%)',
+            background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%)',
             borderRadius: '20px',
             boxShadow: 'var(--shadow-lg)',
             display: 'grid',

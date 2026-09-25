@@ -4,6 +4,7 @@ import { HERO_HIGHLIGHTS } from '../data/content';
 import { HeroAgentTerminal } from './HeroAgentTerminal';
 import { playTactileClick } from '../utils/audio';
 import { scrollToTarget } from '../hooks/useGlobalScrollAnimations';
+import { HaikeiWaveMesh, HaikeiOrganicMesh } from './HaikeiBackgrounds';
 
 interface HeroProps {
   onExploreDemos?: () => void;
@@ -18,21 +19,21 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
         overflow: 'hidden',
         paddingTop: '104px',
         paddingBottom: '60px',
-        background: 'radial-gradient(1400px 700px at 75% -10%, rgba(255, 255, 255, 0.6) 0%, rgba(243, 246, 249, 0) 70%), var(--bg-page)',
+        background: 'radial-gradient(1400px 700px at 75% -10%, rgba(255, 255, 255, 0.7) 0%, rgba(244, 247, 250, 0) 70%), var(--bg-page)',
         borderBottom: '1px solid var(--border-light)'
       }}
     >
-      {/* Ambient Fluid Aurora Light Sphere (Floating Glow) */}
-      <div
-        className="aurora-ambient-sphere"
-        style={{
-          top: '10%',
-          left: '15%',
-          width: '420px',
-          height: '420px',
-          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, rgba(56, 189, 248, 0.18) 50%, transparent 70%)',
-          zIndex: 0
-        }}
+      {/* Haikei Generative Layered Vector Wave */}
+      <HaikeiWaveMesh opacity={0.06} />
+
+      {/* Haikei Fluid Organic Morphing Blob */}
+      <HaikeiOrganicMesh
+        color1="#00C8F8"
+        color2="#10B981"
+        top="8%"
+        left="10%"
+        size="460px"
+        opacity={0.07}
       />
 
       {/* Background Ambient Floating V-Mark */}
@@ -71,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreDemos }) => {
           <div className="reveal-item stagger-1" style={{ maxWidth: '100%', minWidth: 0 }}>
             {/* Top Status & Sticker Cluster (TapTile Touch) */}
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '7px', maxWidth: '100%' }}>
-              <div className="badge-neo-pill">
+              <div className="badge-neo-pill motion-shimmer-badge">
                 <span className="pulse-dot" />
                 <span>Custom Software & Workflow Automation</span>
               </div>
